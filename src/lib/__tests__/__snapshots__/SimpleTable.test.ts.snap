@@ -1,0 +1,1056 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SimpleTable snapshot 1`] = `
+<body>
+  <div>
+    <div
+      class="simple-table svelte-v417ld"
+    >
+      <div
+        class="table-header-wrapper svelte-14y10ro"
+      >
+        <h3
+          class="resp-table-caption svelte-14y10ro"
+          data-testid="all-barrels-cap"
+          id="all-barrels-cap"
+        >
+          Barrels
+        </h3>
+         
+        <div
+          class="sort-description svelte-14y10ro"
+          data-testid="all-barrels-sort-description"
+        >
+          Sorted by: launch speed (descending)
+        </div>
+      </div>
+       
+      <article
+        class="resp-table-container svelte-bfoe4q"
+      >
+        <div
+          class="resp-table-wrapper svelte-bfoe4q"
+        >
+          <div
+            aria-labelledby="all-barrels-cap"
+            aria-rowcount="46"
+            class="resp-table svelte-bfoe4q"
+            data-testid="all-barrels"
+            id="all-barrels"
+            role="table"
+          >
+            <div
+              class="resp-table-header svelte-bfoe4q"
+              role="row"
+            >
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="batter_name"
+                data-testid="all-barrels-toggle-batter_name"
+                role="columnheader"
+                style=""
+                title="Batter Name"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Player
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t"
+                data-stat-name="opponent_team_id_bb"
+                data-testid="all-barrels-toggle-opponent_team_id_bb"
+                role="columnheader"
+                style=""
+                title="Opponent"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content svelte-6cf69t"
+                  >
+                    Opp
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                aria-sort="descending"
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="launch_speed"
+                data-testid="all-barrels-toggle-launch_speed"
+                role="columnheader"
+                style=""
+                title="Launch Speed (mph)"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Speed
+                  </span>
+                   
+                  <div
+                    class="desc svelte-6cf69t"
+                  >
+                    <svg
+                      class="svelte-q1wtpt"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M5.8 9.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.4-.3.7s.1.5.3.7z"
+                      />
+                    </svg>
+                  </div>
+                  
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="launch_angle"
+                data-testid="all-barrels-toggle-launch_angle"
+                role="columnheader"
+                style=""
+                title="Launch Angle"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Angle
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="total_distance"
+                data-testid="all-barrels-toggle-total_distance"
+                role="columnheader"
+                style=""
+                title="Total Distance"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Distance
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="ab_outcome"
+                data-testid="all-barrels-toggle-ab_outcome"
+                role="columnheader"
+                style=""
+                title="Play Description"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Outcome
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="pitcher_name"
+                data-testid="all-barrels-toggle-pitcher_name"
+                role="columnheader"
+                style=""
+                title="Pitcher Name"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Pitcher
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="mlbam_pitch_name"
+                data-testid="all-barrels-toggle-mlbam_pitch_name"
+                role="columnheader"
+                style=""
+                title="Pitch Type"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Pitch Type
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="start_speed"
+                data-testid="all-barrels-toggle-start_speed"
+                role="columnheader"
+                style=""
+                title="Pitch Speed"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Speed
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="inning"
+                data-testid="all-barrels-toggle-inning"
+                role="columnheader"
+                style=""
+                title="Inning"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Inn
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="count"
+                data-testid="all-barrels-toggle-count"
+                role="columnheader"
+                style=""
+                title="Count"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    Count
+                  </span>
+                   
+                </div>
+              </div>
+              <div
+                class="table-header-cell svelte-6cf69t sortable"
+                data-stat-name="inside_strike_zone"
+                data-testid="all-barrels-toggle-inside_strike_zone"
+                role="columnheader"
+                style=""
+                title="Inside/Outside Strike Zone"
+              >
+                <div
+                  class="header-content-wrapper svelte-6cf69t"
+                >
+                  <span
+                    class="header-content underline svelte-6cf69t"
+                  >
+                    In/Out
+                  </span>
+                   
+                </div>
+              </div>
+            </div>
+             
+            <div
+              class="resp-table-body svelte-bfoe4q"
+              role="rowgroup"
+            >
+              <div
+                aria-rowindex="1"
+                class="text-right resp-table-row svelte-bfoe4q"
+                data-testid="all-barrels-row"
+                role="row"
+              >
+                <div
+                  class="table-body-cell text-left svelte-tf2fv5"
+                  data-stat-name="batter_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/592656/batting"
+                      sveltekit:prefetch=""
+                    >
+                      Henry Ramos (ARI)
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell text-center svelte-tf2fv5"
+                  data-stat-name="opponent_team_id_bb"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/game?id=ARI202110030&show=box"
+                      sveltekit:prefetch=""
+                    >
+                      vsCOL
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5 highlight-stat"
+                  data-stat-name="launch_speed"
+                  role="cell"
+                >
+                  <span>
+                    100.4
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="launch_angle"
+                  role="cell"
+                >
+                  <span>
+                    31°
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="total_distance"
+                  role="cell"
+                >
+                  <span>
+                    397
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="ab_outcome"
+                  role="cell"
+                >
+                  <span>
+                    In play, out(s)
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="pitcher_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/642068/pitching"
+                      sveltekit:prefetch=""
+                    >
+                      Jordan Sheffield
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="mlbam_pitch_name"
+                  role="cell"
+                >
+                  <span>
+                    Changeup
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="start_speed"
+                  role="cell"
+                >
+                  <span>
+                    89.6
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inning"
+                  role="cell"
+                >
+                  <span>
+                    7
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="count"
+                  role="cell"
+                >
+                  <span>
+                    2-1
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inside_strike_zone"
+                  role="cell"
+                >
+                  <span>
+                    Outside
+                  </span>
+                </div>
+                 
+              </div>
+              <div
+                aria-rowindex="2"
+                class="text-right resp-table-row svelte-bfoe4q"
+                data-testid="all-barrels-row"
+                role="row"
+              >
+                <div
+                  class="table-body-cell text-left svelte-tf2fv5"
+                  data-stat-name="batter_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/663586/batting"
+                      sveltekit:prefetch=""
+                    >
+                      Austin Riley (ATL)
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell text-center svelte-tf2fv5"
+                  data-stat-name="opponent_team_id_bb"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/game?id=ATL202110030&show=box"
+                      sveltekit:prefetch=""
+                    >
+                      vsNYM
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5 highlight-stat"
+                  data-stat-name="launch_speed"
+                  role="cell"
+                >
+                  <span>
+                    110.5
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="launch_angle"
+                  role="cell"
+                >
+                  <span>
+                    14°
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="total_distance"
+                  role="cell"
+                >
+                  <span>
+                    262
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="ab_outcome"
+                  role="cell"
+                >
+                  <span>
+                    Double (RBI)
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="pitcher_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/592866/pitching"
+                      sveltekit:prefetch=""
+                    >
+                      Trevor Williams
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="mlbam_pitch_name"
+                  role="cell"
+                >
+                  <span>
+                    Slider
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="start_speed"
+                  role="cell"
+                >
+                  <span>
+                    84.9
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inning"
+                  role="cell"
+                >
+                  <span>
+                    3
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="count"
+                  role="cell"
+                >
+                  <span>
+                    2-0
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inside_strike_zone"
+                  role="cell"
+                >
+                  <span>
+                    Inside
+                  </span>
+                </div>
+                 
+              </div>
+              <div
+                aria-rowindex="3"
+                class="text-right resp-table-row svelte-bfoe4q"
+                data-testid="all-barrels-row"
+                role="row"
+              >
+                <div
+                  class="table-body-cell text-left svelte-tf2fv5"
+                  data-stat-name="batter_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/518692/batting"
+                      sveltekit:prefetch=""
+                    >
+                      Freddie Freeman (ATL)
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell text-center svelte-tf2fv5"
+                  data-stat-name="opponent_team_id_bb"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/game?id=ATL202110030&show=box"
+                      sveltekit:prefetch=""
+                    >
+                      vsNYM
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5 highlight-stat"
+                  data-stat-name="launch_speed"
+                  role="cell"
+                >
+                  <span>
+                    104.7
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="launch_angle"
+                  role="cell"
+                >
+                  <span>
+                    37°
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="total_distance"
+                  role="cell"
+                >
+                  <span>
+                    394
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="ab_outcome"
+                  role="cell"
+                >
+                  <span>
+                    In play, out(s)
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="pitcher_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/592866/pitching"
+                      sveltekit:prefetch=""
+                    >
+                      Trevor Williams
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="mlbam_pitch_name"
+                  role="cell"
+                >
+                  <span>
+                    Four-seam fastball
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="start_speed"
+                  role="cell"
+                >
+                  <span>
+                    92.1
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inning"
+                  role="cell"
+                >
+                  <span>
+                    4
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="count"
+                  role="cell"
+                >
+                  <span>
+                    2-2
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inside_strike_zone"
+                  role="cell"
+                >
+                  <span>
+                    Inside
+                  </span>
+                </div>
+                 
+              </div>
+              <div
+                aria-rowindex="4"
+                class="text-right resp-table-row svelte-bfoe4q"
+                data-testid="all-barrels-row"
+                role="row"
+              >
+                <div
+                  class="table-body-cell text-left svelte-tf2fv5"
+                  data-stat-name="batter_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/594807/batting"
+                      sveltekit:prefetch=""
+                    >
+                      Adam Duvall (ATL)
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell text-center svelte-tf2fv5"
+                  data-stat-name="opponent_team_id_bb"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/game?id=ATL202110030&show=box"
+                      sveltekit:prefetch=""
+                    >
+                      vsNYM
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5 highlight-stat"
+                  data-stat-name="launch_speed"
+                  role="cell"
+                >
+                  <span>
+                    101.9
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="launch_angle"
+                  role="cell"
+                >
+                  <span>
+                    33°
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="total_distance"
+                  role="cell"
+                >
+                  <span>
+                    383
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="ab_outcome"
+                  role="cell"
+                >
+                  <span>
+                    In play, out(s)
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="pitcher_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/592866/pitching"
+                      sveltekit:prefetch=""
+                    >
+                      Trevor Williams
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="mlbam_pitch_name"
+                  role="cell"
+                >
+                  <span>
+                    Four-seam fastball
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="start_speed"
+                  role="cell"
+                >
+                  <span>
+                    91.0
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inning"
+                  role="cell"
+                >
+                  <span>
+                    5
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="count"
+                  role="cell"
+                >
+                  <span>
+                    1-3
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inside_strike_zone"
+                  role="cell"
+                >
+                  <span>
+                    Inside
+                  </span>
+                </div>
+                 
+              </div>
+              <div
+                aria-rowindex="5"
+                class="text-right resp-table-row svelte-bfoe4q"
+                data-testid="all-barrels-row"
+                role="row"
+              >
+                <div
+                  class="table-body-cell text-left svelte-tf2fv5"
+                  data-stat-name="batter_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/670541/batting"
+                      sveltekit:prefetch=""
+                    >
+                      Yordan Álvarez (HOU)
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell text-center svelte-tf2fv5"
+                  data-stat-name="opponent_team_id_bb"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/game?id=HOU202110030&show=box"
+                      sveltekit:prefetch=""
+                    >
+                      vsOAK
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5 highlight-stat"
+                  data-stat-name="launch_speed"
+                  role="cell"
+                >
+                  <span>
+                    109.0
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="launch_angle"
+                  role="cell"
+                >
+                  <span>
+                    22°
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="total_distance"
+                  role="cell"
+                >
+                  <span>
+                    392
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="ab_outcome"
+                  role="cell"
+                >
+                  <span>
+                    Double
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="pitcher_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/642152/pitching"
+                      sveltekit:prefetch=""
+                    >
+                      Lou Trivino
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="mlbam_pitch_name"
+                  role="cell"
+                >
+                  <span>
+                    Sinker
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="start_speed"
+                  role="cell"
+                >
+                  <span>
+                    94.3
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inning"
+                  role="cell"
+                >
+                  <span>
+                    9
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="count"
+                  role="cell"
+                >
+                  <span>
+                    1-1
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inside_strike_zone"
+                  role="cell"
+                >
+                  <span>
+                    Inside
+                  </span>
+                </div>
+                 
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+       
+      <section
+        class="pagination-wrapper svelte-u2rr4x"
+      >
+        <div
+          class="pagination svelte-u2rr4x"
+        >
+          <div
+            class="pagination-description svelte-1xarmwu"
+            data-testid="change-page-size"
+          >
+            <div
+              class="change-settings-icon svelte-1xarmwu"
+              title="Click to change # of rows displayed per page"
+            >
+              <svg
+                class="svelte-q1wtpt"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"
+                />
+              </svg>
+            </div>
+             
+            <aside
+              style="font-size: 1rem;"
+              title="Click to change # of rows displayed per page"
+            >
+              <div
+                class="current-page-range svelte-1xarmwu"
+                data-testid="page-range"
+              >
+                <b>
+                  1
+                  -
+                  5
+                  /
+                  46
+                </b>
+              </div>
+            </aside>
+          </div>
+           
+          <nav
+            aria-label="Table Pagination Controls"
+            class="page-nav btn-group svelte-fwtuso"
+            data-testid="page-nav"
+            role="navigation"
+          >
+            <button
+              aria-current="true"
+              aria-disabled="true"
+              aria-label="Current Page, Goto Page 1"
+              class="btn symbol disabled svelte-hidk74"
+              data-testid="first"
+              disabled=""
+              title="First Page"
+              type="button"
+            >
+              ❬❬
+            </button>
+             
+            <button
+              aria-disabled="true"
+              aria-label="Goto Page 0"
+              class="btn symbol disabled svelte-hidk74"
+              data-testid="prev"
+              disabled=""
+              title="Previous Page"
+              type="button"
+            >
+              ❬
+            </button>
+             
+            <button
+              aria-label="Goto Page 2"
+              class="btn symbol svelte-hidk74"
+              data-testid="next"
+              title="Next Page"
+              type="button"
+            >
+              ❭
+            </button>
+             
+            <button
+              aria-label="Goto Page 10"
+              class="btn symbol svelte-hidk74"
+              data-testid="last"
+              title="Last Page"
+              type="button"
+            >
+              ❭❭
+            </button>
+          </nav>
+        </div>
+         
+      </section>
+    </div>
+  </div>
+</body>
+`;
