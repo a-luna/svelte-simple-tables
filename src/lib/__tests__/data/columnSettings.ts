@@ -1,8 +1,8 @@
-import { capitalize, formatNumber } from '../../../lib/util';
-import type { ColumnSettings } from '../../../types';
-import type { PitchFx } from '../types';
-import { BROOKS_BBREF_TEAM_ID_MAP, PITCH_TYPE_ABBREV_TO_NAME_MAP } from './constants';
-import { getHomeTeamIdFromBrooksGameId } from './util';
+import type { ColumnSettings } from '$lib/types';
+import { capitalize, formatNumber } from '$lib/util';
+import { BROOKS_BBREF_TEAM_ID_MAP, PITCH_TYPE_ABBREV_TO_NAME_MAP } from '$lib/__tests__/data/constants';
+import { getHomeTeamIdFromBrooksGameId } from '$lib/__tests__/data/util';
+import type { PitchFx } from '$lib/__tests__/types';
 
 const batterNameLink = (pfx: PitchFx): string =>
 	`<a sveltekit:prefetch href="/player/${pfx.batter_id_mlb}/batting">${pfx.batter_name} (${getBatterTeamId(pfx)})</a>`;

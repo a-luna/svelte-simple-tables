@@ -1,5 +1,5 @@
+import type { TableState, TableStateStore } from '$lib/types';
 import { getRandomHexString } from '$lib/util';
-import type { TableState, TableStateStore } from 'src/types';
 import { writable } from 'svelte/store';
 
 export function createTableStateStore(

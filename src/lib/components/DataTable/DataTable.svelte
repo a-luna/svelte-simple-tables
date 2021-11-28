@@ -2,7 +2,7 @@
 	import ColumnHeader from '$lib/components/DataTable/ColumnHeader.svelte';
 	import TableCell from '$lib/components/DataTable/TableCell.svelte';
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
-	import type { ColumnSettings, PaginationStore, TableStateStore } from 'src/types';
+	import type { ColumnSettings, PaginationStore, TableStateStore } from '$lib/types';
 	import { getContext } from 'svelte';
 
 	type R = $$Generic;

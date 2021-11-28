@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { TableStateStore } from 'src/types';
+	import type { TableStateStore } from '$lib/types';
 	import { getContext } from 'svelte';
 
 	export let tableId: string;

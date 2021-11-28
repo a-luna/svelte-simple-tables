@@ -1,4 +1,4 @@
-import type { AriaAttributes, BreakPoint } from 'src/types';
+import type { AriaAttributes, BreakPoint } from '$lib/types';
 
 export const getDefaultTableId = (): string => `table-${getRandomHexString(8)}`;
 
