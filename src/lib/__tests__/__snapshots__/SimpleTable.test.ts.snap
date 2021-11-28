@@ -33,7 +33,7 @@ exports[`SimpleTable snapshot 1`] = `
         >
           <div
             aria-labelledby="all-barrels-cap"
-            aria-rowcount="46"
+            aria-rowcount="17"
             class="resp-table svelte-bfoe4q"
             data-testid="all-barrels"
             id="all-barrels"
@@ -44,18 +44,18 @@ exports[`SimpleTable snapshot 1`] = `
               role="row"
             >
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="batter_name"
                 data-testid="all-barrels-toggle-batter_name"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Batter Name"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Player
                   </span>
@@ -63,18 +63,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t"
+                class="table-header-cell svelte-iyo8gy"
                 data-stat-name="opponent_team_id_bb"
                 data-testid="all-barrels-toggle-opponent_team_id_bb"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Opponent"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content svelte-6cf69t"
+                    class="header-content svelte-iyo8gy"
                   >
                     Opp
                   </span>
@@ -83,24 +83,24 @@ exports[`SimpleTable snapshot 1`] = `
               </div>
               <div
                 aria-sort="descending"
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="launch_speed"
                 data-testid="all-barrels-toggle-launch_speed"
                 role="columnheader"
-                style=""
+                style=" width: calc(14px + (0.375rem * 2))"
                 title="Launch Speed (mph)"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Speed
                   </span>
                    
                   <div
-                    class="desc svelte-6cf69t"
+                    class="desc svelte-iyo8gy"
                   >
                     <svg
                       class="svelte-q1wtpt"
@@ -112,22 +112,21 @@ exports[`SimpleTable snapshot 1`] = `
                       />
                     </svg>
                   </div>
-                  
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="launch_angle"
                 data-testid="all-barrels-toggle-launch_angle"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Launch Angle"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Angle
                   </span>
@@ -135,18 +134,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="total_distance"
                 data-testid="all-barrels-toggle-total_distance"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Total Distance"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Distance
                   </span>
@@ -154,18 +153,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="ab_outcome"
                 data-testid="all-barrels-toggle-ab_outcome"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Play Description"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Outcome
                   </span>
@@ -173,18 +172,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="pitcher_name"
                 data-testid="all-barrels-toggle-pitcher_name"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Pitcher Name"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Pitcher
                   </span>
@@ -192,18 +191,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="mlbam_pitch_name"
                 data-testid="all-barrels-toggle-mlbam_pitch_name"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Pitch Type"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Pitch Type
                   </span>
@@ -211,18 +210,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="start_speed"
                 data-testid="all-barrels-toggle-start_speed"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Pitch Speed"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Speed
                   </span>
@@ -230,18 +229,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="inning"
                 data-testid="all-barrels-toggle-inning"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Inning"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Inn
                   </span>
@@ -249,18 +248,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="count"
                 data-testid="all-barrels-toggle-count"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Count"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     Count
                   </span>
@@ -268,18 +267,18 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-6cf69t sortable"
+                class="table-header-cell svelte-iyo8gy sortable"
                 data-stat-name="inside_strike_zone"
                 data-testid="all-barrels-toggle-inside_strike_zone"
                 role="columnheader"
-                style=""
+                style=" width: calc(0px + (0.375rem * 2))"
                 title="Inside/Outside Strike Zone"
               >
                 <div
-                  class="header-content-wrapper svelte-6cf69t"
+                  class="header-content-wrapper svelte-iyo8gy"
                 >
                   <span
-                    class="header-content underline svelte-6cf69t"
+                    class="header-content underline svelte-iyo8gy"
                   >
                     In/Out
                   </span>
@@ -990,7 +989,7 @@ exports[`SimpleTable snapshot 1`] = `
                   -
                   5
                   /
-                  46
+                  17
                 </b>
               </div>
             </aside>
@@ -1038,7 +1037,7 @@ exports[`SimpleTable snapshot 1`] = `
             </button>
              
             <button
-              aria-label="Goto Page 10"
+              aria-label="Goto Page 4"
               class="btn symbol svelte-hidk74"
               data-testid="last"
               title="Last Page"
@@ -1049,6 +1048,63 @@ exports[`SimpleTable snapshot 1`] = `
           </nav>
         </div>
          
+        <div
+          class="page-size-setting-wrapper svelte-w7053w"
+          data-testid="page-size-choices"
+          style="animation: __svelte_4266872127_0 500ms linear 0ms 1 both;"
+        >
+          <div
+            class="page-size-setting btn-group svelte-w7053w"
+          >
+            <button
+              class="btn page-size active svelte-hidk74"
+              data-testid="page-size-5"
+              title="{pageSizeChoice} Rows/Page"
+              type="button"
+            >
+              5
+            </button>
+            <button
+              class="btn page-size svelte-hidk74"
+              data-testid="page-size-10"
+              title="{pageSizeChoice} Rows/Page"
+              type="button"
+            >
+              10
+            </button>
+            <button
+              class="btn page-size svelte-hidk74"
+              data-testid="page-size-15"
+              title="{pageSizeChoice} Rows/Page"
+              type="button"
+            >
+              15
+            </button>
+            <button
+              class="btn page-size svelte-hidk74"
+              data-testid="page-size-20"
+              title="{pageSizeChoice} Rows/Page"
+              type="button"
+            >
+              20
+            </button>
+            <button
+              class="btn page-size disabled svelte-hidk74"
+              data-testid="page-size-25"
+              disabled=""
+              title="{pageSizeChoice} Rows/Page"
+              type="button"
+            >
+              25
+            </button>
+          </div>
+           
+          <span
+            class="svelte-w7053w"
+          >
+            rows/page
+          </span>
+        </div>
       </section>
     </div>
   </div>

@@ -17,10 +17,8 @@
 	}
 
 	function pageSizeIsInvalid(i: number): boolean {
-		if (i - 1 > 0) {
-			return pageSizeOptions[i - 1] >= totalRows;
-		}
-		return true;
+		const prevPageSizeOption = i - 1 >= 0 ? pageSizeOptions[i - 1] : 0;
+		return prevPageSizeOption > totalRows ? true : null;
 	}
 </script>
 

@@ -1,6 +1,23 @@
 {
 	"name": "svelte-simple-tables",
 	"version": "0.0.1",
+	"license": "MIT",
+	"description": "Accessible, sortable, paginated table component",
+	"author": "Aaron Luna (https://github.com/a-luna)",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/a-luna/svelte-simple-tables.git"
+	},
+	"homepage": "https://github.com/a-luna/svelte-simple-tables",
+	"bugs": "https://github.com/a-luna/svelte-simple-tables/issues",
+	"keywords": [
+		"svelte",
+		"svelte component",
+		"table component",
+		"sortable table",
+		"paginated table",
+		"accessibility"
+	],
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -27,13 +44,14 @@
 		"@typescript-eslint/parser": "^4.33.0",
 		"autoprefixer": "^10.4.0",
 		"babel-jest": "^27.3.1",
-		"cssnano": "^5.0.11",
+		"cssnano": "^5.0.12",
 		"cypress": "^9.1.0",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.25.3",
 		"eslint-plugin-svelte3": "^3.2.1",
 		"jest": "^27.3.1",
+		"postcss": "^8.4.4",
 		"prettier": "^2.5.0",
 		"prettier-plugin-svelte": "^2.5.0",
 		"svelte": "^3.44.2",
@@ -45,6 +63,7 @@
 		"ts-jest": "^27.0.7",
 		"tslib": "^2.3.1",
 		"typescript": "^4.5.2",
+		"vite": "^2.6.14",
 		"window-resizeto": "^0.0.2"
 	},
 	"type": "module",
