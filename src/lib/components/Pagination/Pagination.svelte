@@ -16,6 +16,8 @@
 	export let rowTypeSingle: string = 'entry';
 	export let rowTypePlural: string = 'entries';
 	let showPageSizeSetting: boolean = false;
+
+  $: useCompactPageNav = pageNavLayout === 'compact' || (pageNavLayout === 'auto' && ($breakPoints.isMobileDisplay || totalPages > 4))
 </script>
 
 <section class="pagination-wrapper">
@@ -29,7 +31,7 @@
 			{rowTypePlural}
 			on:click={() => (showPageSizeSetting = !showPageSizeSetting)}
 		/>
-		{#if pageNavLayout === 'compact' || (pageNavLayout === 'auto' && $breakPoints.isMobileDisplay)}
+		{#if useCompactPageNav}
 			<PageNavigationCompact
 				{currentPage}
 				{totalPages}
@@ -38,7 +40,7 @@
 				on:goToNextPage
 				on:goToLastPage
 			/>
-		{:else if pageNavLayout === 'full' || (pageNavLayout === 'auto' && !$breakPoints.isMobileDisplay)}
+		{:else}
 			<PageNavigation {currentPage} {totalPages} on:changePageNumber on:goToNextPage on:goToPrevPage />
 		{/if}
 	</div>
