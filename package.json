@@ -1,6 +1,6 @@
 {
 	"name": "svelte-simple-tables",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"license": "MIT",
 	"description": "Accessible, sortable, paginated table component",
 	"author": "Aaron Luna (https://github.com/a-luna)",
