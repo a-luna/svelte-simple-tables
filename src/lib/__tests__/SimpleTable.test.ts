@@ -24,12 +24,17 @@ describe('SimpleTable', () => {
 			rowTypePlural: 'barrels',
 		},
 	};
-	it('snapshot', () => {
-		const { container } = render(SimpleTable, {
+	it('snapshot', async () => {
+		const { container, getByTestId } = render(SimpleTable, {
 			data: barrelsForDateMockData,
 			columns: pfxBarrelColumnSettings,
 			settings,
 		});
+
+		const changePageSize = getByTestId('change-page-size');
+		await fireEvent.click(changePageSize);
+		const pageSizeChoices = getByTestId('page-size-choices');
+		expect(pageSizeChoices).toBeVisible();
 		expect(container).toMatchSnapshot();
 	});
 	it('verify table is paginated and sortable', async () => {
@@ -50,6 +55,7 @@ describe('SimpleTable', () => {
 		const visibleRowsPage1_desc = getAllByTestId(`${tableId}-row`);
 		expect(visibleRowsPage1_desc).toHaveLength(5);
 		expect(visibleRowsPage1_desc[0]).toHaveAttribute('aria-rowindex', '1');
+		expect(visibleRowsPage1_desc[4]).toHaveAttribute('aria-rowindex', '5');
 
 		const pageNav_compact = getByTestId('page-nav');
 		const pageNav_compact_buttons = pageNav_compact.children;
@@ -65,13 +71,15 @@ describe('SimpleTable', () => {
 		const visibleRowsPage2 = getAllByTestId(`${tableId}-row`);
 		expect(visibleRowsPage2).toHaveLength(5);
 		expect(visibleRowsPage2[0]).toHaveAttribute('aria-rowindex', '6');
+		expect(visibleRowsPage2[4]).toHaveAttribute('aria-rowindex', '10');
 
 		const lastPage = getByTestId('last');
 		await fireEvent.click(lastPage);
-		expect(pageRange).toHaveTextContent(`46-46/${barrelsForDateMockData.length}`);
-		const visibleRowsPage10 = getAllByTestId(`${tableId}-row`);
-		expect(visibleRowsPage10).toHaveLength(1);
-		expect(visibleRowsPage10[0]).toHaveAttribute('aria-rowindex', barrelsForDateMockData.length.toString());
+		expect(pageRange).toHaveTextContent(`16-17/${barrelsForDateMockData.length}`);
+		const visibleRowsPage4 = getAllByTestId(`${tableId}-row`);
+		expect(visibleRowsPage4).toHaveLength(2);
+		expect(visibleRowsPage4[0]).toHaveAttribute('aria-rowindex', (barrelsForDateMockData.length - 1).toString());
+		expect(visibleRowsPage4[1]).toHaveAttribute('aria-rowindex', barrelsForDateMockData.length.toString());
 
 		const toggleSort = getByTestId(`${tableId}-toggle-${sortBy}`);
 		await fireEvent.click(toggleSort);
@@ -80,31 +88,34 @@ describe('SimpleTable', () => {
 		const visibleRowsPage1_asc = getAllByTestId(`${tableId}-row`);
 		expect(visibleRowsPage1_asc).toHaveLength(5);
 		expect(visibleRowsPage1_asc[0]).toHaveAttribute('aria-rowindex', '1');
+		expect(visibleRowsPage1_asc[4]).toHaveAttribute('aria-rowindex', '5');
 
 		const changePageSize = getByTestId('change-page-size');
 		await fireEvent.click(changePageSize);
 		const pageSizeChoices = getByTestId('page-size-choices');
 		expect(pageSizeChoices).toBeVisible();
+		const pageSize_5 = getByTestId(`page-size-5`);
+		expect(pageSize_5).not.toHaveAttribute('disabled');
+		const pageSize_10 = getByTestId(`page-size-10`);
+		expect(pageSize_10).not.toHaveAttribute('disabled');
+		const pageSize_15 = getByTestId(`page-size-15`);
+		expect(pageSize_15).not.toHaveAttribute('disabled');
 		const pageSize_20 = getByTestId(`page-size-20`);
+		expect(pageSize_20).not.toHaveAttribute('disabled');
+		const pageSize_25 = getByTestId(`page-size-25`);
+		expect(pageSize_25).toHaveAttribute('disabled');
 		await fireEvent.click(pageSize_20);
-		expect(pageRange).toHaveTextContent(`1-20/${barrelsForDateMockData.length}`);
+		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
 		const visibleRowsPage1_20_asc = getAllByTestId(`${tableId}-row`);
-		expect(visibleRowsPage1_20_asc).toHaveLength(20);
+		expect(visibleRowsPage1_20_asc).toHaveLength(17);
 		expect(visibleRowsPage1_20_asc[0]).toHaveAttribute('aria-rowindex', '1');
-		expect(visibleRowsPage1_20_asc[19]).toHaveAttribute('aria-rowindex', '20');
-
-		await fireEvent.click(nextPage);
-		expect(pageRange).toHaveTextContent(`21-40/${barrelsForDateMockData.length}`);
-		const visibleRowsPage2_20_asc = getAllByTestId(`${tableId}-row`);
-		expect(visibleRowsPage2_20_asc).toHaveLength(20);
-		expect(visibleRowsPage2_20_asc[0]).toHaveAttribute('aria-rowindex', '21');
-		expect(visibleRowsPage2_20_asc[19]).toHaveAttribute('aria-rowindex', '40');
+		expect(visibleRowsPage1_20_asc[16]).toHaveAttribute('aria-rowindex', '17');
 	});
 
 	it('verify page-nav layout is responsive', async () => {
 		const pagination = {
 			...settings.pagination,
-			pageSize: 20,
+			pageSize: 5,
 			pageNavLayout: 'full',
 		};
 		const pageNavLayoutFullSettings = {
@@ -119,20 +130,21 @@ describe('SimpleTable', () => {
 
 		const pageNav_full = getByTestId('page-nav');
 		const pageNav_full_buttons = pageNav_full.children;
-		expect(pageNav_full_buttons).toHaveLength(5);
+		expect(pageNav_full_buttons).toHaveLength(6);
 		expect(pageNav_full_buttons[0]).toHaveAttribute('data-testid', 'prev');
 		expect(pageNav_full_buttons[1]).toHaveAttribute('data-testid', 'page1');
 		expect(pageNav_full_buttons[2]).toHaveAttribute('data-testid', 'page2');
 		expect(pageNav_full_buttons[3]).toHaveAttribute('data-testid', 'page3');
-		expect(pageNav_full_buttons[4]).toHaveAttribute('data-testid', 'next');
+		expect(pageNav_full_buttons[4]).toHaveAttribute('data-testid', 'page4');
+		expect(pageNav_full_buttons[5]).toHaveAttribute('data-testid', 'next');
 
-		const page2 = getByTestId('page2');
-		await fireEvent.click(page2);
+		const page3 = getByTestId('page3');
+		await fireEvent.click(page3);
 		const pageRange = getByTestId('page-range');
-		expect(pageRange).toHaveTextContent(`Showing 21 to 40 of ${barrelsForDateMockData.length} barrels`);
-		const visibleRowsPage2_20_asc = getAllByTestId(`${tableId}-row`);
-		expect(visibleRowsPage2_20_asc).toHaveLength(20);
-		expect(visibleRowsPage2_20_asc[0]).toHaveAttribute('aria-rowindex', '21');
-		expect(visibleRowsPage2_20_asc[19]).toHaveAttribute('aria-rowindex', '40');
+		expect(pageRange).toHaveTextContent(`Showing 11 to 15 of ${barrelsForDateMockData.length} barrels`);
+		const visibleRowsPage3_5_asc = getAllByTestId(`${tableId}-row`);
+		expect(visibleRowsPage3_5_asc).toHaveLength(5);
+		expect(visibleRowsPage3_5_asc[0]).toHaveAttribute('aria-rowindex', '11');
+		expect(visibleRowsPage3_5_asc[4]).toHaveAttribute('aria-rowindex', '15');
 	});
 });

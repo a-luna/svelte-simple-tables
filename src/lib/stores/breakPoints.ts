@@ -1,5 +1,5 @@
 import { syncWidth } from '$lib/stores/elementWidth';
-import type { BreakPoint, BreakPointStore } from 'src/types';
+import type { BreakPoint, BreakPointStore } from '$lib/types';
 import type { Readable, Writable } from 'svelte/store';
 import { derived } from 'svelte/store';
 

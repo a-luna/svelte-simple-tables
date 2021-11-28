@@ -2,8 +2,8 @@
 	import SortAscending from '$lib/components/Icons/SortAscending.svelte';
 	import SortDescending from '$lib/components/Icons/SortDescending.svelte';
 	import { breakPoints } from '$lib/stores/breakPoints';
+	import type { BreakPoint, TableStateStore } from '$lib/types';
 	import { capitalizeSentence, getColumnWidth } from '$lib/util';
-	import type { BreakPoint, TableStateStore } from 'src/types';
 	import { createEventDispatcher, getContext } from 'svelte';
 
 	export let tableId: string;
@@ -19,6 +19,8 @@
 
 	$: if ($tableState.tableSync) width = getPaddedColumnWidth();
 	$: currentBreakPoint = $breakPoints.current as BreakPoint;
+	$: columnIsSortedAscending = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'asc';
+	$: columnIsSortedDescending = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'desc';
 	$: ariaSort = getAriaSortValue($tableState.sortBy, $tableState.sortDir);
 
 	function defaultColHeader(): string {
@@ -55,16 +57,14 @@
 >
 	<div class="header-content-wrapper">
 		<span class="header-content{sortable ? ' underline' : ''}">{displayName}</span>
-		{#if sortable && $tableState.sortBy === propName}
-			{#if $tableState.sortDir === 'asc'}
-				<div class="asc">
-					<SortAscending />
-				</div>
-			{:else}
-				<div class="desc">
-					<SortDescending />
-				</div>
-			{/if}
+		{#if columnIsSortedAscending}
+			<div class="asc">
+				<SortAscending />
+			</div>
+		{:else if columnIsSortedDescending}
+			<div class="desc">
+				<SortDescending />
+			</div>
 		{/if}
 	</div>
 </div>
@@ -107,6 +107,9 @@
 	.asc,
 	.desc {
 		flex: 0 0 1rem;
+		display: flex;
+		flex-flow: column;
+		justify-content: center;
 		font-size: 0.5rem;
 		stroke: currentColor;
 		stroke-width: 2;

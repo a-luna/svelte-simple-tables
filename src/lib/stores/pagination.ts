@@ -1,4 +1,4 @@
-import type { PaginationSettings, PaginationStore } from 'src/types';
+import type { PaginationSettings, PaginationStore } from '$lib/types';
 import { writable } from 'svelte/store';
 
 export function createPaginationStore(totalRows: number, pageSize: number, pageSizeOptions: number[]): PaginationStore {

@@ -3,8 +3,8 @@
 	import Pagination from '$lib/components/Pagination/Pagination.svelte';
 	import { createPaginationStore } from '$lib/stores/pagination';
 	import { createTableStateStore } from '$lib/stores/tableState';
+	import type { ColumnSettings, PaginationStore, TableSettings, TableStateStore } from '$lib/types';
 	import { getDefaultTableId, getSortFunction } from '$lib/util';
-	import type { ColumnSettings, PaginationStore, TableSettings, TableStateStore } from 'src/types';
 	import { setContext, tick } from 'svelte';
 
 	type R = $$Generic;
