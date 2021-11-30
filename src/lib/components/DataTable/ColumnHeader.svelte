@@ -99,11 +99,6 @@
 		column-gap: 0.25rem;
 	}
 
-	.header-content {
-		width: 100%;
-		margin: 0 3px;
-	}
-
 	.asc,
 	.desc {
 		flex: 0 0 1rem;
@@ -115,6 +110,6 @@
 		stroke-width: 2;
 		cursor: pointer;
 		line-height: 1;
-		margin: 0 auto;
+		margin: 0 0 0 auto;
 	}
 </style>
