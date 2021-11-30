@@ -30,12 +30,12 @@
 			data-testid={$tableState.tableId}
 		>
 			<div role="row" class="resp-table-header">
-				{#each columns as { propName, propType, displayName, tooltip, sortable }}
+				{#each columns as { propName, propType, headerText, tooltip, sortable }}
 					<ColumnHeader
 						tableId={$tableState.tableId}
 						{propName}
 						{propType}
-						{displayName}
+						{headerText}
 						{tooltip}
 						{sortable}
 						on:sortTable

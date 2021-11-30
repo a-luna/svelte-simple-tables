@@ -9,7 +9,7 @@
 	export let tableId: string;
 	export let propName: string;
 	export let propType: string;
-	export let displayName: string = defaultColHeader();
+	export let headerText: string = defaultColHeader();
 	export let tooltip: string = defaultColHeader();
 	export let sortable: boolean = true;
 	let width: string = '';
@@ -56,7 +56,7 @@
 	on:click={() => toggleSort()}
 >
 	<div class="header-content-wrapper">
-		<span class="header-content{sortable ? ' underline' : ''}">{displayName}</span>
+		<span class="header-content{sortable ? ' underline' : ''}">{headerText}</span>
 		{#if columnIsSortedAscending}
 			<div class="asc">
 				<SortAscending />

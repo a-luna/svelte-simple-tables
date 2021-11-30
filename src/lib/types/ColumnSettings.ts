@@ -1,7 +1,7 @@
 export interface ColumnSettings<T> {
 	propName: string;
 	propType: 'string' | 'number' | 'boolean' | 'date';
-	displayName?: string;
+	headerText?: string;
 	tooltip?: string;
 	sortable?: boolean;
 	classList?: string[];
