@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { describeSortSetting } from '$lib/util';
 	import type { TableStateStore } from '$lib/types';
 	import { getContext } from 'svelte';
 
@@ -8,6 +7,9 @@
 	export let header: string = '';
 	export let showSortDescription: boolean = false;
 	const tableState: TableStateStore = getContext(tableId);
+
+	const describeSortSetting = (headerText: string, sortDir: 'asc' | 'desc'): string =>
+		`Sorted by: ${headerText.split('_').join(' ')} (${sortDir === 'asc' ? 'ascending' : 'descending'})`;
 </script>
 
 <div class="table-header-wrapper">

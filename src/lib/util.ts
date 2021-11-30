@@ -46,9 +46,6 @@ export function getSortFunction<T>(
 	return sortFunctionMap[propType][dir];
 }
 
-export const describeSortSetting = (displayName: string, sortDir: 'asc' | 'desc'): string =>
-	`Sorted by: ${displayName.split('_').join(' ')} (${sortDir === 'asc' ? 'ascending' : 'descending'})`;
-
 export function getColumnWidth(tableId: string, colStat: string, sortBy: string, breakPoint: BreakPoint): number {
 	if (typeof window !== 'undefined') {
 		const minWidth = getMinColWidth(tableId, colStat, sortBy, breakPoint);
