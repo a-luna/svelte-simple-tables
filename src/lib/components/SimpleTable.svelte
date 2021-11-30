@@ -26,6 +26,8 @@
 		sortDir || 'desc',
 	);
 
+	const propType = columns.find((col) => col.propName === settings.sortBy).propType;
+	sortFunction = getSortFunction<R>(sortBy, propType, sortDir);
 	setContext($tableState.tableId, tableState);
 
 	$: dataSorted = data.sort(sortFunction);
