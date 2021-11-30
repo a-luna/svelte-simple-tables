@@ -1,6 +1,6 @@
 {
-	"name": "svelte-simple-tables",
-	"version": "0.0.3",
+	"name": "@a-luna/svelte-simple-tables",
+	"version": "0.0.4",
 	"license": "MIT",
 	"description": "Accessible, sortable, paginated table component",
 	"author": "Aaron Luna (https://github.com/a-luna)",
@@ -18,6 +18,12 @@
 		"paginated table",
 		"accessibility"
 	],
+	"main": "./index.js",
+	"svelte": "./index.js",
+	"types": "./index.d.ts",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -109,5 +115,39 @@
 				"<rootDir>/.svelte-kit/build/runtime/app$1"
 			]
 		}
+	},
+	"exports": {
+		"./package.json": "./package.json",
+		"./components/DataTable/ColumnHeader.svelte": "./components/DataTable/ColumnHeader.svelte",
+		"./components/DataTable/DataTable.svelte": "./components/DataTable/DataTable.svelte",
+		"./components/DataTable/TableCell.svelte": "./components/DataTable/TableCell.svelte",
+		"./components/DataTable/TableHeader.svelte": "./components/DataTable/TableHeader.svelte",
+		"./components/Icons/SettingsIcon.svelte": "./components/Icons/SettingsIcon.svelte",
+		"./components/Icons/SortAscending.svelte": "./components/Icons/SortAscending.svelte",
+		"./components/Icons/SortDescending.svelte": "./components/Icons/SortDescending.svelte",
+		"./components/Icons/SvgIcon.svelte": "./components/Icons/SvgIcon.svelte",
+		"./components/Pagination/Button.svelte": "./components/Pagination/Button.svelte",
+		"./components/Pagination/PageNavigation.svelte": "./components/Pagination/PageNavigation.svelte",
+		"./components/Pagination/PageNavigationCompact.svelte": "./components/Pagination/PageNavigationCompact.svelte",
+		"./components/Pagination/PageRangeDescription.svelte": "./components/Pagination/PageRangeDescription.svelte",
+		"./components/Pagination/PageSizeSetting.svelte": "./components/Pagination/PageSizeSetting.svelte",
+		"./components/Pagination/Pagination.svelte": "./components/Pagination/Pagination.svelte",
+		"./components/SimpleTable.svelte": "./components/SimpleTable.svelte",
+		".": "./index.js",
+		"./stores/breakPoints": "./stores/breakPoints.js",
+		"./stores/pagination": "./stores/pagination.js",
+		"./stores/tableState": "./stores/tableState.js",
+		"./types/AriaAttributes": "./types/AriaAttributes.js",
+		"./types/BreakPoint": "./types/BreakPoint.js",
+		"./types/BreakPointStore": "./types/BreakPointStore.js",
+		"./types/ColumnSettings": "./types/ColumnSettings.js",
+		"./types/PaginationSettings": "./types/PaginationSettings.js",
+		"./types/PaginationStore": "./types/PaginationStore.js",
+		"./types/SimpleTable": "./types/SimpleTable.js",
+		"./types/TableSettings": "./types/TableSettings.js",
+		"./types/TableState": "./types/TableState.js",
+		"./types/TableStateStore": "./types/TableStateStore.js",
+		"./types": "./types/index.js",
+		"./util": "./util.js"
 	}
 }

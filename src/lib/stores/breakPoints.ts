@@ -1,9 +1,19 @@
-import { syncWidth } from '$lib/stores/elementWidth';
 import type { BreakPoint, BreakPointStore } from '$lib/types';
 import type { Readable, Writable } from 'svelte/store';
-import { derived } from 'svelte/store';
+import { derived, writable } from 'svelte/store';
 
-export const getPageWidth = (): Writable<number> => {
+function syncWidth(el: HTMLElement): Writable<number> {
+	return writable(null, (set) => {
+		if (!el) {
+			return;
+		}
+		const ro = new ResizeObserver(() => el && set(el.offsetWidth));
+		ro.observe(el);
+		return () => ro.disconnect();
+	});
+}
+
+const getPageWidth = (): Writable<number> => {
 	if (typeof window !== 'undefined') {
 		const svelteDiv = document.getElementById('svelte');
 		return svelteDiv ? syncWidth(svelteDiv) : null;

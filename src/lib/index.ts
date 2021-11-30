@@ -1,1 +1,1 @@
-export { default as SimpleTable } from '$lib/components/SimpleTable.svelte';
+export { default as SimpleTable } from './components/SimpleTable.svelte';

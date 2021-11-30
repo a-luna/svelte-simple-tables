@@ -13,7 +13,7 @@
 	export let columns: ColumnSettings<R>[] = [];
 	export let settings: TableSettings;
 	let sortFunction: (a: R, b: R) => number;
-	const { showHeader, header, showSortDescription, sortBy, sortDir, paginated } = settings;
+	const { tableId, showHeader, header, showSortDescription, sortBy, sortDir, paginated } = settings;
 	const { pageSize, pageSizeOptions, pageNavLayout, rowTypeSingle, rowTypePlural } = settings.pagination;
 
 	let pagination: PaginationStore = paginated
@@ -21,7 +21,7 @@
 		: createPaginationStore(data.length, data.length, [data.length]);
 
 	let tableState: TableStateStore = createTableStateStore(
-		settings.tableId ?? getDefaultTableId(),
+		tableId || getDefaultTableId(),
 		sortBy || '',
 		sortDir || 'desc',
 	);
