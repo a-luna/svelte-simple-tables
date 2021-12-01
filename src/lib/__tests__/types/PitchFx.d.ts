@@ -59,7 +59,7 @@ export interface PitchFx {
 	game_start_time_utc: string;
 	time_pitch_thrown_utc: string;
 	game_start_time_est: string;
-	time_pitch_thrown_est: string;
+	time_pitch_thrown_est: Date;
 	seconds_since_game_start: number;
 	has_zone_location: number;
 	batter_did_swing: number;
@@ -110,6 +110,7 @@ export interface PitchFx {
 	runs_outs_result?: string;
 	runs_scored?: number;
 	count?: string;
+	two_strike_count?: boolean;
 	pitch_sequence?: string;
 	outs_before_play?: number;
 	ab_outcome?: string;

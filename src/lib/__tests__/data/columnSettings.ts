@@ -20,6 +20,8 @@ const formatPitchType = (pfx: PitchFx): string => capitalize(PITCH_TYPE_ABBREV_T
 const formatPitchSpeed = (pfx: PitchFx): string => formatNumber(pfx.start_speed, 1);
 const formatInOutZone = (pfx: PitchFx): string => (pfx.inside_strike_zone === 1 ? 'Inside' : 'Outside');
 
+const formatTimeStamp = (pfx: PitchFx): string => pfx.time_pitch_thrown_est.toLocaleTimeString();
+
 function getBatterTeamId(pfx: PitchFx): string {
 	const brooksTeamId = pfx.opponent_team_id_bb.toUpperCase();
 	return BROOKS_BBREF_TEAM_ID_MAP[brooksTeamId] ?? brooksTeamId;
@@ -53,6 +55,13 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 		classList: ['text-center'],
 		colValue: pitcherTeamLink,
 		sortable: false,
+	},
+	{
+		propName: 'time_pitch_thrown_est',
+		propType: 'date',
+		headerText: 'Timestamp (EST)',
+		tooltip: 'Timestamp (EST)',
+		colValue: formatTimeStamp,
 	},
 	{
 		propName: 'launch_speed',

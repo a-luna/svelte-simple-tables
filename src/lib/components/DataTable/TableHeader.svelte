@@ -31,7 +31,7 @@
 	}
 
 	.resp-table-caption {
-		display: resp-table-caption;
+		display: table-caption;
 		color: var(--sst-table-header-text-color, var(--sst-default-table-header-text-color));
 		font-size: 1.125rem;
 		letter-spacing: 0.025em;

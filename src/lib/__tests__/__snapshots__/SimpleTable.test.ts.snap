@@ -7,10 +7,10 @@ exports[`SimpleTable snapshot 1`] = `
       class="simple-table svelte-v417ld"
     >
       <div
-        class="table-header-wrapper svelte-14y10ro"
+        class="table-header-wrapper svelte-k487bx"
       >
         <h3
-          class="resp-table-caption svelte-14y10ro"
+          class="resp-table-caption svelte-k487bx"
           data-testid="all-barrels-cap"
           id="all-barrels-cap"
         >
@@ -18,7 +18,7 @@ exports[`SimpleTable snapshot 1`] = `
         </h3>
          
         <div
-          class="sort-description svelte-14y10ro"
+          class="sort-description svelte-k487bx"
           data-testid="all-barrels-sort-description"
         >
           Sorted by: launch speed (descending)
@@ -44,7 +44,7 @@ exports[`SimpleTable snapshot 1`] = `
               role="row"
             >
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="batter_name"
                 data-testid="all-barrels-toggle-batter_name"
                 role="columnheader"
@@ -52,10 +52,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Batter Name"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Player
                   </span>
@@ -63,7 +63,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy"
+                class="table-header-cell svelte-6bz19s"
                 data-stat-name="opponent_team_id_bb"
                 data-testid="all-barrels-toggle-opponent_team_id_bb"
                 role="columnheader"
@@ -71,10 +71,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Opponent"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content svelte-iyo8gy"
+                    class="header-content"
                   >
                     Opp
                   </span>
@@ -82,8 +82,27 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
+                class="table-header-cell svelte-6bz19s sortable"
+                data-stat-name="time_pitch_thrown_est"
+                data-testid="all-barrels-toggle-time_pitch_thrown_est"
+                role="columnheader"
+                style=" width: calc(0px + (0.375rem * 2))"
+                title="Timestamp (EST)"
+              >
+                <div
+                  class="header-content-wrapper svelte-6bz19s"
+                >
+                  <span
+                    class="header-content underline"
+                  >
+                    Timestamp (EST)
+                  </span>
+                   
+                </div>
+              </div>
+              <div
                 aria-sort="descending"
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="launch_speed"
                 data-testid="all-barrels-toggle-launch_speed"
                 role="columnheader"
@@ -91,16 +110,16 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Launch Speed (mph)"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Speed
                   </span>
                    
                   <div
-                    class="desc svelte-iyo8gy"
+                    class="desc svelte-6bz19s"
                   >
                     <svg
                       class="svelte-q1wtpt"
@@ -115,7 +134,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="launch_angle"
                 data-testid="all-barrels-toggle-launch_angle"
                 role="columnheader"
@@ -123,10 +142,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Launch Angle"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Angle
                   </span>
@@ -134,7 +153,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="total_distance"
                 data-testid="all-barrels-toggle-total_distance"
                 role="columnheader"
@@ -142,10 +161,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Total Distance"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Distance
                   </span>
@@ -153,7 +172,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="ab_outcome"
                 data-testid="all-barrels-toggle-ab_outcome"
                 role="columnheader"
@@ -161,10 +180,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Play Description"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Outcome
                   </span>
@@ -172,7 +191,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="pitcher_name"
                 data-testid="all-barrels-toggle-pitcher_name"
                 role="columnheader"
@@ -180,10 +199,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Pitcher Name"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Pitcher
                   </span>
@@ -191,7 +210,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="mlbam_pitch_name"
                 data-testid="all-barrels-toggle-mlbam_pitch_name"
                 role="columnheader"
@@ -199,10 +218,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Pitch Type"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Pitch Type
                   </span>
@@ -210,7 +229,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="start_speed"
                 data-testid="all-barrels-toggle-start_speed"
                 role="columnheader"
@@ -218,10 +237,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Pitch Speed"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Speed
                   </span>
@@ -229,7 +248,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="inning"
                 data-testid="all-barrels-toggle-inning"
                 role="columnheader"
@@ -237,10 +256,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Inning"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Inn
                   </span>
@@ -248,7 +267,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="count"
                 data-testid="all-barrels-toggle-count"
                 role="columnheader"
@@ -256,10 +275,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Count"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     Count
                   </span>
@@ -267,7 +286,7 @@ exports[`SimpleTable snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="table-header-cell svelte-iyo8gy sortable"
+                class="table-header-cell svelte-6bz19s sortable"
                 data-stat-name="inside_strike_zone"
                 data-testid="all-barrels-toggle-inside_strike_zone"
                 role="columnheader"
@@ -275,10 +294,10 @@ exports[`SimpleTable snapshot 1`] = `
                 title="Inside/Outside Strike Zone"
               >
                 <div
-                  class="header-content-wrapper svelte-iyo8gy"
+                  class="header-content-wrapper svelte-6bz19s"
                 >
                   <span
-                    class="header-content underline svelte-iyo8gy"
+                    class="header-content underline"
                   >
                     In/Out
                   </span>
@@ -304,10 +323,10 @@ exports[`SimpleTable snapshot 1`] = `
                 >
                   <span>
                     <a
-                      href="/player/592656/batting"
+                      href="/player/593934/batting"
                       sveltekit:prefetch=""
                     >
-                      Henry Ramos (ARI)
+                      Miguel Sano (MIN)
                     </a>
                   </span>
                 </div>
@@ -318,11 +337,20 @@ exports[`SimpleTable snapshot 1`] = `
                 >
                   <span>
                     <a
-                      href="/game?id=ARI202110030&show=box"
+                      href="/game?id=KCA202110030&show=box"
                       sveltekit:prefetch=""
                     >
-                      vsCOL
+                      @KCR
                     </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="time_pitch_thrown_est"
+                  role="cell"
+                >
+                  <span>
+                    3:20:12 PM
                   </span>
                 </div>
                 <div
@@ -331,7 +359,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    100.4
+                    116.6
                   </span>
                 </div>
                 <div
@@ -340,7 +368,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    31°
+                    13°
                   </span>
                 </div>
                 <div
@@ -349,7 +377,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    397
+                    248
                   </span>
                 </div>
                 <div
@@ -358,7 +386,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    In play, out(s)
+                    Single (RBI)
                   </span>
                 </div>
                 <div
@@ -368,10 +396,10 @@ exports[`SimpleTable snapshot 1`] = `
                 >
                   <span>
                     <a
-                      href="/player/642068/pitching"
+                      href="/player/663804/pitching"
                       sveltekit:prefetch=""
                     >
-                      Jordan Sheffield
+                      Jackson Kowar
                     </a>
                   </span>
                 </div>
@@ -381,7 +409,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    Changeup
+                    Four-seam fastball
                   </span>
                 </div>
                 <div
@@ -390,7 +418,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    89.6
+                    95.5
                   </span>
                 </div>
                 <div
@@ -399,7 +427,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    7
+                    1
                   </span>
                 </div>
                 <div
@@ -408,7 +436,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    2-1
+                    2-0
                   </span>
                 </div>
                 <div
@@ -417,13 +445,153 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    Outside
+                    Inside
                   </span>
                 </div>
                  
               </div>
               <div
                 aria-rowindex="2"
+                class="text-right resp-table-row svelte-bfoe4q"
+                data-testid="all-barrels-row"
+                role="row"
+              >
+                <div
+                  class="table-body-cell text-left svelte-tf2fv5"
+                  data-stat-name="batter_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/642133/batting"
+                      sveltekit:prefetch=""
+                    >
+                      Rowdy Tellez (MIL)
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell text-center svelte-tf2fv5"
+                  data-stat-name="opponent_team_id_bb"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/game?id=LAN202110030&show=box"
+                      sveltekit:prefetch=""
+                    >
+                      @LAD
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="time_pitch_thrown_est"
+                  role="cell"
+                >
+                  <span>
+                    4:01:03 PM
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5 highlight-stat"
+                  data-stat-name="launch_speed"
+                  role="cell"
+                >
+                  <span>
+                    114.3
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="launch_angle"
+                  role="cell"
+                >
+                  <span>
+                    16°
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="total_distance"
+                  role="cell"
+                >
+                  <span>
+                    365
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="ab_outcome"
+                  role="cell"
+                >
+                  <span>
+                    Double
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="pitcher_name"
+                  role="cell"
+                >
+                  <span>
+                    <a
+                      href="/player/621111/pitching"
+                      sveltekit:prefetch=""
+                    >
+                      Walker Buehler
+                    </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="mlbam_pitch_name"
+                  role="cell"
+                >
+                  <span>
+                    Four-seam fastball
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="start_speed"
+                  role="cell"
+                >
+                  <span>
+                    95.1
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inning"
+                  role="cell"
+                >
+                  <span>
+                    4
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="count"
+                  role="cell"
+                >
+                  <span>
+                    3-1
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="inside_strike_zone"
+                  role="cell"
+                >
+                  <span>
+                    Inside
+                  </span>
+                </div>
+                 
+              </div>
+              <div
+                aria-rowindex="3"
                 class="text-right resp-table-row svelte-bfoe4q"
                 data-testid="all-barrels-row"
                 role="row"
@@ -454,6 +622,15 @@ exports[`SimpleTable snapshot 1`] = `
                     >
                       vsNYM
                     </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="time_pitch_thrown_est"
+                  role="cell"
+                >
+                  <span>
+                    4:15:52 PM
                   </span>
                 </div>
                 <div
@@ -539,138 +716,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    2-0
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="inside_strike_zone"
-                  role="cell"
-                >
-                  <span>
-                    Inside
-                  </span>
-                </div>
-                 
-              </div>
-              <div
-                aria-rowindex="3"
-                class="text-right resp-table-row svelte-bfoe4q"
-                data-testid="all-barrels-row"
-                role="row"
-              >
-                <div
-                  class="table-body-cell text-left svelte-tf2fv5"
-                  data-stat-name="batter_name"
-                  role="cell"
-                >
-                  <span>
-                    <a
-                      href="/player/518692/batting"
-                      sveltekit:prefetch=""
-                    >
-                      Freddie Freeman (ATL)
-                    </a>
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell text-center svelte-tf2fv5"
-                  data-stat-name="opponent_team_id_bb"
-                  role="cell"
-                >
-                  <span>
-                    <a
-                      href="/game?id=ATL202110030&show=box"
-                      sveltekit:prefetch=""
-                    >
-                      vsNYM
-                    </a>
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5 highlight-stat"
-                  data-stat-name="launch_speed"
-                  role="cell"
-                >
-                  <span>
-                    104.7
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="launch_angle"
-                  role="cell"
-                >
-                  <span>
-                    37°
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="total_distance"
-                  role="cell"
-                >
-                  <span>
-                    394
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="ab_outcome"
-                  role="cell"
-                >
-                  <span>
-                    In play, out(s)
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="pitcher_name"
-                  role="cell"
-                >
-                  <span>
-                    <a
-                      href="/player/592866/pitching"
-                      sveltekit:prefetch=""
-                    >
-                      Trevor Williams
-                    </a>
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="mlbam_pitch_name"
-                  role="cell"
-                >
-                  <span>
-                    Four-seam fastball
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="start_speed"
-                  role="cell"
-                >
-                  <span>
-                    92.1
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="inning"
-                  role="cell"
-                >
-                  <span>
-                    4
-                  </span>
-                </div>
-                <div
-                  class="table-body-cell svelte-tf2fv5"
-                  data-stat-name="count"
-                  role="cell"
-                >
-                  <span>
-                    2-2
+                    0-2
                   </span>
                 </div>
                 <div
@@ -697,10 +743,10 @@ exports[`SimpleTable snapshot 1`] = `
                 >
                   <span>
                     <a
-                      href="/player/594807/batting"
+                      href="/player/405395/batting"
                       sveltekit:prefetch=""
                     >
-                      Adam Duvall (ATL)
+                      Albert Pujols (LAD)
                     </a>
                   </span>
                 </div>
@@ -711,11 +757,20 @@ exports[`SimpleTable snapshot 1`] = `
                 >
                   <span>
                     <a
-                      href="/game?id=ATL202110030&show=box"
+                      href="/game?id=LAN202110030&show=box"
                       sveltekit:prefetch=""
                     >
-                      vsNYM
+                      vsMIL
                     </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="time_pitch_thrown_est"
+                  role="cell"
+                >
+                  <span>
+                    5:13:43 PM
                   </span>
                 </div>
                 <div
@@ -724,7 +779,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    101.9
+                    109.9
                   </span>
                 </div>
                 <div
@@ -733,7 +788,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    33°
+                    18°
                   </span>
                 </div>
                 <div
@@ -742,7 +797,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    383
+                    335
                   </span>
                 </div>
                 <div
@@ -761,10 +816,10 @@ exports[`SimpleTable snapshot 1`] = `
                 >
                   <span>
                     <a
-                      href="/player/592866/pitching"
+                      href="/player/608718/pitching"
                       sveltekit:prefetch=""
                     >
-                      Trevor Williams
+                      Brent Suter
                     </a>
                   </span>
                 </div>
@@ -783,7 +838,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    91.0
+                    85.1
                   </span>
                 </div>
                 <div
@@ -792,7 +847,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    5
+                    6
                   </span>
                 </div>
                 <div
@@ -801,7 +856,7 @@ exports[`SimpleTable snapshot 1`] = `
                   role="cell"
                 >
                   <span>
-                    1-3
+                    2-1
                   </span>
                 </div>
                 <div
@@ -847,6 +902,15 @@ exports[`SimpleTable snapshot 1`] = `
                     >
                       vsOAK
                     </a>
+                  </span>
+                </div>
+                <div
+                  class="table-body-cell svelte-tf2fv5"
+                  data-stat-name="time_pitch_thrown_est"
+                  role="cell"
+                >
+                  <span>
+                    6:01:17 PM
                   </span>
                 </div>
                 <div

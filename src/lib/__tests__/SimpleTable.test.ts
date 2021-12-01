@@ -14,7 +14,6 @@ describe('SimpleTable', () => {
 		showSortDescription: true,
 		sortBy,
 		sortDir: 'desc',
-
 		paginated: true,
 		pagination: {
 			pageSize: 5,
@@ -55,6 +54,9 @@ describe('SimpleTable', () => {
 		const visibleRowsPage1_desc = getAllByTestId(`${tableId}-row`);
 		expect(visibleRowsPage1_desc).toHaveLength(5);
 		expect(visibleRowsPage1_desc[0]).toHaveAttribute('aria-rowindex', '1');
+		expect(visibleRowsPage1_desc[1]).toHaveAttribute('aria-rowindex', '2');
+		expect(visibleRowsPage1_desc[2]).toHaveAttribute('aria-rowindex', '3');
+		expect(visibleRowsPage1_desc[3]).toHaveAttribute('aria-rowindex', '4');
 		expect(visibleRowsPage1_desc[4]).toHaveAttribute('aria-rowindex', '5');
 
 		const pageNav_compact = getByTestId('page-nav');
@@ -71,6 +73,9 @@ describe('SimpleTable', () => {
 		const visibleRowsPage2 = getAllByTestId(`${tableId}-row`);
 		expect(visibleRowsPage2).toHaveLength(5);
 		expect(visibleRowsPage2[0]).toHaveAttribute('aria-rowindex', '6');
+		expect(visibleRowsPage2[1]).toHaveAttribute('aria-rowindex', '7');
+		expect(visibleRowsPage2[2]).toHaveAttribute('aria-rowindex', '8');
+		expect(visibleRowsPage2[3]).toHaveAttribute('aria-rowindex', '9');
 		expect(visibleRowsPage2[4]).toHaveAttribute('aria-rowindex', '10');
 
 		const lastPage = getByTestId('last');
@@ -85,10 +90,6 @@ describe('SimpleTable', () => {
 		await fireEvent.click(toggleSort);
 		expect(sortDescription).toHaveTextContent('launch speed (ascending)');
 		expect(pageRange).toHaveTextContent(`1-5/${barrelsForDateMockData.length}`);
-		const visibleRowsPage1_asc = getAllByTestId(`${tableId}-row`);
-		expect(visibleRowsPage1_asc).toHaveLength(5);
-		expect(visibleRowsPage1_asc[0]).toHaveAttribute('aria-rowindex', '1');
-		expect(visibleRowsPage1_asc[4]).toHaveAttribute('aria-rowindex', '5');
 
 		const changePageSize = getByTestId('change-page-size');
 		await fireEvent.click(changePageSize);
@@ -110,6 +111,38 @@ describe('SimpleTable', () => {
 		expect(visibleRowsPage1_20_asc).toHaveLength(17);
 		expect(visibleRowsPage1_20_asc[0]).toHaveAttribute('aria-rowindex', '1');
 		expect(visibleRowsPage1_20_asc[16]).toHaveAttribute('aria-rowindex', '17');
+
+		const sortBy_Date = 'time_pitch_thrown_est';
+		const toggleSort_Date = getByTestId(`${tableId}-toggle-${sortBy_Date}`);
+		await fireEvent.click(toggleSort_Date);
+		expect(sortDescription).toHaveTextContent('time pitch thrown est (descending)');
+		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
+		const visibleRows_SortBy_Date = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_SortBy_Date).toHaveLength(17);
+		const firstRow_SortBy_Date = visibleRows_SortBy_Date[0].children;
+		const firstValue_SortBy_Date = firstRow_SortBy_Date[2];
+		expect(firstValue_SortBy_Date).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
+		expect(firstValue_SortBy_Date).toHaveTextContent('6:01:17 PM');
+		const lastRow_SortBy_Date = visibleRows_SortBy_Date[16].children;
+		const lastValue_SortBy_Date = lastRow_SortBy_Date[2];
+		expect(lastValue_SortBy_Date).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
+		expect(lastValue_SortBy_Date).toHaveTextContent('3:13:39 PM');
+
+		const sortBy_Bool = 'inside_strike_zone';
+		const toggleSort_Bool = getByTestId(`${tableId}-toggle-${sortBy_Bool}`);
+		await fireEvent.click(toggleSort_Bool);
+		expect(sortDescription).toHaveTextContent('inside strike zone (descending)');
+		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
+		const visibleRows_SortBy_Bool = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_SortBy_Bool).toHaveLength(17);
+		const firstRow_SortBy_Bool = visibleRows_SortBy_Bool[0].children;
+		const firstValue_SortBy_Bool = firstRow_SortBy_Bool[12];
+		expect(firstValue_SortBy_Bool).toHaveAttribute('data-stat-name', sortBy_Bool);
+		expect(firstValue_SortBy_Bool).toHaveTextContent('Inside');
+		const lastRow_SortBy_Bool = visibleRows_SortBy_Bool[16].children;
+		const lastValue_SortBy_Bool = lastRow_SortBy_Bool[12];
+		expect(lastValue_SortBy_Bool).toHaveAttribute('data-stat-name', sortBy_Bool);
+		expect(lastValue_SortBy_Bool).toHaveTextContent('Outside');
 	});
 
 	it('verify page-nav layout is responsive', async () => {
