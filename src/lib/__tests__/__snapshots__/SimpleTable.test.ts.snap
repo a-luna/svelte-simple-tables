@@ -2,14 +2,14 @@
 
 exports[`SimpleTable snapshot 1`] = `
 <body
-  class="default"
+  data-sst-theme="darker"
 >
   <div>
     <div
-      class="svelte-186jom0 table-container"
+      class="svelte-aal6ae table-container"
     >
       <div
-        class="simple-table svelte-186jom0"
+        class="simple-table svelte-aal6ae"
       >
         <div
           class="table-header-wrapper svelte-w2e4jr"

@@ -4,7 +4,7 @@
 	import { createPaginationStore } from '$lib/stores/pagination';
 	import { createTableStateStore } from '$lib/stores/tableState';
 	import type { ColumnSettings, PaginationStore, TableSettings, TableStateStore } from '$lib/types';
-	import { clearClassList, getDefaultTableId, getSortFunction } from '$lib/util';
+	import { getDefaultTableId, getSortFunction } from '$lib/util';
 	import { setContext, tick } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
@@ -31,20 +31,7 @@
 	$: dataCurrentPage = data.sort(sortFunction).slice($pagination.startRow, $pagination.endRow);
 	$: if ($pagination.startRow || $pagination.endRow) updateColumnWidths();
 	$: browser = typeof window !== 'undefined';
-	$: if (browser) applyTheme($settings.themeName);
-
-	function applyTheme(theme: 'default' | 'light' | 'dark' | 'git') {
-		clearClassList(window.document.body);
-		if (theme === 'light') {
-			window.document.body.classList.add('light-mode');
-		} else if (theme === 'dark') {
-			window.document.body.classList.add('dark-mode');
-		} else if (theme === 'git') {
-			window.document.body.classList.add('git-light');
-		} else {
-			window.document.body.classList.add('default');
-		}
-	}
+	$: if (browser) window.document.body.dataset.sstTheme = $settings.themeName || 'darker';
 
 	async function handleSortTable(sortSettings: {
 		propName: string;
@@ -179,7 +166,7 @@
 		--sst-default-button-focus-border-color: hsl(212, 13%, 77%);
 	}
 
-  :global(body.light-mode) {
+  :global(body[data-sst-theme="light"]) {
 	--sst-text-color: hsl(0, 0%, 5%);
 	--sst-link-text-color: hsl(218, 100%, 35%);
 	--sst-link-hover-text-color: hsl(218, 100%, 35%);
@@ -231,7 +218,7 @@
 	--sst-button-focus-border-color: transparent;
 }
 
-:global(body.dark-mode) {
+:global(body[data-sst-theme="dark"]) {
   --sst-text-color: hsl(0, 0%, 5%);
   --sst-link-text-color: hsl(251deg 74% 40%);
   --sst-link-hover-text-color: hsl(251deg 74% 50%);
@@ -283,7 +270,7 @@
   --sst-button-focus-border-color: transparent;
 }
 
-:global(body.git-light) {
+:global(body[data-sst-theme="lighter"]) {
 	--sst-text-color: hsl(213, 13%, 16%);
 	--sst-link-text-color: hsl(216, 97%, 36%);
 	--sst-link-hover-text-color: hsl(216, 97%, 36%);

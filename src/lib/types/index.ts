@@ -7,3 +7,4 @@ export type { PaginationStore } from './PaginationStore';
 export type { TableSettings } from './TableSettings';
 export type { TableState } from './TableState';
 export type { TableStateStore } from './TableStateStore';
+export type { TableTheme } from './TableTheme';

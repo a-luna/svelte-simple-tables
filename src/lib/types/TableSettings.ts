@@ -1,3 +1,5 @@
+import type { TableTheme } from './TableTheme';
+
 export interface TableSettings {
 	tableId?: string;
 	showHeader?: boolean;
@@ -6,7 +8,7 @@ export interface TableSettings {
 	sortBy?: string;
 	sortDir?: 'asc' | 'desc';
 	tableWrapper?: boolean;
-	themeName?: 'default' | 'light' | 'dark' | 'git';
+	themeName?: TableTheme;
 	paginated?: boolean;
 	pageSize?: number;
 	pageSizeOptions?: number[];

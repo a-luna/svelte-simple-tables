@@ -13,7 +13,7 @@
 		sortBy: 'time_pitch_thrown_est',
 		sortDir: 'desc',
 		tableWrapper: false,
-		themeName: 'git',
+		themeName: 'darker',
 		paginated: true,
 		pageSize: 5,
 		pageSizeOptions: [5, 10, 15, 20, 25],
@@ -25,14 +25,18 @@
 
 <div class="table-wrapper">
 	<div id="theme-name" class="btn-group">
-		<Button
-			label="Default"
-			active={$settings.themeName === 'default'}
-			on:click={() => ($settings.themeName = 'default')}
-		/>
 		<Button label="Dark" active={$settings.themeName === 'dark'} on:click={() => ($settings.themeName = 'dark')} />
+		<Button
+			label="Darker"
+			active={$settings.themeName === 'darker'}
+			on:click={() => ($settings.themeName = 'darker')}
+		/>
 		<Button label="Light" active={$settings.themeName === 'light'} on:click={() => ($settings.themeName = 'light')} />
-		<Button label="Git" active={$settings.themeName === 'git'} on:click={() => ($settings.themeName = 'git')} />
+		<Button
+			label="Lighter"
+			active={$settings.themeName === 'lighter'}
+			on:click={() => ($settings.themeName = 'lighter')}
+		/>
 	</div>
 	<SimpleTable data={barrelsForDateMockData} columns={pfxBarrelColumnSettings} {settings} />
 </div>
