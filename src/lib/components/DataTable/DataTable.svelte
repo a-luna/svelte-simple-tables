@@ -65,8 +65,8 @@
 		overflow-x: auto;
 		white-space: nowrap;
 		width: 100%;
-		border-top-left-radius: 4px;
-		border-top-right-radius: 4px;
+		border-top-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
+		border-top-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 		padding-bottom: 0.5rem;
 	}
 
@@ -116,7 +116,7 @@
 	}
 
 	.resp-table-row:last-child {
-		border-bottom-left-radius: 4px;
-		border-bottom-right-radius: 4px;
+		border-bottom-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
+		border-bottom-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 	}
 </style>

@@ -1,13 +1,15 @@
 import SimpleTable from '$lib/components/SimpleTable.svelte';
+import type { TableSettings } from '$lib/types';
 import { pfxBarrelColumnSettings } from '$lib/__tests__/data/columnSettings';
 import { barrelsForDateMockData } from '$lib/__tests__/data/getBarrelsForDate';
 import { fireEvent, render } from '@testing-library/svelte';
+import { writable } from 'svelte/store';
 
 describe('SimpleTable', () => {
 	const tableId = 'all-barrels';
 	const caption = 'Barrels';
 	const sortBy = 'launch_speed';
-	const settings = {
+	const settings = writable<TableSettings>({
 		tableId,
 		showHeader: true,
 		header: caption,
@@ -15,14 +17,13 @@ describe('SimpleTable', () => {
 		sortBy,
 		sortDir: 'desc',
 		paginated: true,
-		pagination: {
-			pageSize: 5,
-			pageSizeOptions: [5, 10, 15, 20, 25],
-			pageNavLayout: 'compact',
-			rowTypeSingle: 'barrel',
-			rowTypePlural: 'barrels',
-		},
-	};
+		pageSize: 5,
+		pageSizeOptions: [5, 10, 15, 20, 25],
+		pageNavLayout: 'compact',
+		rowTypeSingle: 'barrel',
+		rowTypePlural: 'barrels',
+	});
+
 	it('snapshot', async () => {
 		const { container, getByTestId } = render(SimpleTable, {
 			data: barrelsForDateMockData,
@@ -36,6 +37,7 @@ describe('SimpleTable', () => {
 		expect(pageSizeChoices).toBeVisible();
 		expect(container).toMatchSnapshot();
 	});
+
 	it('verify table is paginated and sortable', async () => {
 		const { getByTestId, getAllByTestId } = render(SimpleTable, {
 			data: barrelsForDateMockData,
@@ -112,49 +114,112 @@ describe('SimpleTable', () => {
 		expect(visibleRowsPage1_20_asc[0]).toHaveAttribute('aria-rowindex', '1');
 		expect(visibleRowsPage1_20_asc[16]).toHaveAttribute('aria-rowindex', '17');
 
-		const sortBy_Date = 'time_pitch_thrown_est';
-		const toggleSort_Date = getByTestId(`${tableId}-toggle-${sortBy_Date}`);
-		await fireEvent.click(toggleSort_Date);
+		const sortBy_date = 'time_pitch_thrown_est';
+		const toggleSort_date = getByTestId(`${tableId}-toggle-${sortBy_date}`);
+		await fireEvent.click(toggleSort_date);
 		expect(sortDescription).toHaveTextContent('time pitch thrown est (descending)');
 		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
-		const visibleRows_SortBy_Date = getAllByTestId(`${tableId}-row`);
-		expect(visibleRows_SortBy_Date).toHaveLength(17);
-		const firstRow_SortBy_Date = visibleRows_SortBy_Date[0].children;
-		const firstValue_SortBy_Date = firstRow_SortBy_Date[2];
-		expect(firstValue_SortBy_Date).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
-		expect(firstValue_SortBy_Date).toHaveTextContent('6:01:17 PM');
-		const lastRow_SortBy_Date = visibleRows_SortBy_Date[16].children;
-		const lastValue_SortBy_Date = lastRow_SortBy_Date[2];
-		expect(lastValue_SortBy_Date).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
-		expect(lastValue_SortBy_Date).toHaveTextContent('3:13:39 PM');
+		const visibleRows_sortBy_date_desc = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_sortBy_date_desc).toHaveLength(17);
+		const firstRow_sortBy_date_desc = visibleRows_sortBy_date_desc[0].children;
+		const firstValue_sortBy_date_desc = firstRow_sortBy_date_desc[2];
+		expect(firstValue_sortBy_date_desc).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
+		expect(firstValue_sortBy_date_desc).toHaveTextContent('6:01:17 PM');
+		const lastRow_sortBy_date_desc = visibleRows_sortBy_date_desc[16].children;
+		const lastValue_sortBy_date_desc = lastRow_sortBy_date_desc[2];
+		expect(lastValue_sortBy_date_desc).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
+		expect(lastValue_sortBy_date_desc).toHaveTextContent('3:13:39 PM');
 
-		const sortBy_Bool = 'inside_strike_zone';
-		const toggleSort_Bool = getByTestId(`${tableId}-toggle-${sortBy_Bool}`);
-		await fireEvent.click(toggleSort_Bool);
+		await fireEvent.click(toggleSort_date);
+		expect(sortDescription).toHaveTextContent('time pitch thrown est (ascending)');
+		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
+		const visibleRows_sortBy_date_asc = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_sortBy_date_asc).toHaveLength(17);
+		const firstRow_sortBy_date_asc = visibleRows_sortBy_date_asc[0].children;
+		const firstValue_sortBy_date_asc = firstRow_sortBy_date_asc[2];
+		expect(firstValue_sortBy_date_asc).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
+		expect(firstValue_sortBy_date_asc).toHaveTextContent('3:13:39 PM');
+		const lastRow_sortBy_date_asc = visibleRows_sortBy_date_asc[16].children;
+		const lastValue_sortBy_date_asc = lastRow_sortBy_date_asc[2];
+		expect(lastValue_sortBy_date_asc).toHaveAttribute('data-stat-name', 'time_pitch_thrown_est');
+		expect(lastValue_sortBy_date_asc).toHaveTextContent('6:01:17 PM');
+
+		const sortBy_bool = 'inside_strike_zone';
+		const toggleSort_bool = getByTestId(`${tableId}-toggle-${sortBy_bool}`);
+		await fireEvent.click(toggleSort_bool);
 		expect(sortDescription).toHaveTextContent('inside strike zone (descending)');
 		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
-		const visibleRows_SortBy_Bool = getAllByTestId(`${tableId}-row`);
-		expect(visibleRows_SortBy_Bool).toHaveLength(17);
-		const firstRow_SortBy_Bool = visibleRows_SortBy_Bool[0].children;
-		const firstValue_SortBy_Bool = firstRow_SortBy_Bool[12];
-		expect(firstValue_SortBy_Bool).toHaveAttribute('data-stat-name', sortBy_Bool);
-		expect(firstValue_SortBy_Bool).toHaveTextContent('Inside');
-		const lastRow_SortBy_Bool = visibleRows_SortBy_Bool[16].children;
-		const lastValue_SortBy_Bool = lastRow_SortBy_Bool[12];
-		expect(lastValue_SortBy_Bool).toHaveAttribute('data-stat-name', sortBy_Bool);
-		expect(lastValue_SortBy_Bool).toHaveTextContent('Outside');
+		const visibleRows_sortBy_bool_desc = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_sortBy_bool_desc).toHaveLength(17);
+		const firstRow_sortBy_bool_desc = visibleRows_sortBy_bool_desc[0].children;
+		const firstValue_sortBy_bool_desc = firstRow_sortBy_bool_desc[12];
+		expect(firstValue_sortBy_bool_desc).toHaveAttribute('data-stat-name', sortBy_bool);
+		expect(firstValue_sortBy_bool_desc).toHaveTextContent('Inside');
+		const lastRow_sortBy_bool_desc = visibleRows_sortBy_bool_desc[16].children;
+		const lastValue_sortBy_bool_desc = lastRow_sortBy_bool_desc[12];
+		expect(lastValue_sortBy_bool_desc).toHaveAttribute('data-stat-name', sortBy_bool);
+		expect(lastValue_sortBy_bool_desc).toHaveTextContent('Outside');
+
+		await fireEvent.click(toggleSort_bool);
+		expect(sortDescription).toHaveTextContent('inside strike zone (ascending)');
+		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
+		const visibleRows_sortBy_bool_asc = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_sortBy_bool_asc).toHaveLength(17);
+		const firstRow_sortBy_bool_asc = visibleRows_sortBy_bool_asc[0].children;
+		const firstValue_sortBy_bool_asc = firstRow_sortBy_bool_asc[12];
+		expect(firstValue_sortBy_bool_asc).toHaveAttribute('data-stat-name', sortBy_bool);
+		expect(firstValue_sortBy_bool_asc).toHaveTextContent('Outside');
+		const lastRow_sortBy_bool_asc = visibleRows_sortBy_bool_asc[16].children;
+		const lastValue_sortBy_bool_asc = lastRow_sortBy_bool_asc[12];
+		expect(lastValue_sortBy_bool_asc).toHaveAttribute('data-stat-name', sortBy_bool);
+		expect(lastValue_sortBy_bool_asc).toHaveTextContent('Inside');
+
+		const sortBy_string = 'mlbam_pitch_name';
+		const toggleSort_string = getByTestId(`${tableId}-toggle-${sortBy_string}`);
+		await fireEvent.click(toggleSort_string);
+		expect(sortDescription).toHaveTextContent('mlbam pitch name (descending)');
+		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
+		const visibleRows_sortBy_string_desc = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_sortBy_string_desc).toHaveLength(17);
+		const firstRow_sortBy_string_desc = visibleRows_sortBy_string_desc[0].children;
+		const firstValue_sortBy_string_desc = firstRow_sortBy_string_desc[8];
+		expect(firstValue_sortBy_string_desc).toHaveAttribute('data-stat-name', sortBy_string);
+		expect(firstValue_sortBy_string_desc).toHaveTextContent('Slider');
+		const lastRow_sortBy_string_desc = visibleRows_sortBy_string_desc[16].children;
+		const lastValue_sortBy_string_desc = lastRow_sortBy_string_desc[8];
+		expect(lastValue_sortBy_string_desc).toHaveAttribute('data-stat-name', sortBy_string);
+		expect(lastValue_sortBy_string_desc).toHaveTextContent('Changeup');
+
+		await fireEvent.click(toggleSort_string);
+		expect(sortDescription).toHaveTextContent('mlbam pitch name (ascending)');
+		expect(pageRange).toHaveTextContent(`1-17/${barrelsForDateMockData.length}`);
+		const visibleRows_sortBy_string_asc = getAllByTestId(`${tableId}-row`);
+		expect(visibleRows_sortBy_string_asc).toHaveLength(17);
+		const firstRow_sortBy_string_asc = visibleRows_sortBy_string_asc[0].children;
+		const firstValue_sortBy_string_asc = firstRow_sortBy_string_asc[8];
+		expect(firstValue_sortBy_string_asc).toHaveAttribute('data-stat-name', sortBy_string);
+		expect(firstValue_sortBy_string_asc).toHaveTextContent('Changeup');
+		const lastRow_sortBy_string_asc = visibleRows_sortBy_string_asc[16].children;
+		const lastValue_sortBy_string_asc = lastRow_sortBy_string_asc[8];
+		expect(lastValue_sortBy_string_asc).toHaveAttribute('data-stat-name', sortBy_string);
+		expect(lastValue_sortBy_string_asc).toHaveTextContent('Slider');
 	});
 
 	it('verify page-nav layout is responsive', async () => {
-		const pagination = {
-			...settings.pagination,
+		const pageNavLayoutFullSettings = writable<TableSettings>({
+			tableId,
+			showHeader: true,
+			header: caption,
+			showSortDescription: true,
+			sortBy,
+			sortDir: 'desc',
+			paginated: true,
 			pageSize: 5,
+			pageSizeOptions: [5, 10, 15, 20, 25],
 			pageNavLayout: 'full',
-		};
-		const pageNavLayoutFullSettings = {
-			...settings,
-			pagination,
-		};
+			rowTypeSingle: 'barrel',
+			rowTypePlural: 'barrels',
+		});
 		const { getByTestId, getAllByTestId } = render(SimpleTable, {
 			data: barrelsForDateMockData,
 			columns: pfxBarrelColumnSettings,

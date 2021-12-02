@@ -55,6 +55,7 @@
 	}
 
 	span {
+		color: var(--sst-table-header-text-color, var(--sst-default-table-header-text-color));
 		font-size: 0.95rem;
 		line-height: 1;
 		margin-left: 0.5rem;

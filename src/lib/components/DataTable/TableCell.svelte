@@ -20,13 +20,9 @@
 </div>
 
 <style lang="postcss">
-	.highlight-stat {
-		color: var(--sst-body-highlight-sort-text-color, var(--sst-default-body-highlight-sort-text-color));
-		background-color: var(--sst-body-highlight-sort-bg-color, var(--sst-default-body-highlight-sort-bg-color));
-	}
-
 	.table-body-cell {
 		display: table-cell;
+		text-align: right;
 		border-top: none;
 		border-left: 1px solid var(--sst-body-inner-vert-border-color, var(--sst-default-body-inner-vert-border-color));
 		border-bottom: 1px dotted var(--sst-body-inner-horiz-border-color, var(--sst-default-body-inner-horiz-border-color));
@@ -46,10 +42,21 @@
 	}
 
 	:global(.resp-table-row:last-child) .table-body-cell:first-child {
-		border-bottom-left-radius: 4px;
+		border-bottom-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 	}
 
 	:global(.resp-table-row:last-child) .table-body-cell:last-child {
-		border-bottom-right-radius: 4px;
+		border-bottom-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
+	}
+
+	.highlight-stat {
+		color: var(--sst-body-highlight-sort-text-color, var(--sst-default-body-highlight-sort-text-color));
+		background-color: var(--sst-body-highlight-sort-bg-color, var(--sst-default-body-highlight-sort-bg-color));
+		border-bottom: 1px dotted
+			var(--sst-body-highlight-sort-border-color, var(--sst-default-body-highlight-sort-border-color));
+	}
+
+	:global(.resp-table-row:last-child) .highlight-stat {
+		border-bottom: 1px solid var(--sst-table-outer-border-color, var(--sst-default-table-outer-border-color));
 	}
 </style>

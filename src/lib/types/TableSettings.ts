@@ -5,12 +5,12 @@ export interface TableSettings {
 	showSortDescription?: boolean;
 	sortBy?: string;
 	sortDir?: 'asc' | 'desc';
+	tableWrapper?: boolean;
+	themeName?: 'default' | 'light' | 'dark' | 'git';
 	paginated?: boolean;
-	pagination?: {
-		pageSize?: number;
-		pageSizeOptions?: number[];
-		pageNavLayout?: 'auto' | 'full' | 'compact';
-		rowTypeSingle?: string;
-		rowTypePlural?: string;
-	};
+	pageSize?: number;
+	pageSizeOptions?: number[];
+	pageNavLayout?: 'auto' | 'full' | 'compact';
+	rowTypeSingle?: string;
+	rowTypePlural?: string;
 }

@@ -20,6 +20,12 @@ export function formatNumber(input: number | string, precision = 0): string {
 	return unformatted.toLocaleString('en-US', { minimumFractionDigits: precision, maximumFractionDigits: precision });
 }
 
+export function clearClassList(el: HTMLElement): void {
+	while (el.classList.length > 0) {
+		el.classList.remove(el.classList.item(0));
+	}
+}
+
 export function getSortFunction<T>(
 	propName: string,
 	propType: 'string' | 'number' | 'boolean' | 'date',

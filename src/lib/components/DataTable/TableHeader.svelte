@@ -34,10 +34,11 @@
 		display: table-caption;
 		color: var(--sst-table-header-text-color, var(--sst-default-table-header-text-color));
 		font-size: 1.125rem;
+		font-weight: 500;
 		letter-spacing: 0.025em;
 		line-height: 1;
 		white-space: nowrap;
-		margin-bottom: 0.375rem;
+		margin: 0 0 0.375rem;
 	}
 
 	.sort-description {
