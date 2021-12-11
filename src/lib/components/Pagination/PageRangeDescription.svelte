@@ -1,27 +1,39 @@
 <script lang="ts">
 	import SettingsIcon from '$lib/components/Icons/SettingsIcon.svelte';
-	import { breakPoints } from '$lib/stores/breakPoints';
+	import { pageWidth } from '$lib/stores/pageWidth';
+	import { syncWidth } from '$lib/stores/syncWidth';
+	import type { PageRangeFormat, TableStateStore } from '$lib/types';
+	import { getContext } from 'svelte';
 
+	export let tableId: string;
 	export let totalRows: number;
 	export let startRow: number;
 	export let endRow: number;
-	export let rowTypeSingle: string = 'entry';
-	export let rowTypePlural: string = 'entries';
-	export let pageNavLayout: 'auto' | 'full' | 'compact' = 'auto';
+	export let rowType: string;
+	export let pageRangeFormat: PageRangeFormat;
+	let pageDescriptionElement: HTMLElement;
+	const tableState: TableStateStore = getContext(tableId);
 
-	$: rowType = totalRows === 1 ? rowTypeSingle : rowTypePlural;
-	$: fontSize = $breakPoints.pageWidth < 1024 ? '1rem' : '1.05rem';
+	$: fontSize = $pageWidth.current < 1024 ? '1em' : '1.05em';
+	$: pageDescWidthStore = syncWidth(pageDescriptionElement);
+	$: tableState.updatePaginationLeftWidth($pageDescWidthStore);
 </script>
 
-<div class="pagination-description" data-testid="change-page-size" on:click>
+<div
+	id="{tableId}-page-size"
+	class="pagination-description"
+	data-testid="change-page-size"
+	bind:this={pageDescriptionElement}
+	on:click
+>
 	<div class="change-settings-icon" title="Click to change # of rows displayed per page">
 		<SettingsIcon />
 	</div>
 	<aside title="Click to change # of rows displayed per page" style="font-size: {fontSize}">
 		<div class="current-page-range" data-testid="page-range">
-			{#if pageNavLayout === 'compact' || (pageNavLayout === 'auto' && $breakPoints.isMobileDisplay)}
+			{#if pageRangeFormat === 'compact' || (pageRangeFormat === 'auto' && $pageWidth.isMobileDisplay)}
 				<b>{startRow + 1}-{endRow}/{totalRows}</b>
-			{:else if pageNavLayout === 'full' || (pageNavLayout === 'auto' && !$breakPoints.isMobileDisplay)}
+			{:else if pageRangeFormat === 'verbose' || (pageRangeFormat === 'auto' && !$pageWidth.isMobileDisplay)}
 				Showing <b>{startRow + 1}</b> to <b>{endRow}</b> of <b>{totalRows}</b> {rowType}
 			{/if}
 		</div>
@@ -30,23 +42,23 @@
 
 <style lang="postcss">
 	.pagination-description {
-		color: var(--sst-page-description-text-color, var(--sst-default-page-description-text-color));
+		color: var(--sst-page-range-description-text-color, var(--sst-default-page-range-description-text-color));
 		display: flex;
 		flex-flow: row nowrap;
 		align-items: center;
 		justify-content: flex-start;
-		gap: 0.25rem;
+		gap: 0.25em;
 		line-height: 1;
 		cursor: pointer;
 	}
 
 	.change-settings-icon {
 		display: block;
-		margin-bottom: 0.125rem;
+		margin-bottom: 0.125em;
 		stroke: currentColor;
 		stroke-width: 2;
-		width: 1.25rem;
-		height: 1rem;
+		width: 1.25em;
+		height: 1em;
 	}
 
 	.current-page-range {

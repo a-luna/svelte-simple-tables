@@ -1,6 +1,6 @@
 import type { PitchFx } from '../types';
 
-export const barrelsForDateMockData: PitchFx[] = [
+export const barrelsForDateData: PitchFx[] = [
 	{
 		bb_game_id: 'gid_2021_10_03_colmlb_arimlb_1',
 		bbref_game_id: 'ARI202110030',

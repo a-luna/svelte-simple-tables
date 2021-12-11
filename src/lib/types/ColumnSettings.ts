@@ -1,6 +1,8 @@
+import type { PropType } from './literals';
+
 export interface ColumnSettings<T> {
 	propName: string;
-	propType: 'string' | 'number' | 'boolean' | 'date';
+	propType: PropType;
 	headerText?: string;
 	tooltip?: string;
 	sortable?: boolean;

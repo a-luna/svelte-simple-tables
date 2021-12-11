@@ -2,20 +2,26 @@
 	import ColumnHeader from '$lib/components/DataTable/ColumnHeader.svelte';
 	import TableCell from '$lib/components/DataTable/TableCell.svelte';
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
-	import type { ColumnSettings, PaginationStore, TableStateStore } from '$lib/types';
+	import { syncWidth } from '$lib/stores/syncWidth';
+	import type { ColumnSettings, PaginationStore, TableLayout, TableStateStore } from '$lib/types';
 	import { getContext } from 'svelte';
 
 	type R = $$Generic;
 
 	export let tableId: string;
 	export let data: R[] = [];
-	export let columns: ColumnSettings<R>[] = [];
+	export let columnSettings: ColumnSettings<R>[] = [];
+	export let tableLayout: TableLayout;
+	export let fullWidth: boolean = false;
 	export let pagination: PaginationStore;
 	export let showHeader: boolean = false;
 	export let header: string = '';
 	export let showSortDescription: boolean = false;
-
+	let tableElement: HTMLElement;
 	const tableState: TableStateStore = getContext(tableId);
+
+	$: tableWidthStore = syncWidth(tableElement);
+	$: tableState.updateTableWidth($tableWidthStore);
 </script>
 
 <TableHeader {tableId} {header} {showHeader} {showSortDescription} />
@@ -27,10 +33,14 @@
 			aria-labelledby="{$tableState.tableId}-cap"
 			aria-rowcount={$pagination.totalRows}
 			class="resp-table"
+			class:auto-layout={tableLayout === 'auto'}
+			class:fixed-layout={tableLayout === 'fixed'}
+			class:full-width={fullWidth}
 			data-testid={$tableState.tableId}
+			bind:this={tableElement}
 		>
 			<div role="row" class="resp-table-header">
-				{#each columns as { propName, propType, headerText, tooltip, sortable }}
+				{#each columnSettings as { propName, propType, headerText, tooltip, sortable }}
 					<ColumnHeader
 						tableId={$tableState.tableId}
 						{propName}
@@ -50,7 +60,7 @@
 						aria-rowindex={$pagination.startRow + i + 1}
 						data-testid="{$tableState.tableId}-row"
 					>
-						{#each columns as { propName, classList, colValue }}
+						{#each columnSettings as { propName, classList, colValue }}
 							<TableCell tableId={$tableState.tableId} {obj} {propName} {classList} {colValue} />
 						{/each}
 					</div>
@@ -64,24 +74,31 @@
 	.resp-table-container {
 		overflow-x: auto;
 		white-space: nowrap;
-		width: 100%;
 		border-top-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 		border-top-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
-		padding-bottom: 0.5rem;
 	}
 
 	.resp-table-wrapper {
 		display: inline-block;
-		width: 100%;
 	}
 
 	.resp-table {
 		display: table;
-		table-layout: fixed;
-		width: 100%;
 		color: var(--sst-text-color, var(--sst-default-text-color));
-		font-size: 0.875rem;
-		line-height: 1.25rem;
+		line-height: 1.25em;
+		margin: 0 auto;
+	}
+
+	.full-width {
+		width: 100%;
+	}
+
+	.auto-layout {
+		table-layout: auto;
+	}
+
+	.fixed-layout {
+		table-layout: fixed;
 	}
 
 	.resp-table-header {

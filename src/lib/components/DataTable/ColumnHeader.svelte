@@ -1,46 +1,34 @@
 <script lang="ts">
 	import SortAscending from '$lib/components/Icons/SortAscending.svelte';
 	import SortDescending from '$lib/components/Icons/SortDescending.svelte';
-	import { breakPoints } from '$lib/stores/breakPoints';
-	import type { BreakPoint, TableStateStore } from '$lib/types';
-	import { capitalizeSentence, getColumnWidth } from '$lib/util';
+	import type { SortDirection, TableStateStore } from '$lib/types';
+	import { getColumnWidth, getDefaultColHeader } from '$lib/util';
 	import { createEventDispatcher, getContext } from 'svelte';
 
 	export let tableId: string;
 	export let propName: string;
 	export let propType: string;
-	export let headerText: string = defaultColHeader();
-	export let tooltip: string = defaultColHeader();
+	export let headerText: string = getDefaultColHeader(propName);
+	export let tooltip: string = getDefaultColHeader(propName);
 	export let sortable: boolean = true;
-	let width: string = '';
+	let width: number;
 	const dispatch = createEventDispatcher();
 	const tableState: TableStateStore = getContext(tableId);
 	let ariaSort: 'ascending' | 'descending' | 'none' | 'other' = null;
 
-	$: if ($tableState.tableSync) width = getPaddedColumnWidth();
-	$: currentBreakPoint = $breakPoints.current as BreakPoint;
+	$: if ($tableState.tableSync) width = getColumnWidth(tableId, propName, $tableState.sortBy);
 	$: asc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'asc';
 	$: desc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'desc';
 	$: ariaSort = getAriaSortValue($tableState.sortBy, $tableState.sortDir);
 
-	function defaultColHeader(): string {
-		return capitalizeSentence(propName.split('_').join(' '));
-	}
-
-	function getPaddedColumnWidth(): string {
-		const colWidth = getColumnWidth(tableId, propName, $tableState.sortBy, currentBreakPoint);
-		const colPadding = `(${$tableState.cellPadding} * 2)`;
-		return `calc(${colWidth}px + ${colPadding})`;
-	}
-
 	function toggleSort() {
 		if (sortable) {
-			const sortDir = $tableState.sortBy !== propName ? 'desc' : $tableState.sortDir === 'asc' ? 'desc' : 'asc';
+			const sortDir = $tableState.sortBy !== propName ? 'asc' : $tableState.sortDir === 'asc' ? 'desc' : 'asc';
 			dispatch('sortTable', { propName, propType, sortDir });
 		}
 	}
 
-	const getAriaSortValue = (sortBy: string, sortDir: 'asc' | 'desc') =>
+	const getAriaSortValue = (sortBy: string, sortDir: SortDirection) =>
 		sortBy !== propName ? null : sortDir === 'asc' ? 'ascending' : 'descending';
 </script>
 
@@ -53,12 +41,12 @@
 	class:desc
 	data-stat-name={propName}
 	title={tooltip}
-	style={width ? ` width: ${width}` : ''}
 	data-testid="{$tableState.tableId}-toggle-{propName}"
+	tabindex="0"
 	on:click={() => toggleSort()}
 >
-	<div class="header-content-wrapper">
-		<span class="header-content{sortable ? ' underline' : ''}">{headerText}</span>
+	<div class="header-content-wrapper" style={width ? ` width: ${width}px` : ''}>
+		<span class="header-content">{headerText}</span>
 		{#if asc}
 			<div class="asc_icon">
 				<SortAscending />
@@ -75,14 +63,12 @@
 	.table-header-cell {
 		display: table-cell;
 		text-align: center;
-		cursor: pointer;
+		font-weight: var(--sst-col-header-text-weight, var(--sst-default-col-header-text-weight));
 		color: var(--sst-col-header-text-color, var(--sst-default-col-header-text-color));
 		background-color: var(--sst-col-header-bg-color, var(--sst-default-col-header-bg-color));
 		border-top: 1px solid var(--sst-table-outer-border-color, var(--sst-default-table-outer-border-color));
-		border-left: 1px solid
-			var(--sst-col-header-inner-vert-border-color, var(--sst-default-col-header-inner-vert-border-color));
-		border-bottom: 1px solid
-			var(--sst-col-header-bottom-border-color, var(--sst-default-col-header-bottom-border-color));
+		border-left: 1px solid var(--sst-col-header-vert-border-color, var(--sst-default-col-header-vert-border-color));
+		border-bottom: 1px solid var(--sst-col-header-horiz-border-color, var(--sst-default-col-header-horiz-border-color));
 		padding: var(--sst-col-header-padding, var(--sst-default-col-header-padding));
 	}
 
@@ -96,16 +82,21 @@
 		border-right: 1px solid var(--sst-table-outer-border-color, var(--sst-default-table-outer-border-color));
 	}
 
+	.sortable {
+		cursor: pointer;
+	}
+
 	.header-content-wrapper {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: center;
-		column-gap: 0.25rem;
+		column-gap: 0.25em;
 	}
 
 	.asc,
 	.desc {
 		color: var(--sst-col-header-highlight-sort-text-color, var(--sst-default-col-header-highlight-sort-text-color));
+		font-weight: var(--sst-col-header-highlight-text-weight, var(--sst-default-col-header-highlight-text-weight));
 		background-color: var(
 			--sst-col-header-highlight-sort-bg-color,
 			var(--sst-default-col-header-highlight-sort-bg-color)
@@ -135,11 +126,11 @@
 
 	.asc_icon,
 	.desc_icon {
-		flex: 0 0 1rem;
+		flex: 0 0 1em;
 		display: flex;
 		flex-flow: column;
 		justify-content: center;
-		font-size: 0.5rem;
+		font-size: 1em;
 		stroke: currentColor;
 		stroke-width: 2;
 		cursor: pointer;

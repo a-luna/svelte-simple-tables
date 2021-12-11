@@ -59,4 +59,8 @@
 	:global(.resp-table-row:last-child) .highlight-stat {
 		border-bottom: 1px solid var(--sst-table-outer-border-color, var(--sst-default-table-outer-border-color));
 	}
+
+	.text-center {
+		text-align: center;
+	}
 </style>

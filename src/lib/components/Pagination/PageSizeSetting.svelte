@@ -1,14 +1,22 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
-	import { createEventDispatcher } from 'svelte';
+	import { syncWidth } from '$lib/stores/syncWidth';
+	import type { TableStateStore } from '$lib/types';
+	import { createEventDispatcher, getContext } from 'svelte';
 	import { cubicInOut } from 'svelte/easing';
-	import { slide } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 
+	export let tableId: string;
 	export let totalRows: number;
 	export let pageSize: number;
 	export let pageSizeOptions: number[];
 	const dispatch = createEventDispatcher();
-	const options = { duration: 500, easing: cubicInOut };
+	const options = { duration: 200, easing: cubicInOut };
+	let pageSizeSettingElement: HTMLElement;
+	const tableState: TableStateStore = getContext(tableId);
+
+	$: pageSizeSettingWidthStore = syncWidth(pageSizeSettingElement);
+	$: tableState.updatePaginationLeftWidth($pageSizeSettingWidthStore);
 
 	function changeSetting(newSetting: number) {
 		if (pageSize !== newSetting) {
@@ -22,15 +30,20 @@
 	}
 </script>
 
-<div transition:slide={options} class="page-size-setting-wrapper" data-testid="page-size-choices">
-	<div class="page-size-setting btn-group">
+<div
+	transition:fade={options}
+	class="page-size-setting-wrapper"
+	data-testid="page-size-choices"
+	bind:this={pageSizeSettingElement}
+>
+	<div id="{tableId}-page-size" class="page-size-setting btn-group">
 		{#each pageSizeOptions as pageSizeChoice, i}
 			<Button
 				classList={['page-size']}
 				disabled={pageSizeIsInvalid(i)}
 				active={pageSizeChoice === pageSize}
 				label={pageSizeChoice.toString()}
-				title={'{pageSizeChoice} Rows/Page'}
+				title="{pageSizeChoice} Rows/Page"
 				aria={{}}
 				testId="page-size-{pageSizeChoice}"
 				on:click={() => changeSetting(pageSizeChoice)}
@@ -46,7 +59,6 @@
 		flex-flow: row nowrap;
 		align-items: center;
 		justify-content: flex-start;
-		margin-top: 0.5rem;
 	}
 
 	.page-size-setting {
@@ -56,8 +68,8 @@
 
 	span {
 		color: var(--sst-table-header-text-color, var(--sst-default-table-header-text-color));
-		font-size: 0.95rem;
+		font-size: 0.95em;
 		line-height: 1;
-		margin-left: 0.5rem;
+		margin-left: 0.5em;
 	}
 </style>

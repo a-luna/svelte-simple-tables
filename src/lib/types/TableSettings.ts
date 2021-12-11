@@ -1,18 +1,20 @@
-import type { TableTheme } from './TableTheme';
+import type { PageRangeFormat, PaginationLayout, SortDirection, TableLayout, TableTheme } from './literals';
 
 export interface TableSettings {
 	tableId?: string;
 	showHeader?: boolean;
 	header?: string;
 	showSortDescription?: boolean;
+	fullWidth?: boolean;
+	tableLayout?: TableLayout;
 	sortBy?: string;
-	sortDir?: 'asc' | 'desc';
+	sortDir?: SortDirection;
 	tableWrapper?: boolean;
 	themeName?: TableTheme;
 	paginated?: boolean;
 	pageSize?: number;
 	pageSizeOptions?: number[];
-	pageNavLayout?: 'auto' | 'full' | 'compact';
-	rowTypeSingle?: string;
-	rowTypePlural?: string;
+	pageRangeFormat?: PageRangeFormat;
+	pageNavFormat?: PaginationLayout;
+	rowType?: string;
 }

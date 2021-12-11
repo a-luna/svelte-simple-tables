@@ -1,17 +1,7 @@
-import type { BreakPoint, BreakPointStore } from '$lib/types';
+import { syncWidth } from '$lib/stores/syncWidth';
+import type { PageWidthState } from '$lib/types';
 import type { Readable, Writable } from 'svelte/store';
-import { derived, writable } from 'svelte/store';
-
-function syncWidth(el: HTMLElement): Writable<number> {
-	return writable(null, (set) => {
-		if (!el) {
-			return;
-		}
-		const ro = new ResizeObserver(() => el && set(el.offsetWidth));
-		ro.observe(el);
-		return () => ro.disconnect();
-	});
-}
+import { derived } from 'svelte/store';
 
 const getPageWidth = (): Writable<number> => {
 	if (typeof window !== 'undefined') {
@@ -21,7 +11,7 @@ const getPageWidth = (): Writable<number> => {
 	return null;
 };
 
-export const breakPoints: Readable<BreakPointStore> = derived(getPageWidth(), ($pageWidth) => {
+export const pageWidth: Readable<PageWidthState> = derived(getPageWidth(), ($pageWidth) => {
 	const isDefault = (width: number): boolean => width < 640;
 	const isSmall = (width: number): boolean => width >= 640 && width < 768;
 	const isMedium = (width: number): boolean => width >= 768 && width < 1024;
@@ -30,23 +20,9 @@ export const breakPoints: Readable<BreakPointStore> = derived(getPageWidth(), ($
 	const is2xExtraLarge = (width: number): boolean => width >= 1536;
 	const isMobileDisplay = (width: number): boolean => width < 768;
 
-	const getCurrentPageBreakPoint = (width: number): BreakPoint =>
-		isDefault(width)
-			? 'default'
-			: isSmall(width)
-			? 'sm'
-			: isMedium(width)
-			? 'md'
-			: isLarge(width)
-			? 'lg'
-			: isExtraLarge(width)
-			? 'xl'
-			: '2xl';
-
 	return $pageWidth > 0
 		? {
-				current: getCurrentPageBreakPoint($pageWidth),
-				pageWidth: $pageWidth,
+				current: $pageWidth,
 				isMobileDisplay: isMobileDisplay($pageWidth),
 				isDefault: isDefault($pageWidth),
 				isSmall: isSmall($pageWidth),
@@ -56,8 +32,7 @@ export const breakPoints: Readable<BreakPointStore> = derived(getPageWidth(), ($
 				is2xExtraLarge: is2xExtraLarge($pageWidth),
 		  }
 		: {
-				current: 'default',
-				pageWidth: 0,
+				current: 0,
 				isMobileDisplay: true,
 				isDefault: true,
 				isSmall: false,

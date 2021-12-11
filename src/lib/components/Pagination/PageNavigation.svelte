@@ -1,13 +1,20 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
+	import { syncWidth } from '$lib/stores/syncWidth';
+	import type { TableStateStore } from '$lib/types';
 	import { getAriaValues } from '$lib/util';
-	import { createEventDispatcher } from 'svelte';
+	import { createEventDispatcher, getContext } from 'svelte';
 
+	export let tableId: string;
 	export let totalPages: number;
 	export let currentPage: number;
 	const dispatch = createEventDispatcher();
+	let pageNavElement: HTMLElement;
+	const tableState: TableStateStore = getContext(tableId);
 
 	$: pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+	$: paginationRightWidthStore = syncWidth(pageNavElement);
+	$: tableState.updatePaginationRightWidth($paginationRightWidthStore);
 
 	function handleClick(page: number) {
 		if (currentPage !== page) {
@@ -16,7 +23,14 @@
 	}
 </script>
 
-<nav role="navigation" aria-label="Table Pagination Controls" class="page-nav btn-group" data-testid="page-nav">
+<nav
+	id="{tableId}-page-nav"
+	role="navigation"
+	aria-label="Table Pagination Controls"
+	class="page-nav btn-group"
+	data-testid="page-nav"
+	bind:this={pageNavElement}
+>
 	<Button
 		classList={['text']}
 		disabled={currentPage === 1}
@@ -52,6 +66,5 @@
 	.page-nav {
 		display: flex;
 		flex-flow: row nowrap;
-		margin: 0 0.25rem;
 	}
 </style>

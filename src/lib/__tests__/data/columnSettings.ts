@@ -42,7 +42,6 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 	{
 		propName: 'batter_name',
 		propType: 'string',
-		headerText: 'Player',
 		tooltip: 'Batter Name',
 		classList: ['text-left'],
 		colValue: batterNameLink,
@@ -55,13 +54,6 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 		classList: ['text-center'],
 		colValue: pitcherTeamLink,
 		sortable: false,
-	},
-	{
-		propName: 'time_pitch_thrown_est',
-		propType: 'date',
-		headerText: 'Timestamp (EST)',
-		tooltip: 'Timestamp (EST)',
-		colValue: formatTimeStamp,
 	},
 	{
 		propName: 'launch_speed',
@@ -112,6 +104,13 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 		colValue: formatPitchSpeed,
 	},
 	{
+		propName: 'time_pitch_thrown_est',
+		propType: 'date',
+		headerText: 'Occurred',
+		tooltip: 'Local time (EST) when batted-ball event occurred',
+		colValue: formatTimeStamp,
+	},
+	{
 		propName: 'inning',
 		propType: 'number',
 		headerText: 'Inn',
@@ -120,7 +119,6 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 	{
 		propName: 'count',
 		propType: 'string',
-		headerText: 'Count',
 		tooltip: 'Count',
 	},
 	{

@@ -1,6 +1,5 @@
-export interface BreakPointStore {
-	current: string;
-	pageWidth: number;
+export interface PageWidthState {
+	current: number;
 	isMobileDisplay: boolean;
 	isDefault: boolean;
 	isSmall: boolean;
