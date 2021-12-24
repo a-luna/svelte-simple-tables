@@ -1,13 +1,14 @@
-import type { SortDirection } from './literals';
+import type { Writable } from 'svelte/store';
+import type { TableSettings } from './TableSettings';
 
 export interface TableState {
-	tableSync: boolean;
-	tableId: string;
-	sortBy: string;
-	sortDir: SortDirection;
-	captionWidth: number;
-	sortDescriptionWidth: number;
-	tableWidth: number;
-	paginationLeftWidth: number;
-	paginationRightWidth: number;
+	set: Writable<TableSettings>['set'];
+	subscribe: Writable<TableSettings>['subscribe'];
+  togglePagination: () => void;
+	changePageSize: (pageSize: number) => void;
+	changePageNumber: (page: number) => void;
+	goToFirstPage: () => void;
+	goToPrevPage: () => void;
+	goToNextPage: () => void;
+	goToLastPage: () => void;
 }

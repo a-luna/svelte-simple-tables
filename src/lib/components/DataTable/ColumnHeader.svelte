@@ -1,7 +1,7 @@
 <script lang="ts">
 	import SortAscending from '$lib/components/Icons/SortAscending.svelte';
 	import SortDescending from '$lib/components/Icons/SortDescending.svelte';
-	import type { SortDirection, TableStateStore } from '$lib/types';
+	import type { AriaSort, SortDirection } from '$lib/types';
 	import { getColumnWidth, getDefaultColHeader } from '$lib/util';
 	import { createEventDispatcher, getContext } from 'svelte';
 
@@ -11,22 +11,16 @@
 	export let headerText: string = getDefaultColHeader(propName);
 	export let tooltip: string = getDefaultColHeader(propName);
 	export let sortable: boolean = true;
-	let width: number;
+	let width: string;
 	const dispatch = createEventDispatcher();
-	const tableState: TableStateStore = getContext(tableId);
-	let ariaSort: 'ascending' | 'descending' | 'none' | 'other' = null;
+	let { tableState } = getContext(tableId);
+	let ariaSort: AriaSort = null;
 
-	$: if ($tableState.tableSync) width = getColumnWidth(tableId, propName, $tableState.sortBy);
+	$: if ($tableState.state.syncState === 'started-resize-columns')
+		width = `${getColumnWidth(tableId, propName, $tableState.sortBy)}px`;
 	$: asc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'asc';
 	$: desc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'desc';
 	$: ariaSort = getAriaSortValue($tableState.sortBy, $tableState.sortDir);
-
-	function toggleSort() {
-		if (sortable) {
-			const sortDir = $tableState.sortBy !== propName ? 'asc' : $tableState.sortDir === 'asc' ? 'desc' : 'asc';
-			dispatch('sortTable', { propName, propType, sortDir });
-		}
-	}
 
 	const getAriaSortValue = (sortBy: string, sortDir: SortDirection) =>
 		sortBy !== propName ? null : sortDir === 'asc' ? 'ascending' : 'descending';
@@ -43,9 +37,9 @@
 	title={tooltip}
 	data-testid="{$tableState.tableId}-toggle-{propName}"
 	tabindex="0"
-	on:click={() => toggleSort()}
+	on:click={() => dispatch('sortTable', { propName, propType })}
 >
-	<div class="header-content-wrapper" style={width ? ` width: ${width}px` : ''}>
+	<div class="header-content-wrapper" style={width ? ` width: ${width}` : ''}>
 		<span class="header-content">{headerText}</span>
 		{#if asc}
 			<div class="asc_icon">

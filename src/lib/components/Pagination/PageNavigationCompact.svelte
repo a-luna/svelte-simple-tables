@@ -1,20 +1,16 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
-	import type { TableStateStore } from '$lib/types';
 	import { getAriaValues } from '$lib/util';
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 
 	export let tableId: string;
-	export let totalPages: number;
-	export let currentPage: number;
-	const dispatch = createEventDispatcher();
 	let pageNavElement: HTMLElement;
-	const tableState: TableStateStore = getContext(tableId);
+	const { tableState } = getContext(tableId);
 
 	$: paginationRightWidthStore = syncWidth(pageNavElement);
-	$: tableState.updatePaginationRightWidth($paginationRightWidthStore);
-	$: classList = totalPages === 1 ? ['symbol', 'no-page-nav'] : ['symbol'];
+	$: $tableState.state.paginationRightWidth = $paginationRightWidthStore;
+	$: classList = $tableState.pagination.totalPages === 1 ? ['symbol', 'no-page-nav'] : ['symbol'];
 </script>
 
 <nav
@@ -27,39 +23,59 @@
 >
 	<Button
 		{classList}
-		disabled={currentPage === 1}
+		disabled={$tableState.pagination.currentPage === 1}
 		label={'❬❬'}
 		title={'First Page'}
-		aria={getAriaValues(1, currentPage, totalPages, currentPage === 1)}
+		aria={getAriaValues(
+			1,
+			$tableState.pagination.currentPage,
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage === 1,
+		)}
 		testId="first"
-		on:click={() => dispatch('goToFirstPage')}
+		on:click={() => tableState.goToFirstPage()}
 	/>
 	<Button
 		{classList}
-		disabled={currentPage === 1}
+		disabled={$tableState.pagination.currentPage === 1}
 		label={'❬'}
 		title={'Previous Page'}
-		aria={getAriaValues(currentPage - 1, currentPage, totalPages, currentPage === 1)}
+		aria={getAriaValues(
+			$tableState.pagination.currentPage - 1,
+			$tableState.pagination.currentPage,
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage === 1,
+		)}
 		testId="prev"
-		on:click={() => dispatch('goToPrevPage')}
+		on:click={() => tableState.goToPrevPage()}
 	/>
 	<Button
 		{classList}
-		disabled={currentPage === totalPages}
+		disabled={$tableState.pagination.currentPage === $tableState.pagination.totalPages}
 		label={'❭'}
 		title={'Next Page'}
-		aria={getAriaValues(currentPage + 1, currentPage, totalPages, currentPage === totalPages)}
+		aria={getAriaValues(
+			$tableState.pagination.currentPage + 1,
+			$tableState.pagination.currentPage,
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage === $tableState.pagination.totalPages,
+		)}
 		testId="next"
-		on:click={() => dispatch('goToNextPage')}
+		on:click={() => tableState.goToNextPage()}
 	/>
 	<Button
 		{classList}
-		disabled={currentPage === totalPages}
+		disabled={$tableState.pagination.currentPage === $tableState.pagination.totalPages}
 		label={'❭❭'}
 		title={'Last Page'}
-		aria={getAriaValues(totalPages, currentPage, totalPages, currentPage === totalPages)}
+		aria={getAriaValues(
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage,
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage === $tableState.pagination.totalPages,
+		)}
 		testId="last"
-		on:click={() => dispatch('goToLastPage')}
+		on:click={() => tableState.goToLastPage()}
 	/>
 </nav>
 

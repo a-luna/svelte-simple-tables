@@ -6,23 +6,40 @@
 	import { vaxDataColumnSettings } from './columnSettings';
 	import { vaxData } from './data';
 
+	const tableId = 'all-barrels';
+	const caption = 'Barrels';
+	const sortBy = 'launch_speed';
 	const pfxTableSettings: TableSettings = {
+		tableId,
 		showHeader: true,
-		header: 'Barrels',
+		header: caption,
 		showSortDescription: true,
-		fullWidth: false,
-		sortBy: 'time_pitch_thrown_est',
+		sortBy,
 		sortDir: 'desc',
-		tableLayout: 'fixed',
 		tableWrapper: true,
-		themeName: 'light',
 		paginated: true,
-		pageSize: 10,
+		pageSize: 5,
 		pageSizeOptions: [5, 10, 15, 20, 25],
-		pageRangeFormat: 'auto',
-		pageNavFormat: 'auto',
-		rowType: 'barrels',
+		pageRangeFormat: 'compact',
+		pageNavFormat: 'compact',
 	};
+	// const pfxTableSettings: TableSettings = {
+	// 	tableId: 'pfx',
+	// 	showHeader: true,
+	// 	header: 'Barrels',
+	// 	showSortDescription: true,
+	// 	fullWidth: false,
+	// 	sortBy: 'time_pitch_thrown_est',
+	// 	sortDir: 'desc',
+	// 	tableWrapper: true,
+	// 	themeName: 'light',
+	// 	paginated: false,
+	// 	pageSize: 10,
+	// 	pageSizeOptions: [5, 10, 15, 20, 25],
+	// 	pageRangeFormat: 'auto',
+	// 	pageNavFormat: 'auto',
+	// 	rowType: 'barrels',
+	// };
 
 	const basicTableSettings: TableSettings = {
 		tableId: 'vax-status-table-full',
@@ -42,7 +59,7 @@
 		sortBy: 'age',
 		sortDir: 'desc',
 		tableWrapper: true,
-		paginated: true,
+		paginated: false,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
 		pageSize: 10,
@@ -54,11 +71,8 @@
 
 <div class="light-themes">
 	<SimpleTable data={barrelsForDateData} columnSettings={pfxBarrelColumnSettings} tableSettings={pfxTableSettings} />
-	<SimpleTable />
-	<SimpleTable data={vaxData} />
-	<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} />
 </div>
-<div class="dark-themes">
+<div class="dark-themes" style="display: none">
 	<!-- <SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} /> -->
 	<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={paginatedTableSettings} />
 </div>
@@ -70,11 +84,9 @@
 
 	.dark-themes {
 		background-color: hsl(220, 13%, 3%);
-		padding: 1rem;
 	}
 
 	.light-themes {
 		background-color: hsl(0, 100%, 100%);
-		padding: 1rem;
 	}
 </style>

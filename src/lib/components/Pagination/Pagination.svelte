@@ -4,76 +4,42 @@
 	import PageRangeDescription from '$lib/components/Pagination/PageRangeDescription.svelte';
 	import PageSizeSetting from '$lib/components/Pagination/PageSizeSetting.svelte';
 	import { pageWidth } from '$lib/stores/pageWidth';
-	import type { PageRangeFormat, PaginationLayout } from '$lib/types';
+	import { getContext } from 'svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
 	export let tableId: string;
-	export let totalRows: number;
-	export let totalPages: number;
-	export let currentPage: number;
-	export let startRow: number;
-	export let endRow: number;
-	export let pageSize: number;
-	export let pageSizeOptions: number[];
-	export let pageRangeFormat: PageRangeFormat;
-	export let pageNavFormat: PaginationLayout;
-	export let rowType: string;
-	export let paginationWidth: string;
+	let { tableState, componentWidth } = getContext(tableId);
 	let showPageSizeSetting: boolean = false;
 	const options = { duration: 200, easing: cubicInOut };
 
 	$: useCompactPageNav =
-		pageNavFormat === 'compact' || (pageNavFormat === 'auto' && ($pageWidth.isMobileDisplay || totalPages > 4));
-	$: flexJustify = showPageSizeSetting ? 'center' : pageRangeFormat !== 'none' ? 'space-between' : '';
+		$tableState.pageNavFormat === 'compact' ||
+		($tableState.pageNavFormat === 'auto' && ($pageWidth.isMobileDisplay || $tableState.pagination.totalPages > 4));
+	$: flexJustify = showPageSizeSetting ? 'center' : 'space-between';
+
+	function handleChangePageSize(pageSize: number) {
+		tableState.changePageSize(pageSize);
+		showPageSizeSetting = false;
+	}
 </script>
 
-<section class="pagination-wrapper" style="width: {paginationWidth}">
+<section class="pagination-wrapper" style="width: {$componentWidth.finalComponentWidth}">
 	<div class="pagination" transition:fade={options} style="justify-content: {flexJustify}">
 		{#if !showPageSizeSetting}
-			{#if pageRangeFormat !== 'none'}
-				<PageRangeDescription
-					{tableId}
-					{totalRows}
-					{startRow}
-					{endRow}
-					{pageRangeFormat}
-					{rowType}
-					on:click={() => (showPageSizeSetting = !showPageSizeSetting)}
-				/>
+			{#if $tableState.pageRangeFormat !== 'none'}
+				<PageRangeDescription {tableId} on:click={() => (showPageSizeSetting = !showPageSizeSetting)} />
 			{:else}
-				<PageSizeSetting
-					{tableId}
-					{totalRows}
-					{pageSize}
-					{pageSizeOptions}
-					on:changePageSize={() => (showPageSizeSetting = false)}
-					on:changePageSize
-				/>
+				<PageSizeSetting {tableId} on:changePageSize={(e) => handleChangePageSize(e.detail)} />
 			{/if}
 			{#if useCompactPageNav}
-				<PageNavigationCompact
-					{tableId}
-					{currentPage}
-					{totalPages}
-					on:goToFirstPage
-					on:goToPrevPage
-					on:goToNextPage
-					on:goToLastPage
-				/>
+				<PageNavigationCompact {tableId} />
 			{:else}
-				<PageNavigation {tableId} {currentPage} {totalPages} on:changePageNumber on:goToNextPage on:goToPrevPage />
+				<PageNavigation {tableId} />
 			{/if}
 		{/if}
 		{#if showPageSizeSetting}
-			<PageSizeSetting
-				{tableId}
-				{totalRows}
-				{pageSize}
-				{pageSizeOptions}
-				on:changePageSize={() => (showPageSizeSetting = false)}
-				on:changePageSize
-			/>
+			<PageSizeSetting {tableId} on:changePageSize={(e) => handleChangePageSize(e.detail)} />
 		{/if}
 	</div>
 </section>

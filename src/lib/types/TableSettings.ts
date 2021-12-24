@@ -1,4 +1,4 @@
-import type { PageRangeFormat, PaginationLayout, SortDirection, TableLayout, TableTheme } from './literals';
+import type { PageRangeFormat, PaginationLayout, PropType, SortDirection, SyncState, TableTheme } from './literals';
 
 export interface TableSettings {
 	tableId?: string;
@@ -6,8 +6,8 @@ export interface TableSettings {
 	header?: string;
 	showSortDescription?: boolean;
 	fullWidth?: boolean;
-	tableLayout?: TableLayout;
 	sortBy?: string;
+	sortType?: PropType;
 	sortDir?: SortDirection;
 	tableWrapper?: boolean;
 	themeName?: TableTheme;
@@ -17,4 +17,19 @@ export interface TableSettings {
 	pageRangeFormat?: PageRangeFormat;
 	pageNavFormat?: PaginationLayout;
 	rowType?: string;
+	state?: {
+		syncState: SyncState;
+		captionWidth: number;
+		sortDescriptionWidth: number;
+		tableWidth: number;
+		paginationLeftWidth: number;
+		paginationRightWidth: number;
+	};
+	pagination?: {
+		totalRows: number;
+		totalPages: number;
+		currentPage: number;
+		startRow: number;
+		endRow: number;
+	};
 }

@@ -1,40 +1,38 @@
 <script lang="ts">
 	import { syncWidth } from '$lib/stores/syncWidth';
-	import type { SortDirection, TableStateStore } from '$lib/types';
+	import type { SortDirection } from '$lib/types';
+	import { getDefaultColHeader } from '$lib/util';
 	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	export let tableId: string;
-	export let showHeader: boolean = false;
-	export let header: string = '';
-	export let showSortDescription: boolean = false;
 	let tableCaptionElement: HTMLElement;
 	let tableSortDescElement: HTMLElement;
 	let tableCaptionWidthStore: Writable<number>;
 	let tableSortDescWidthStore: Writable<number>;
-	const tableState: TableStateStore = getContext(tableId);
+	let { tableState, componentWidth } = getContext(tableId);
 
 	$: if (typeof window !== 'undefined') tableCaptionWidthStore = syncWidth(tableCaptionElement);
 	$: if (typeof window !== 'undefined') tableSortDescWidthStore = syncWidth(tableSortDescElement);
-	$: if (typeof window !== 'undefined') tableState.updateCaptionWidth($tableCaptionWidthStore);
-	$: if (typeof window !== 'undefined') tableState.updateSortDescriptionWidth($tableSortDescWidthStore);
+	$: if (typeof window !== 'undefined') $tableState.state.captionWidth = $tableCaptionWidthStore;
+	$: if (typeof window !== 'undefined') $tableState.state.sortDescriptionWidth = $tableSortDescWidthStore;
 
-	const describeSortSetting = (headerText: string, sortDir: SortDirection): string =>
-		`Sorted by: ${headerText.split('_').join(' ')} (${sortDir === 'asc' ? 'ascending' : 'descending'})`;
+	const describeSortSetting = (sortBy: string, sortDir: SortDirection): string =>
+		`Sorted by: ${getDefaultColHeader(sortBy, false)} (${sortDir === 'asc' ? 'ascending' : 'descending'})`;
 </script>
 
-<div class="table-header-wrapper">
-	{#if showHeader}
+<div class="table-header-wrapper" style="width: {$componentWidth.finalComponentWidth}">
+	{#if $tableState.showHeader}
 		<h3
 			id="{$tableState.tableId}-caption"
 			class="resp-table-caption"
 			data-testid="{$tableState.tableId}-caption"
 			bind:this={tableCaptionElement}
 		>
-			{header}
+			{$tableState.header}
 		</h3>
 	{/if}
-	{#if showSortDescription && $tableState.sortBy}
+	{#if $tableState.showSortDescription && $tableState.sortBy}
 		<div
 			id="{$tableState.tableId}-sort-description"
 			class="sort-description"

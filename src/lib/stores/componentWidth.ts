@@ -1,37 +1,35 @@
 import { pageWidth } from '$lib/stores/pageWidth';
-import type { TableSettings, TableStateStore } from '$lib/types';
-import { getTableFontSizeInPixels } from '$lib/util';
-import type { Readable, Writable } from 'svelte/store';
+import type { ComponentWidth, TableState } from '$lib/types';
+import { getTableFontSizeInPixels, getTableWrapperPaddingWidth } from '$lib/util';
+import type { Readable } from 'svelte/store';
 import { derived } from 'svelte/store';
 
-export function createComponentWidthStore(
-	tableSettings: Writable<TableSettings>,
-	tableState: TableStateStore,
-): Readable<string> {
-	return derived([tableSettings, tableState, pageWidth], ([$tableSettings, $tableState, $pageWidth]) => {
-		const getWrapperPaddingAndBorder = (): number =>
-			$tableSettings.tableWrapper ? 2 * getTableFontSizeInPixels($tableState.tableId) - 2 : 0;
-
-		const getMaxWidthWithoutScrolling = (): number => $pageWidth.current - getWrapperPaddingAndBorder();
-
+export function createComponentWidthStore(tableSettings: TableState): Readable<ComponentWidth> {
+	return derived([tableSettings, pageWidth], ([$tableSettings, $pageWidth]) => {
 		const getPaginationWidth = (): number =>
-			$tableState.paginationLeftWidth +
-			$tableState.paginationRightWidth +
-			getTableFontSizeInPixels($tableState.tableId);
+			$tableSettings.state.paginationLeftWidth +
+			$tableSettings.state.paginationRightWidth +
+			getTableFontSizeInPixels($tableSettings.tableId);
 
 		const getMinComponentWidth = (): number =>
 			Math.max(
-				$tableState.captionWidth,
-				$tableState.sortDescriptionWidth,
-				$tableState.tableWidth,
+				$tableSettings.state.captionWidth,
+				$tableSettings.state.sortDescriptionWidth,
+				$tableSettings.state.tableWidth,
 				getPaginationWidth(),
 			);
 
-		const tableExceedsViewportWidth = (): boolean => getMinComponentWidth() > getMaxWidthWithoutScrolling();
+		const getPaddedComponentWidth = (): number =>
+			$tableSettings.tableWrapper
+				? getMinComponentWidth() + getTableWrapperPaddingWidth($tableSettings.tableId)
+				: getMinComponentWidth();
 
-		const useAutoSize = (): boolean =>
-			tableExceedsViewportWidth() || $tableSettings.fullWidth || $tableSettings.tableLayout === 'auto';
+		const tableExceedsViewportWidth = (): boolean => getPaddedComponentWidth() > $pageWidth.current;
 
-		return useAutoSize() ? 'auto' : `${getMinComponentWidth()}px`;
+		return {
+			finalComponentWidth: tableExceedsViewportWidth() ? '100%' : `${getMinComponentWidth()}px`,
+			finalWrapperWidth:
+				$tableSettings.fullWidth || tableExceedsViewportWidth() ? '100%' : `${getPaddedComponentWidth()}px`,
+		};
 	});
 }

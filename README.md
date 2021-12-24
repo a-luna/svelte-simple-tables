@@ -2,6 +2,15 @@
 
 ![npm version](https://badgen.net/npm/v/@a-luna/svelte-simple-tables) ![npm types included](https://badgen.net/npm/types/@a-luna/svelte-simple-tables) ![gh license](https://badgen.net/github/license/a-luna/svelte-simple-tables) ![npm dl count](https://img.shields.io/npm/dm/@a-luna/svelte-simple-tables)
 
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [`data`](#data)
+  - [`columnSettings`](#columnsettings)
+  - [`tableSettings`](#tablesettings)
+- [Themes](#themes)
+  - [CSS Custom Properties](#css-custom-properties)
+
 ## Features
 
 - **Create sortable, paginated tables** that follow [WAI-ARIA guidelines](https://www.w3.org/TR/wai-aria-practices-1.1/examples/table/table.html) from an array of typed objects.
@@ -219,7 +228,6 @@ The `TableSettings` interface exposes the following configuration settings:
 | `header`              | `string`           | ❌        | `''` (empty string)                            | Table header/caption/title to display above the table                                                                                                                                  |
 | `showSortDescription` | `boolean`          | ❌        | `false`                                        | Display the sort column and sort direction currently applied (__#2 in the diagram below__)                                                                                             |
 | `fullWidth`           | `boolean`          | ❌        | `false`                                        | Display table as block element with 100% width                                                                                                                                         |
-| `tableLayout`         | `TableLayout`      | ❌        | `'fixed'`                                      | `TableLayout` is a string literal type = `'fixed'` or `'auto'`. This controls value of the [CSS table-layout property](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout). |
 | `sortBy`              | `string`           | ❌        | `null`                                         | `propName` of the column to sort the table by. If not specified, no sorting behavior will be applied when component is loaded. (__#3 in the diagram below__)                           |
 | `sortDir`             | `SortDirection`    | ❌        | `'asc'`                                        | `SortDirection` is a string literal type = `asc` or `desc`. Determines if the sort behavior is applied in ascending or descending order.                                               |
 | `tableWrapper`        | `boolean`          | ❌        | `false`                                        | Display a border around the table (__#4 in the diagram below__)                                                                                                                        |

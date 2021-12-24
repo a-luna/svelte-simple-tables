@@ -3,7 +3,7 @@
 	import TableCell from '$lib/components/DataTable/TableCell.svelte';
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
-	import type { ColumnSettings, PaginationStore, TableLayout, TableStateStore } from '$lib/types';
+	import type { ColumnSettings } from '$lib/types';
 	import { getContext } from 'svelte';
 
 	type R = $$Generic;
@@ -11,31 +11,24 @@
 	export let tableId: string;
 	export let data: R[] = [];
 	export let columnSettings: ColumnSettings<R>[] = [];
-	export let tableLayout: TableLayout;
-	export let fullWidth: boolean = false;
-	export let pagination: PaginationStore;
-	export let showHeader: boolean = false;
-	export let header: string = '';
-	export let showSortDescription: boolean = false;
 	let tableElement: HTMLElement;
-	const tableState: TableStateStore = getContext(tableId);
+	let { tableState, componentWidth } = getContext(tableId);
 
 	$: tableWidthStore = syncWidth(tableElement);
-	$: tableState.updateTableWidth($tableWidthStore);
+	$: $tableState.state.tableWidth = $tableWidthStore;
 </script>
 
-<TableHeader {tableId} {header} {showHeader} {showSortDescription} />
-<article class="resp-table-container">
+<TableHeader tableId={$tableState.tableId} />
+<article class="resp-table-container" style="width: {$componentWidth.finalComponentWidth}">
 	<div class="resp-table-wrapper">
 		<div
 			id={$tableState.tableId}
 			role="table"
 			aria-labelledby="{$tableState.tableId}-cap"
-			aria-rowcount={$pagination.totalRows}
+			aria-rowcount={$tableState.pagination.totalRows}
 			class="resp-table"
-			class:auto-layout={tableLayout === 'auto'}
-			class:fixed-layout={tableLayout === 'fixed'}
-			class:full-width={fullWidth}
+			class:auto-layout={$tableState.fullWidth}
+			class:fixed-layout={!$tableState.fullWidth}
 			data-testid={$tableState.tableId}
 			bind:this={tableElement}
 		>
@@ -56,12 +49,12 @@
 				{#each data as obj, i}
 					<div
 						role="row"
-						class="text-right resp-table-row"
-						aria-rowindex={$pagination.startRow + i + 1}
+						class="resp-table-row"
+						aria-rowindex={$tableState.pagination.startRow + i + 1}
 						data-testid="{$tableState.tableId}-row"
 					>
-						{#each columnSettings as { propName, classList, colValue }}
-							<TableCell tableId={$tableState.tableId} {obj} {propName} {classList} {colValue} />
+						{#each columnSettings as { propName, propType, classList, colValue }}
+							<TableCell tableId={$tableState.tableId} {obj} {propName} {propType} {classList} {colValue} />
 						{/each}
 					</div>
 				{/each}
@@ -87,10 +80,6 @@
 		color: var(--sst-text-color, var(--sst-default-text-color));
 		line-height: 1.25em;
 		margin: 0 auto;
-	}
-
-	.full-width {
-		width: 100%;
 	}
 
 	.auto-layout {

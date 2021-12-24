@@ -1,24 +1,20 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
-	import type { TableStateStore } from '$lib/types';
 	import { getAriaValues } from '$lib/util';
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { getContext } from 'svelte';
 
 	export let tableId: string;
-	export let totalPages: number;
-	export let currentPage: number;
-	const dispatch = createEventDispatcher();
+	let { tableState } = getContext(tableId);
 	let pageNavElement: HTMLElement;
-	const tableState: TableStateStore = getContext(tableId);
 
-	$: pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+	$: pageNumbers = Array.from({ length: $tableState.pagination.totalPages }, (_, i) => i + 1);
 	$: paginationRightWidthStore = syncWidth(pageNavElement);
-	$: tableState.updatePaginationRightWidth($paginationRightWidthStore);
+	$: $tableState.state.paginationRightWidth = $paginationRightWidthStore;
 
 	function handleClick(page: number) {
-		if (currentPage !== page) {
-			dispatch('changePageNumber', page);
+		if ($tableState.pagination.currentPage !== page) {
+			tableState.changePageNumber(page);
 		}
 	}
 </script>
@@ -33,32 +29,47 @@
 >
 	<Button
 		classList={['text']}
-		disabled={currentPage === 1}
+		disabled={$tableState.pagination.currentPage === 1}
 		label="Previous"
 		title="Previous Page"
-		aria={getAriaValues(1, currentPage, totalPages, currentPage === 1)}
+		aria={getAriaValues(
+			1,
+			$tableState.pagination.currentPage,
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage === 1,
+		)}
 		testId="prev"
-		on:click={() => dispatch('goToPrevPage')}
+		on:click={() => tableState.goToPrevPage()}
 	/>
 	{#each pageNumbers as page}
 		<Button
 			classList={['number']}
 			label={page.toString()}
 			title="Page {page}"
-			active={currentPage === page}
-			aria={getAriaValues(page, currentPage, totalPages, currentPage === page)}
+			active={$tableState.pagination.currentPage === page}
+			aria={getAriaValues(
+				page,
+				$tableState.pagination.currentPage,
+				$tableState.pagination.totalPages,
+				$tableState.pagination.currentPage === page,
+			)}
 			testId="page{page}"
 			on:click={() => handleClick(page)}
 		/>
 	{/each}
 	<Button
 		classList={['text']}
-		disabled={currentPage === totalPages}
+		disabled={$tableState.pagination.currentPage === $tableState.pagination.totalPages}
 		label="Next"
 		title="Next Page"
-		aria={getAriaValues(totalPages, currentPage, totalPages, currentPage === totalPages)}
+		aria={getAriaValues(
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage,
+			$tableState.pagination.totalPages,
+			$tableState.pagination.currentPage === $tableState.pagination.totalPages,
+		)}
 		testId="next"
-		on:click={() => dispatch('goToNextPage')}
+		on:click={() => tableState.goToNextPage()}
 	/>
 </nav>
 

@@ -25,7 +25,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"dev": "svelte-kit dev --host",
+		"dev": "svelte-kit dev --port 3001",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
@@ -34,15 +34,25 @@
 		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
 		"test": "jest --coverage",
 		"test:watch": "npm run test -- --watch",
+		"commit": "git-cz",
+		"prerelease": "git checkout main && git pull origin main && npm i && run-s test lint && git add .",
+		"release": "standard-version -a",
+		"postrelease": "run-s release:*",
+		"release:tags": "git push --follow-tags origin main",
+		"release:github": "conventional-github-releaser -p angular",
+		"ci:validate": "rm -rf node_modules && npm ci && run-s test lint",
+		"prepublishOnly": "npm run ci:validate && npm run build",
 		"package": "svelte-kit package"
 	},
 	"devDependencies": {
-		"@babel/core": "^7.16.0",
-		"@babel/preset-env": "^7.16.4",
-		"@babel/preset-typescript": "^7.16.0",
+		"@babel/core": "^7.16.5",
+		"@babel/preset-env": "^7.16.5",
+		"@babel/preset-typescript": "^7.16.5",
+		"@commitlint/cli": "^15.0.0",
+		"@commitlint/config-conventional": "^15.0.0",
 		"@leveluptuts/svelte-toy": "^0.0.15",
 		"@sveltejs/kit": "next",
-		"@sveltejs/vite-plugin-svelte": "^1.0.0-next.31",
+		"@sveltejs/vite-plugin-svelte": "^1.0.0-next.32",
 		"@testing-library/jest-dom": "^5.16.1",
 		"@testing-library/svelte": "^3.0.3",
 		"@tsconfig/svelte": "^2.0.1",
@@ -50,31 +60,55 @@
 		"@typescript-eslint/eslint-plugin": "^4.33.0",
 		"@typescript-eslint/parser": "^4.33.0",
 		"autoprefixer": "^10.4.0",
-		"babel-jest": "^27.4.4",
-		"cssnano": "^5.0.12",
-		"cypress": "^9.1.1",
+		"babel-jest": "^27.4.5",
+		"commitizen": "^4.2.4",
+		"conventional-github-releaser": "^3.1.5",
+		"cssnano": "^5.0.14",
+		"cypress": "^9.2.0",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.25.3",
 		"eslint-plugin-svelte3": "^3.2.1",
-		"jest": "^27.4.4",
-		"postcss": "^8.4.4",
+		"husky": "^7.0.4",
+		"jest": "^27.4.5",
+		"lint-staged": "^12.1.4",
+		"npm-run-all": "^4.1.5",
+		"postcss": "^8.4.5",
 		"prettier": "^2.5.1",
 		"prettier-plugin-svelte": "^2.5.1",
 		"resize-observer-polyfill": "^1.5.1",
-		"svelte": "^3.44.2",
-		"svelte-check": "^2.2.10",
+		"standard-version": "^9.3.2",
+		"svelte": "^3.44.3",
+		"svelte-check": "^2.2.11",
 		"svelte-jester": "^2.1.5",
 		"svelte-loader": "^3.1.2",
-		"svelte-preprocess": "^4.9.8",
-		"svelte2tsx": "^0.4.11",
-		"ts-jest": "^27.1.1",
+		"svelte-preprocess": "^4.10.1",
+		"svelte2tsx": "^0.4.12",
+		"ts-jest": "^27.1.2",
 		"tslib": "^2.3.1",
-		"typescript": "^4.5.3",
-		"vite": "^2.7.1",
+		"typescript": "4.2.4",
+		"vite": "^2.7.6",
 		"window-resizeto": "^0.0.2"
 	},
 	"type": "module",
+	"config": {
+		"commitizen": {
+			"path": "cz-conventional-changelog"
+		}
+	},
+	"husky": {
+		"hooks": {
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"src/**/*.{js,ts}": [
+			"prettier --write",
+			"eslint --fix",
+			"git add"
+		]
+	},
 	"jest": {
 		"roots": [
 			"<rootDir>/src"
@@ -117,39 +151,5 @@
 				"<rootDir>/.svelte-kit/build/runtime/app$1"
 			]
 		}
-	},
-	"exports": {
-		"./package.json": "./package.json",
-		"./components/DataTable/ColumnHeader.svelte": "./components/DataTable/ColumnHeader.svelte",
-		"./components/DataTable/DataTable.svelte": "./components/DataTable/DataTable.svelte",
-		"./components/DataTable/TableCell.svelte": "./components/DataTable/TableCell.svelte",
-		"./components/DataTable/TableHeader.svelte": "./components/DataTable/TableHeader.svelte",
-		"./components/Icons/SettingsIcon.svelte": "./components/Icons/SettingsIcon.svelte",
-		"./components/Icons/SortAscending.svelte": "./components/Icons/SortAscending.svelte",
-		"./components/Icons/SortDescending.svelte": "./components/Icons/SortDescending.svelte",
-		"./components/Icons/SvgIcon.svelte": "./components/Icons/SvgIcon.svelte",
-		"./components/Pagination/Button.svelte": "./components/Pagination/Button.svelte",
-		"./components/Pagination/PageNavigation.svelte": "./components/Pagination/PageNavigation.svelte",
-		"./components/Pagination/PageNavigationCompact.svelte": "./components/Pagination/PageNavigationCompact.svelte",
-		"./components/Pagination/PageRangeDescription.svelte": "./components/Pagination/PageRangeDescription.svelte",
-		"./components/Pagination/PageSizeSetting.svelte": "./components/Pagination/PageSizeSetting.svelte",
-		"./components/Pagination/Pagination.svelte": "./components/Pagination/Pagination.svelte",
-		"./components/SimpleTable.svelte": "./components/SimpleTable.svelte",
-		".": "./index.js",
-		"./stores/pageWidth": "./stores/pageWidth.js",
-		"./stores/pagination": "./stores/pagination.js",
-		"./stores/tableState": "./stores/tableState.js",
-		"./types/AriaAttributes": "./types/AriaAttributes.js",
-		"./types/BreakPoint": "./types/BreakPoint.js",
-		"./types/PageWidthState": "./types/PageWidthState.js",
-		"./types/ColumnSettings": "./types/ColumnSettings.js",
-		"./types/PaginationSettings": "./types/PaginationSettings.js",
-		"./types/PaginationStore": "./types/PaginationStore.js",
-		"./types/SimpleTable": "./types/SimpleTable.js",
-		"./types/TableSettings": "./types/TableSettings.js",
-		"./types/TableState": "./types/TableState.js",
-		"./types/TableStateStore": "./types/TableStateStore.js",
-		"./types": "./types/index.js",
-		"./util": "./util.js"
 	}
 }

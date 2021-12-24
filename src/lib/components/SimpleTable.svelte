@@ -1,11 +1,8 @@
 <script lang="ts">
 	import DataTable from '$lib/components/DataTable/DataTable.svelte';
 	import Pagination from '$lib/components/Pagination/Pagination.svelte';
-	import { createComponentWidthStore } from '$lib/stores/componentWidth';
-	import { createPaginationStore } from '$lib/stores/pagination';
-	import { createTableSettingsStore } from '$lib/stores/tableSettings';
-	import { createTableStateStore } from '$lib/stores/tableState';
-	import type { ColumnSettings, PropType, SortDirection, TableSettings, TableStateStore } from '$lib/types';
+	import { createComponentWidthStore, createTableStateStore } from '$lib/stores';
+	import type { ColumnSettings, PropType, TableSettings, TableState } from '$lib/types';
 	import { getBorderCssValues, getSortFunction, getTableFontSize } from '$lib/util';
 	import { setContext, tick } from 'svelte';
 
@@ -13,36 +10,53 @@
 
 	export let data: R[] = [];
 	export let columnSettings: ColumnSettings<R>[] = [];
-	export let tableSettings: TableSettings = {};
-	let settings = createTableSettingsStore(tableSettings);
-	let tableState: TableStateStore = createTableStateStore(settings);
-	setContext($tableState.tableId, tableState);
-	const componentWidth = createComponentWidthStore(settings, tableState);
-	const propType = columnSettings.find((col) => col.propName === $settings.sortBy)?.propType || 'unsorted';
-	let sortFunction: (a: R, b: R) => number = getSortFunction<R>($settings.sortBy, propType, $settings.sortDir);
+	export let tableSettings: TableSettings;
+	export let tableState: TableState = null;
+	if (!tableState) {
+		tableState = createTableStateStore(data.length, tableSettings);
+	}
+	const componentWidth = createComponentWidthStore(tableState);
+	setContext($tableState.tableId, { tableState, componentWidth });
+	$tableState.sortType = columnSettings.find((col) => col.propName === $tableState.sortBy)?.propType || 'unsorted';
+	let sortFunction: (a: R, b: R) => number = getSortFunction<R>(
+		$tableState.sortBy,
+		$tableState.sortType,
+		$tableState.sortDir,
+	);
+	let dataCurrentPage: R[] = data
+		.sort(sortFunction)
+		.slice($tableState.pagination.startRow, $tableState.pagination.endRow);
+	tableState.goToFirstPage();
 
 	$: fontSize = getTableFontSize($tableState.tableId);
-	$: pagination = $settings.paginated
-		? createPaginationStore(data.length, $settings.pageSize, $settings.pageSizeOptions)
-		: createPaginationStore(data.length, data.length, [data.length]);
-	$: dataCurrentPage = data.sort(sortFunction).slice($pagination.startRow, $pagination.endRow);
-	$: if ($pagination.startRow || $pagination.endRow) updateColumnWidths();
-	$: tableWrapperBorderStyle = $settings.tableWrapper ? getBorderCssValues($tableState.tableId) : 'none';
+	$: if ($tableState.state.syncState === 'started-sort-table') changeSortSettings();
+	$: if ($tableState.state.syncState === 'finished-sort-table') updateColumnWidths();
+	$: dataCurrentPage = data.sort(sortFunction).slice($tableState.pagination.startRow, $tableState.pagination.endRow);
+	$: tableWrapperBorderStyle = $tableState.tableWrapper ? getBorderCssValues($tableState.tableId) : 'none';
 
-	async function handleSortTable(sortSettings: { propName: string; propType: PropType; sortDir: SortDirection }) {
-		const { propName, propType, sortDir } = sortSettings;
-		tableState.changeSort(propName);
-		tableState.changeDir(sortDir);
-		sortFunction = getSortFunction<R>(propName, propType, sortDir);
-		pagination.goToFirstPage();
-		await updateColumnWidths();
+	function handleSortTable(sortSettings: { propName: string; propType: PropType }) {
+		const { propName, propType } = sortSettings;
+		$tableState.sortDir = $tableState.sortBy !== propName ? 'asc' : $tableState.sortDir === 'asc' ? 'desc' : 'asc';
+		$tableState.sortBy = propName;
+		$tableState.sortType = propType;
+		$tableState.state.syncState = 'started-sort-table';
+	}
+
+	async function changeSortSettings() {
+		sortFunction = getSortFunction<R>($tableState.sortBy, $tableState.sortType, $tableState.sortDir);
+		tableState.goToFirstPage();
+		$tableState.state.syncState = 'finished-sort-table';
 	}
 
 	async function updateColumnWidths() {
-		await tick();
-		tableState.setSync();
-		await tick();
-		tableState.unsetSync();
+		if ($tableState.state.syncState !== 'not-started') {
+			await tick();
+			$tableState.state.syncState = 'started-resize-columns';
+			await tick();
+			$tableState.state.syncState = 'finished-resize-columns';
+			await tick();
+			$tableState.state.syncState = 'not-started';
+		}
 	}
 </script>
 
@@ -51,50 +65,26 @@
 {#if data}
 	<div
 		id="{$tableState.tableId}-wrapper"
-		class:sst-wrapper={$settings.tableWrapper}
-		class:sst-container={!$settings.tableWrapper}
-		class:light-theme={$settings.themeName === 'light'}
-		class:lighter-theme={$settings.themeName === 'lighter'}
-		class:dark-theme={$settings.themeName === 'dark'}
-		class:darker-theme={$settings.themeName === 'darker'}
+		class:sst-wrapper={$tableState.tableWrapper}
+		class:sst-container={!$tableState.tableWrapper}
+		class:light-theme={$tableState.themeName === 'light'}
+		class:lighter-theme={$tableState.themeName === 'lighter'}
+		class:dark-theme={$tableState.themeName === 'dark'}
+		class:darker-theme={$tableState.themeName === 'darker'}
+		class:custom-theme={$tableState.themeName === 'custom'}
 		data-font-size={fontSize}
-		style="width: {$componentWidth}; border: {tableWrapperBorderStyle}"
+		style="width: {$componentWidth.finalWrapperWidth}; border: {tableWrapperBorderStyle}"
 	>
 		{#if columnSettings}
-			<div class="simple-table">
+			<div class="simple-table" style="width: {$componentWidth.finalComponentWidth}">
 				<DataTable
 					tableId={$tableState.tableId}
 					data={dataCurrentPage}
-					tableLayout={$settings.tableLayout}
-					fullWidth={$settings.fullWidth}
-					showHeader={$settings.showHeader}
-					header={$settings.header}
-					showSortDescription={$settings.showSortDescription}
 					{columnSettings}
-					{pagination}
 					on:sortTable={(e) => handleSortTable(e.detail)}
 				/>
-				{#if $settings.paginated}
-					<Pagination
-						tableId={$tableState.tableId}
-						totalRows={$pagination.totalRows}
-						totalPages={$pagination.totalPages}
-						currentPage={$pagination.currentPage}
-						startRow={$pagination.startRow}
-						endRow={$pagination.endRow}
-						pageSize={$pagination.pageSize}
-						pageSizeOptions={$pagination.pageSizeOptions}
-						pageRangeFormat={$settings.pageRangeFormat}
-						pageNavFormat={$settings.pageNavFormat}
-						rowType={$settings.rowType}
-						paginationWidth={$componentWidth}
-						on:goToFirstPage={() => pagination.goToFirstPage()}
-						on:goToPrevPage={() => pagination.goToPrevPage()}
-						on:goToNextPage={() => pagination.goToNextPage()}
-						on:goToLastPage={() => pagination.goToLastPage()}
-						on:changePageNumber={(e) => pagination.changePageNumber(e.detail)}
-						on:changePageSize={(e) => pagination.changePageSize(e.detail)}
-					/>
+				{#if $tableState.paginated}
+					<Pagination tableId={$tableState.tableId} />
 				{/if}
 			</div>
 		{/if}
@@ -102,8 +92,11 @@
 {/if}
 
 <style lang="postcss">
-	.sst-wrapper,
-	.sst-container {
+	.light-theme,
+	.lighter-theme,
+	.dark-theme,
+	.darker-theme,
+	.custom-theme {
 		--sst-default-font-size: 13px;
 		--sst-default-table-wrapper-border-width: 2px;
 		--sst-default-table-wrapper-border-style: 'dotted';
@@ -128,6 +121,7 @@
 	}
 
 	.sst-container {
+		background-color: var(--sst-table-wrapper-bg-color, var(--sst-default-table-wrapper-bg-color));
 		margin-bottom: 1em;
 	}
 
@@ -145,8 +139,7 @@
 		flex-grow: 0;
 	}
 
-	.sst-wrapper.lighter-theme,
-	.sst-container.lighter-theme {
+	.lighter-theme {
 		--sst-default-table-wrapper-bg-color: hsl(0, 0%, 100%);
 		--sst-default-table-wrapper-border-color: hsl(212, 76%, 80%);
 
@@ -196,8 +189,7 @@
 		--sst-default-button-focus-border-color: hsla(218, 80%, 2%, 0.8);
 	}
 
-	.sst-wrapper.light-theme,
-	.sst-container.light-theme {
+	.light-theme {
 		--sst-default-table-wrapper-bg-color: hsl(0, 0%, 95%);
 		--sst-default-table-wrapper-border-color: hsl(218, 100%, 25%);
 
@@ -247,8 +239,7 @@
 		--sst-default-button-focus-border-color: transparent;
 	}
 
-	.sst-wrapper.dark-theme,
-	.sst-container.dark-theme {
+	.dark-theme {
 		--sst-default-table-wrapper-bg-color: hsl(226, 27%, 10%);
 		--sst-default-table-wrapper-border-color: hsl(251, 74%, 30%);
 
@@ -298,8 +289,7 @@
 		--sst-default-button-focus-border-color: transparent;
 	}
 
-	.sst-wrapper.darker-theme,
-	.sst-container.darker-theme {
+	.darker-theme {
 		--sst-default-table-wrapper-bg-color: hsl(220, 13%, 3%);
 		--sst-default-table-wrapper-border-color: hsl(215, 22%, 41%);
 
@@ -350,27 +340,26 @@
 	}
 
 	@media screen and (min-width: 640px) {
-		.sst-wrapper,
-		.sst-container {
+		.light-theme,
+		.lighter-theme,
+		.dark-theme,
+		.darker-theme,
+		.custom-theme {
 			--sst-default-table-header-font-size: 1.35em;
 			--sst-default-table-wrapper-padding: 14px;
 			--sst-default-font-size: 14px;
-		}
-	}
-
-	@media screen and (min-width: 768px) {
-		.sst-wrapper,
-		.sst-container {
-			--sst-default-table-header-font-size: 1.5em;
 			--sst-default-col-header-padding: 4px 6px;
 			--sst-default-body-cell-padding: 4px 6px;
 		}
 	}
 
-	/* @media screen and (min-width: 1024px) {
-		.sst-wrapper,
-		.sst-container {
-			--sst-default-table-wrapper-padding: 16px;
+	@media screen and (min-width: 768px) {
+		.light-theme,
+		.lighter-theme,
+		.dark-theme,
+		.darker-theme,
+		.custom-theme {
+			--sst-default-table-header-font-size: 1.5em;
 		}
-	} */
+	}
 </style>

@@ -2,21 +2,15 @@
 	import SettingsIcon from '$lib/components/Icons/SettingsIcon.svelte';
 	import { pageWidth } from '$lib/stores/pageWidth';
 	import { syncWidth } from '$lib/stores/syncWidth';
-	import type { PageRangeFormat, TableStateStore } from '$lib/types';
 	import { getContext } from 'svelte';
 
 	export let tableId: string;
-	export let totalRows: number;
-	export let startRow: number;
-	export let endRow: number;
-	export let rowType: string;
-	export let pageRangeFormat: PageRangeFormat;
 	let pageDescriptionElement: HTMLElement;
-	const tableState: TableStateStore = getContext(tableId);
+	const { tableState } = getContext(tableId);
 
 	$: fontSize = $pageWidth.current < 1024 ? '1em' : '1.05em';
 	$: pageDescWidthStore = syncWidth(pageDescriptionElement);
-	$: tableState.updatePaginationLeftWidth($pageDescWidthStore);
+	$: $tableState.state.paginationLeftWidth = $pageDescWidthStore;
 </script>
 
 <div
@@ -31,10 +25,12 @@
 	</div>
 	<aside title="Click to change # of rows displayed per page" style="font-size: {fontSize}">
 		<div class="current-page-range" data-testid="page-range">
-			{#if pageRangeFormat === 'compact' || (pageRangeFormat === 'auto' && $pageWidth.isMobileDisplay)}
-				<b>{startRow + 1}-{endRow}/{totalRows}</b>
-			{:else if pageRangeFormat === 'verbose' || (pageRangeFormat === 'auto' && !$pageWidth.isMobileDisplay)}
-				Showing <b>{startRow + 1}</b> to <b>{endRow}</b> of <b>{totalRows}</b> {rowType}
+			{#if $tableState.pageRangeFormat === 'compact' || ($tableState.pageRangeFormat === 'auto' && $pageWidth.isMobileDisplay)}
+				<b>{$tableState.pagination.startRow + 1}-{$tableState.pagination.endRow}/{$tableState.pagination.totalRows}</b>
+			{:else if $tableState.pageRangeFormat === 'verbose' || ($tableState.pageRangeFormat === 'auto' && !$pageWidth.isMobileDisplay)}
+				Showing <b>{$tableState.pagination.startRow + 1}</b> to <b>{$tableState.pagination.endRow}</b> of
+				<b>{$tableState.pagination.totalRows}</b>
+				{$tableState.rowType}
 			{/if}
 		</div>
 	</aside>
