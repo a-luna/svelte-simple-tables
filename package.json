@@ -64,7 +64,6 @@
 		"commitizen": "^4.2.4",
 		"conventional-github-releaser": "^3.1.5",
 		"cssnano": "^5.0.14",
-		"cypress": "^9.2.0",
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-import": "^2.25.3",
@@ -87,8 +86,7 @@
 		"ts-jest": "^27.1.2",
 		"tslib": "^2.3.1",
 		"typescript": "^4.5.4",
-		"vite": "^2.7.6",
-		"window-resizeto": "^0.0.2"
+		"vite": "^2.7.6"
 	},
 	"type": "module",
 	"config": {
