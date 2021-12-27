@@ -2,7 +2,7 @@ import type { AriaAttributes, PropType, SortDirection } from '$lib/types';
 
 const KEBAB_CASE_REGEX = /^[a-z-]*$/;
 const SNAKE_CASE_REGEX = /^[a-z_]*$/;
-const CAMEL_CASE_REGEX = /^[A-Za-z]+[^[`]$/;
+const CAMEL_CASE_REGEX = /^[A-Za-z]+[^[-`]$/;
 
 export const getDefaultTableId = (): string => `table-${getRandomHexString(8)}`;
 
@@ -13,12 +13,6 @@ export const getRandomHexString = (length: number): string =>
 
 export const capitalize = (string: string): string => string.charAt(0).toUpperCase() + string.substring(1);
 
-export const capitalizeSentence = (string: string): string =>
-	string
-		.split(' ')
-		.map((s) => capitalize(s))
-		.join(' ');
-
 export function formatNumber(input: number | string, precision = 0): string {
 	const unformatted = typeof input === 'number' ? input : parseFloat(input);
 	return unformatted.toLocaleString('en-US', { minimumFractionDigits: precision, maximumFractionDigits: precision });
@@ -26,28 +20,6 @@ export function formatNumber(input: number | string, precision = 0): string {
 
 export const getCSSPropValue = (element: HTMLElement, propName: string): string =>
 	getComputedStyle(element).getPropertyValue(propName);
-
-export const getCSSPropPadding = (
-	element: HTMLElement,
-	propName: string,
-): { top: string; right: string; bottom: string; left: string } => {
-	const cssLengthRegex = /(\s*)(?<css_len>(0)|(\d?(.\d*)(em|rem|px))|(auto))/g;
-	const propValue = getCSSPropValue(element, propName);
-	if (propValue) {
-		const cssPadding = [...propValue.matchAll(cssLengthRegex)].map((m) => m.groups.css_len);
-		switch (cssPadding.length) {
-			case 1:
-				return { top: cssPadding[0], right: cssPadding[0], bottom: cssPadding[0], left: cssPadding[0] };
-			case 2:
-				return { top: cssPadding[0], right: cssPadding[1], bottom: cssPadding[0], left: cssPadding[1] };
-			case 3:
-				return { top: cssPadding[0], right: cssPadding[1], bottom: cssPadding[2], left: cssPadding[1] };
-			case 4:
-				return { top: cssPadding[0], right: cssPadding[1], bottom: cssPadding[2], left: cssPadding[3] };
-		}
-	}
-	return null;
-};
 
 export function getBorderCssValues(tableId: string): string {
 	if (typeof window !== 'undefined') {
@@ -91,23 +63,14 @@ export function getDefaultColHeader(propName: string, capitalized = true): strin
 }
 
 function getWordsFromKebabCase(input: string): string[] {
-	if (!KEBAB_CASE_REGEX.test(input)) {
-		return [];
-	}
 	return input.split('-');
 }
 
 function getWordsFromSnakeCase(input: string): string[] {
-	if (!SNAKE_CASE_REGEX.test(input)) {
-		return [];
-	}
 	return input.split('_');
 }
 
 function getWordsFromCamelCase(input: string): string[] {
-	if (!CAMEL_CASE_REGEX.test(input)) {
-		return [];
-	}
 	const wordBoundaries = Array.from({ length: input.length }, (_, i) => input.charCodeAt(i))
 		.map((n, i) => ({ isUpper: n < 97, index: i }))
 		.filter((x) => x.isUpper)
@@ -122,7 +85,7 @@ function getWordsFromCamelCase(input: string): string[] {
 	return words;
 }
 
-function getValidPropertyNames(input) {
+export function getValidPropertyNames(input) {
 	if (CAMEL_CASE_REGEX.test(input)) {
 		const kebabCase = getWordsFromCamelCase(input)
 			.map((w) => w.toLowerCase())
@@ -139,31 +102,36 @@ function getValidPropertyNames(input) {
 }
 
 export function getSortFunction<T>(propName: string, propType: PropType, dir: SortDirection): (a: T, b: T) => number {
-	const sortFunctionMap = {
-		string: {
-			desc: (a: T, b: T) => b[propName].localeCompare(a[propName]),
-			asc: (a: T, b: T) => a[propName].localeCompare(b[propName]),
-		},
-		number: {
-			desc: (a: T, b: T) => b[propName] - a[propName],
-			asc: (a: T, b: T) => a[propName] - b[propName],
-		},
-		boolean: {
-			desc: (a: T, b: T) => Number(b[propName]) - Number(a[propName]),
-			asc: (a: T, b: T) => Number(a[propName]) - Number(b[propName]),
-		},
-		date: {
-			desc: (a: T, b: T) => (b[propName] > a[propName] ? 1 : -1),
-			asc: (a: T, b: T) => (a[propName] > b[propName] ? 1 : -1),
-		},
-		unsorted: {
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
-			desc: (a: T, b: T) => 0,
-			// eslint-disable-next-line @typescript-eslint/no-unused-vars
-			asc: (a: T, b: T) => 0,
-		},
-	};
-	return sortFunctionMap[propType][dir];
+	let sort: { desc: (a: T, b: T) => number; asc: (a: T, b: T) => number };
+	switch (propType) {
+		case 'string':
+			sort = {
+				desc: (a: T, b: T) => b[propName].localeCompare(a[propName]),
+				asc: (a: T, b: T) => a[propName].localeCompare(b[propName]),
+			};
+			break;
+		case 'number':
+		case 'boolean':
+			sort = {
+				desc: (a: T, b: T) => Number(b[propName]) - Number(a[propName]),
+				asc: (a: T, b: T) => Number(a[propName]) - Number(b[propName]),
+			};
+			break;
+		case 'date':
+			sort = {
+				desc: (a: T, b: T) => (b[propName] > a[propName] ? 1 : -1),
+				asc: (a: T, b: T) => (a[propName] > b[propName] ? 1 : -1),
+			};
+			break;
+		default:
+			sort = {
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				desc: (a: T, b: T) => 0,
+				// eslint-disable-next-line @typescript-eslint/no-unused-vars
+				asc: (a: T, b: T) => 0,
+			};
+	}
+	return sort[dir];
 }
 
 export function getColumnWidth(tableId: string, colStat: string, sortBy: string): number {
@@ -223,13 +191,13 @@ export function getTableWrapperPaddingWidth(tableId: string): number {
 }
 
 function getStyle(el: HTMLElement, property: string) {
-	const [camelCase, snakeCase] = getValidPropertyNames(property);
+	const [camelCase, kebabCase] = getValidPropertyNames(property);
 	if (el?.style[camelCase]) {
 		return el?.style[camelCase];
 	}
 	if (typeof window !== 'undefined' && window?.getComputedStyle) {
 		const compStyles = window.getComputedStyle(el);
-		return compStyles?.getPropertyValue(snakeCase);
+		return compStyles?.getPropertyValue(kebabCase);
 	}
 }
 
