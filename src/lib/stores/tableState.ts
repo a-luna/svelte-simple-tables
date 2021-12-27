@@ -38,20 +38,6 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 		},
 	});
 
-	function togglePagination(settings: TableSettings): TableSettings {
-		settings.paginated = !settings.paginated;
-		const newPageSize = settings.paginated ? settings.pageSize : totalRows;
-		settings.pagination = {
-			totalRows,
-			totalPages: Math.ceil(totalRows / newPageSize),
-			currentPage: 1,
-			startRow: 0,
-			endRow: Math.min(newPageSize, totalRows),
-		};
-		settings.state.syncState = 'finished-sort-table';
-		return settings;
-	}
-
 	function changePageSize(pageSize: number, settings: TableSettings): TableSettings {
 		settings.pageSize = pageSize;
 		settings.pagination = {
@@ -81,7 +67,6 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 		set,
 		subscribe,
 		changePageSize: (pageSize: number) => update((settings) => changePageSize(pageSize, settings)),
-		togglePagination: () => update((settings) => togglePagination(settings)),
 		changePageNumber: (page: number) => update((settings) => goToPage(page, settings)),
 		goToFirstPage: () => update((settings) => goToPage(1, settings)),
 		goToPrevPage: () => update((settings) => goToPage(settings.pagination.currentPage - 1, settings)),

@@ -4,7 +4,6 @@ import type { TableSettings } from './TableSettings';
 export interface TableState {
 	set: Writable<TableSettings>['set'];
 	subscribe: Writable<TableSettings>['subscribe'];
-  togglePagination: () => void;
 	changePageSize: (pageSize: number) => void;
 	changePageNumber: (page: number) => void;
 	goToFirstPage: () => void;
