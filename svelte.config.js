@@ -11,7 +11,7 @@ const config = {
 		package: {
 			dir: 'package',
 			emitTypes: true,
-			exports: (filepath) => /(index.ts|package.json|SimpleTable.svelte)/.test(filepath),
+			exports: (filepath) => /(index.ts|util.ts|package.json|SimpleTable.svelte)/.test(filepath),
 		},
 	},
 };
