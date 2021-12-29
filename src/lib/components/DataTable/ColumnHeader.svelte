@@ -24,6 +24,12 @@
 
 	const getAriaSortValue = (sortBy: string, sortDir: SortDirection) =>
 		sortBy !== propName ? null : sortDir === 'asc' ? 'ascending' : 'descending';
+
+	function handleColumnHeaderClicked() {
+		if (sortable) {
+			dispatch('sortTable', { propName, propType });
+		}
+	}
 </script>
 
 <div
@@ -37,7 +43,7 @@
 	title={tooltip}
 	data-testid="{$tableState.tableId}-toggle-{propName}"
 	tabindex="0"
-	on:click={() => dispatch('sortTable', { propName, propType })}
+	on:click={() => handleColumnHeaderClicked()}
 >
 	<div class="header-content-wrapper" style={width ? ` width: ${width}` : ''}>
 		<span class="header-content">{headerText}</span>
