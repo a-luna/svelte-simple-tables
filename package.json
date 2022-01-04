@@ -25,7 +25,7 @@
 		"access": "public"
 	},
 	"scripts": {
-		"dev": "svelte-kit dev --port 3001",
+		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
 		"preview": "svelte-kit preview",
 		"check": "svelte-check --tsconfig ./tsconfig.json",
