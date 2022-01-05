@@ -10,7 +10,7 @@
 
 	export let tableId: string;
 	let { tableState, componentWidth } = getContext(tableId);
-	let showPageSizeSetting: boolean = false;
+	let showPageSizeSetting = false;
 	const options = { duration: 200, easing: cubicInOut };
 
 	$: useCompactPageNav =

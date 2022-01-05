@@ -1,11 +1,11 @@
 <script lang="ts">
-  import type { PropType } from '$lib/types';
-  import { getContext } from 'svelte';
+	import type { PropType } from '$lib/types';
+	import { getContext } from 'svelte';
 
 	export let tableId: string;
 	export let obj: any;
 	export let propName: string;
-  export let propType: PropType;
+	export let propType: PropType;
 	export let classList: string[] = [];
 	export let colValue: (obj: any) => string = null;
 	let { tableState } = getContext(tableId);
@@ -15,7 +15,7 @@
 	role="cell"
 	class="table-body-cell{classList ? ` ${classList.join(' ')}` : ''}"
 	class:highlight-stat={$tableState.sortBy === propName}
-  class:text-right={propType === 'number'}
+	class:text-right={propType === 'number'}
 	data-stat-name={propName}
 >
 	<span>{@html colValue?.(obj) ?? obj?.[propName].toString() ?? ''}</span>

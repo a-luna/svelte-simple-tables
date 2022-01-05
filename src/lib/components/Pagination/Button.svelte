@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { AriaAttributes } from '$lib/types';
 
-	export let label: string = '';
+	export let label = '';
 	export let active: boolean = null;
 	export let disabled: boolean = null;
 	export let title: string = label || null;

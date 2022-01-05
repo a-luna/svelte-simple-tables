@@ -1,4 +1,3 @@
-
 tasks:
   - before: printf "\n[settings]\napi_key = $WAKA_TIME_API_KEY\n" > ~/.wakatime.cfg
   - init: npm install

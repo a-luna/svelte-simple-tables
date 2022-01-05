@@ -10,7 +10,7 @@
 	export let propType: string;
 	export let headerText: string = getDefaultColHeader(propName);
 	export let tooltip: string = getDefaultColHeader(propName);
-	export let sortable: boolean = true;
+	export let sortable = true;
 	let width: string;
 	const dispatch = createEventDispatcher();
 	let { tableState } = getContext(tableId);
