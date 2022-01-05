@@ -3,6 +3,7 @@
 ![npm version](https://badgen.net/npm/v/@a-luna/svelte-simple-tables) ![npm types included](https://badgen.net/npm/types/@a-luna/svelte-simple-tables) ![gh license](https://badgen.net/github/license/a-luna/svelte-simple-tables) ![npm dl count](https://img.shields.io/npm/dm/@a-luna/svelte-simple-tables) [![codecov](https://codecov.io/gh/a-luna/svelte-simple-tables/branch/main/graph/badge.svg?token=N7XKOHAKNC)](https://codecov.io/gh/a-luna/svelte-simple-tables)
 
 - [Features](#features)
+- [Examples](#examples)
 - [Installation](#installation)
 - [Usage](#usage)
   - [`data`](#data)
@@ -13,10 +14,15 @@
 
 ## Features
 
-- **Create sortable, paginated tables** that follow [WAI-ARIA guidelines](https://www.w3.org/TR/wai-aria-practices-1.1/examples/table/table.html) from an array of typed objects.
+- **Create sortable, paginated tables** that follow [WAI-ARIA guidelines](https://www.w3.org/TR/wai-aria-practices-1.1/examples/table/table.html).
 - **Columns dynamically resize** to accommodate all visible content.
 - **Automatically responsive.** Tables become horizontally scrollable without breaking page layout.
 - **Four color themes provided**. Users can adjust every detail of existing themes or create new themes with CSS custom properties.
+
+## Examples
+
+- [svelte-simple-tables docs site](https://svelte-simple-tables.netlify.app/)
+- Coming Soon: CSS Theme Editor
 
 ## Installation
 
@@ -42,8 +48,8 @@ pnpm install -D @a-luna/svelte-simple-tables
 
 ```html
 <script lang="ts">
-  import SimpleTable from '@a-luna/svelte-simple-tables/components/SimpleTable.svelte';
-  import type { TableSettings } from '@a-luna/svelte-simple-tables/types/TableSettings';
+  import SimpleTable from '@a-luna/svelte-simple-tables';
+  import type { TableSettings } from '@a-luna/svelte-simple-tables/types';
   import { columnSettings } from './columnSettings';
   import { data } from './data';
 
@@ -142,7 +148,7 @@ The `columnSettings` prop that produces the table above must contain five `Colum
 
 ```typescript
 // columnSettings.ts
-import type { ColumnSettings } from '@a-luna/svelte-simple-tables/types/ColumnSettings';
+import type { ColumnSettings } from '@a-luna/svelte-simple-tables/types';
 import type { VaxData } from './data';
 
 export const columnSettings: ColumnSettings<VaxData>[] = [
@@ -211,11 +217,11 @@ Finally, the last column displays the `personId` property. The `sortable` proper
 
 Strictly speaking, the final prop, `tableSettings`, isn't required. Without it, our table would be rendered like this: 
 
-![](./static/readme_default_settings.png)
+![Table that would be rendered with all default settings](./static/readme_default_settings.png)
 
 That's a very nice table, I'm sure you will agree. However,  by customizing the `tableSettings` prop, the same `data` and `columnSettings` can produce the table below:
 
-![](./static/readme_custom_settings.png)
+![Table that would be rendered by adjusting the default settings](./static/readme_custom_settings.png)
 
 Now that's a table that you can be proud of! The `tableSettings` object specified at the beginning of this README will produce these changes.
 
@@ -241,7 +247,7 @@ The `TableSettings` interface exposes the following configuration settings:
 
 <blockquote><span title="stop calling me 'chief'">😲</span> <strong>LISTEN UP, CHIEF:</strong> As explained above, the <code>tableId</code> prop is used as the <code>id</code> attribute of the table HTML element. Therefore, it is very important that you treat this value as a unique identifier, per HTML requirements. If you choose to provide your own value for <code>tableId</code> , it is extremely important that you do not reuse this value for another <code>SimpleTable</code> component, or any HTML element in your project. Bad things will happen, trust me!</blockquote>
 
-![](./static/readme_settings_explained.png)
+![Image that shows where and how various table settings change the appearance of the rendered table](./static/readme_settings_explained.png)
 
 ## Themes
 
