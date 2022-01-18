@@ -4,7 +4,7 @@
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import type { ColumnSettings } from '$lib/types';
-	import { getContext } from 'svelte';
+	import { createEventDispatcher, getContext } from 'svelte';
 
 	type R = $$Generic;
 
@@ -13,9 +13,16 @@
 	export let columnSettings: ColumnSettings<R>[] = [];
 	let tableElement: HTMLElement;
 	let { tableState, componentWidth } = getContext(tableId);
+	const dispatch = createEventDispatcher();
 
 	$: tableWidthStore = syncWidth(tableElement);
 	$: $tableState.state.tableWidth = $tableWidthStore;
+
+	function handleRowClicked(obj: R) {
+		if ($tableState.clickableRows) {
+			dispatch('rowClicked', obj);
+		}
+	}
 </script>
 
 <TableHeader tableId={$tableState.tableId} />
@@ -50,8 +57,10 @@
 					<div
 						role="row"
 						class="resp-table-row"
+						class:clickable={$tableState.clickableRows}
 						aria-rowindex={$tableState.pagination.startRow + i + 1}
 						data-testid="{$tableState.tableId}-row"
+						on:click={() => handleRowClicked(obj)}
 					>
 						{#each columnSettings as { propName, propType, classList, colValue }}
 							<TableCell tableId={$tableState.tableId} {obj} {propName} {propType} {classList} {colValue} />
@@ -124,5 +133,9 @@
 	.resp-table-row:last-child {
 		border-bottom-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 		border-bottom-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
+	}
+
+	.clickable {
+		cursor: pointer;
 	}
 </style>

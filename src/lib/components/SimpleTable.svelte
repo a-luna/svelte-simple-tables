@@ -82,6 +82,7 @@
 					data={dataCurrentPage}
 					{columnSettings}
 					on:sortTable={(e) => handleSortTable(e.detail)}
+					on:rowClicked
 				/>
 				{#if $tableState.paginated}
 					<Pagination tableId={$tableState.tableId} />

@@ -11,6 +11,7 @@ export interface TableSettings {
 	sortDir?: SortDirection;
 	tableWrapper?: boolean;
 	themeName?: TableTheme;
+  clickableRows?: boolean;
 	paginated?: boolean;
 	pageSize?: number;
 	pageSizeOptions?: number[];
