@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.12](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.11...v0.0.12) (2022-01-18)
+### [0.0.13](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.12...v0.0.13) (2022-01-18)
 
 
 ### Features
 
-* :sparkles: add property to PageWidthState to return name of current page breakpoint ([9c41c51](https://github.com/a-luna/svelte-simple-tables/commit/9c41c51619ccd9995aa6d791f648e7ca81e22e86))
+* :sparkles: add reset method to tableState store ([ae20174](https://github.com/a-luna/svelte-simple-tables/commit/ae201740de44b254917557183b455ee36be9687f))
+
+### [0.0.12](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.11...v0.0.12) (2022-01-18)
+
+### Features
+
+- :sparkles: add property to PageWidthState to return name of current page breakpoint ([9c41c51](https://github.com/a-luna/svelte-simple-tables/commit/9c41c51619ccd9995aa6d791f648e7ca81e22e86))
 
 ### [0.0.11](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.10...v0.0.11) (2022-01-05)
 
