@@ -38,6 +38,11 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 		},
 	});
 
+	function reset(totalRowsChanged: number, pageSize: number, settings: TableSettings): TableSettings {
+		totalRows = totalRowsChanged;
+		return changePageSize(pageSize, settings);
+	}
+
 	function changePageSize(pageSize: number, settings: TableSettings): TableSettings {
 		settings.pageSize = pageSize;
 		settings.pagination = {
@@ -66,6 +71,8 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 	return {
 		set,
 		subscribe,
+		reset: (totalRowsChanged: number, pageSize: number) =>
+			update((settings) => reset(totalRowsChanged, pageSize, settings)),
 		changePageSize: (pageSize: number) => update((settings) => changePageSize(pageSize, settings)),
 		changePageNumber: (page: number) => update((settings) => goToPage(page, settings)),
 		goToFirstPage: () => update((settings) => goToPage(1, settings)),
