@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.11](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.10...v0.0.11) (2022-01-05)
+### [0.0.12](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.11...v0.0.12) (2022-01-18)
 
+
+### Features
+
+* :sparkles: add property to PageWidthState to return name of current page breakpoint ([9c41c51](https://github.com/a-luna/svelte-simple-tables/commit/9c41c51619ccd9995aa6d791f648e7ca81e22e86))
+
+### [0.0.11](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.10...v0.0.11) (2022-01-05)
 
 ### Bug Fixes
 
-* :bug: column is sortable when sortable=false ([a3c328d](https://github.com/a-luna/svelte-simple-tables/commit/a3c328de8f4ed9753f93bc5d0de23740719813ca)), closes [#5](https://github.com/a-luna/svelte-simple-tables/issues/5)
+- :bug: column is sortable when sortable=false ([a3c328d](https://github.com/a-luna/svelte-simple-tables/commit/a3c328de8f4ed9753f93bc5d0de23740719813ca)), closes [#5](https://github.com/a-luna/svelte-simple-tables/issues/5)
 
 ### [0.0.10](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.9...v0.0.10) (2021-12-27)
 
