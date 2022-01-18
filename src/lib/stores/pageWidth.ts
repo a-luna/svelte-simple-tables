@@ -20,9 +20,23 @@ export const pageWidth: Readable<PageWidthState> = derived(getPageWidth(), ($pag
 	const is2xExtraLarge = (width: number): boolean => width >= 1536;
 	const isMobileDisplay = (width: number): boolean => width < 768;
 
+	const breakPoint = (width: number): string =>
+		isDefault(width)
+			? 'default'
+			: isSmall(width)
+			? 'sm'
+			: isMedium(width)
+			? 'md'
+			: isLarge(width)
+			? 'lg'
+			: isExtraLarge(width)
+			? 'xl'
+			: '2xl';
+
 	return $pageWidth > 0
 		? {
 				current: $pageWidth,
+				breakPoint: breakPoint($pageWidth),
 				isMobileDisplay: isMobileDisplay($pageWidth),
 				isDefault: isDefault($pageWidth),
 				isSmall: isSmall($pageWidth),
@@ -33,6 +47,7 @@ export const pageWidth: Readable<PageWidthState> = derived(getPageWidth(), ($pag
 		  }
 		: {
 				current: 0,
+				breakPoint: 'default',
 				isMobileDisplay: true,
 				isDefault: true,
 				isSmall: false,

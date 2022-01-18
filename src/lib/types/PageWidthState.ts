@@ -1,5 +1,6 @@
 export interface PageWidthState {
 	current: number;
+	breakPoint: string;
 	isMobileDisplay: boolean;
 	isDefault: boolean;
 	isSmall: boolean;
