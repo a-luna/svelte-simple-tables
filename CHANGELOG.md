@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.13](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.12...v0.0.13) (2022-01-18)
+### [0.0.14](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.13...v0.0.14) (2022-01-18)
 
 
 ### Features
 
-* :sparkles: add reset method to tableState store ([ae20174](https://github.com/a-luna/svelte-simple-tables/commit/ae201740de44b254917557183b455ee36be9687f))
+* :sparkles: add clickableRows property to tableSettings ([217f358](https://github.com/a-luna/svelte-simple-tables/commit/217f35814b3dc27704a13cd5f9be5826f8b6c82d))
+
+### [0.0.13](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.12...v0.0.13) (2022-01-18)
+
+### Features
+
+- :sparkles: add reset method to tableState store ([ae20174](https://github.com/a-luna/svelte-simple-tables/commit/ae201740de44b254917557183b455ee36be9687f))
 
 ### [0.0.12](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.11...v0.0.12) (2022-01-18)
 

@@ -19,6 +19,7 @@
 		tableWrapper: true,
 		paginated: true,
 		pageSize: 5,
+		clickableRows: false,
 		pageSizeOptions: [5, 10, 15, 20, 25],
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
@@ -65,12 +66,18 @@
 		pageSize: 10,
 		pageSizeOptions: [5, 10, 15, 20, 25],
 		themeName: 'darker',
+		clickableRows: true,
 		rowType: 'vax records',
 	};
 </script>
 
 <div class="light-themes">
-	<SimpleTable data={barrelsForDateData} columnSettings={pfxBarrelColumnSettings} tableSettings={pfxTableSettings} />
+	<SimpleTable
+		data={barrelsForDateData}
+		columnSettings={pfxBarrelColumnSettings}
+		tableSettings={pfxTableSettings}
+		on:rowClicked={(e) => console.log({ pfx: e.detail })}
+	/>
 </div>
 <div class="dark-themes" style="display: none">
 	<!-- <SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} /> -->
