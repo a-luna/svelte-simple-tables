@@ -5,6 +5,8 @@
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import type { ColumnSettings } from '$lib/types';
 	import { createEventDispatcher, getContext } from 'svelte';
+	import { flip } from 'svelte/animate';
+	import { quintInOut } from 'svelte/easing';
 
 	type R = $$Generic;
 
@@ -14,6 +16,7 @@
 	let tableElement: HTMLElement;
 	let { tableState, componentWidth } = getContext(tableId);
 	const dispatch = createEventDispatcher();
+	const options = { delay: 100, duration: 500, easing: quintInOut };
 
 	$: tableWidthStore = syncWidth(tableElement);
 	$: $tableState.state.tableWidth = $tableWidthStore;
@@ -53,20 +56,38 @@
 				{/each}
 			</div>
 			<div role="rowgroup" class="resp-table-body">
-				{#each data as obj, i}
-					<div
-						role="row"
-						class="resp-table-row"
-						class:clickable={$tableState.clickableRows}
-						aria-rowindex={$tableState.pagination.startRow + i + 1}
-						data-testid="{$tableState.tableId}-row"
-						on:click={() => handleRowClicked(obj)}
-					>
-						{#each columnSettings as { propName, propType, classList, colValue }}
-							<TableCell tableId={$tableState.tableId} {obj} {propName} {propType} {classList} {colValue} />
-						{/each}
-					</div>
-				{/each}
+				{#if $tableState.animateSorting}
+					{#each data as obj, i (obj)}
+						<div
+							animate:flip={options}
+							role="row"
+							class="resp-table-row"
+							class:clickable={$tableState.clickableRows}
+							aria-rowindex={$tableState.pagination.startRow + i + 1}
+							data-testid="{$tableState.tableId}-row"
+							on:click={() => handleRowClicked(obj)}
+						>
+							{#each columnSettings as { propName, propType, classList, colValue }}
+								<TableCell tableId={$tableState.tableId} {obj} {propName} {propType} {classList} {colValue} />
+							{/each}
+						</div>
+					{/each}
+				{:else}
+					{#each data as obj, i}
+						<div
+							role="row"
+							class="resp-table-row"
+							class:clickable={$tableState.clickableRows}
+							aria-rowindex={$tableState.pagination.startRow + i + 1}
+							data-testid="{$tableState.tableId}-row"
+							on:click={() => handleRowClicked(obj)}
+						>
+							{#each columnSettings as { propName, propType, classList, colValue }}
+								<TableCell tableId={$tableState.tableId} {obj} {propName} {propType} {classList} {colValue} />
+							{/each}
+						</div>
+					{/each}
+				{/if}
 			</div>
 		</div>
 	</div>

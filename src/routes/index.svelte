@@ -20,6 +20,7 @@
 		paginated: true,
 		pageSize: 5,
 		clickableRows: false,
+		animateSorting: true,
 		pageSizeOptions: [5, 10, 15, 20, 25],
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',

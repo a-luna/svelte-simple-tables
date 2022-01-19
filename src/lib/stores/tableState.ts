@@ -16,6 +16,7 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 		tableWrapper: settings?.tableWrapper || false,
 		themeName: settings?.themeName || 'lighter',
 		clickableRows: settings?.clickableRows || false,
+    animateSorting: settings?.animateSorting || false,
 		paginated: settings?.paginated || false,
 		pageSize: pageSize,
 		pageSizeOptions: settings?.pageSizeOptions || [5, 10, 15],

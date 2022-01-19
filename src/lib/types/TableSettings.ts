@@ -12,6 +12,7 @@ export interface TableSettings {
 	tableWrapper?: boolean;
 	themeName?: TableTheme;
 	clickableRows?: boolean;
+	animateSorting?: boolean;
 	paginated?: boolean;
 	pageSize?: number;
 	pageSizeOptions?: number[];
