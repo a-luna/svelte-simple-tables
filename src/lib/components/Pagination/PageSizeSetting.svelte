@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { browser } from '$app/env';
 	import Button from '$lib/components/Pagination/Button.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import { createEventDispatcher, getContext } from 'svelte';
@@ -14,7 +13,7 @@
 
 	$: pageSizeSettingWidthStore = syncWidth(pageSizeSettingElement);
 	$: $tableState.state.paginationLeftWidth = $pageSizeSettingWidthStore;
-	$: if (browser) fixFirstInvalidPageSizeButton($tableState.pageSizeOptions);
+	$: if (typeof window !== 'undefined') fixFirstInvalidPageSizeButton($tableState.pageSizeOptions);
 
 	function changeSetting(newSetting: { pageSize: number; index: number }) {
 		const { pageSize, index } = newSetting;
