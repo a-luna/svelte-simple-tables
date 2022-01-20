@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { browser } from '$app/env';
 	import Button from '$lib/components/Pagination/Button.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import { createEventDispatcher, getContext } from 'svelte';
@@ -13,6 +14,7 @@
 
 	$: pageSizeSettingWidthStore = syncWidth(pageSizeSettingElement);
 	$: $tableState.state.paginationLeftWidth = $pageSizeSettingWidthStore;
+	$: if (browser) fixFirstInvalidPageSizeButton($tableState.pageSizeOptions);
 
 	function changeSetting(newSetting: { pageSize: number; index: number }) {
 		const { pageSize, index } = newSetting;
@@ -24,6 +26,24 @@
 	function pageSizeIsInvalid(i: number): boolean {
 		const prevPageSizeOption = i - 1 >= 0 ? $tableState.pageSizeOptions[i - 1] : 0;
 		return prevPageSizeOption > $tableState.pagination.totalRows ? true : null;
+	}
+
+	const getFirstInvalidPageSizeOption = (pageSizeOptions: number[]): number =>
+		pageSizeOptions
+			.map((opt, i) => ({ size: opt, sizeIsValid: !pageSizeIsInvalid(i) }))
+			.sort((a, b) => a.size - b.size)
+			.find(({ sizeIsValid }) => !sizeIsValid).size;
+
+	function fixFirstInvalidPageSizeButton(pageSizeOptions: number[]) {
+		const pageSize = getFirstInvalidPageSizeOption(pageSizeOptions);
+		if (pageSize) {
+			const buttonSelector = `#${tableId}-page-size [data-testid="page-size-${pageSize}"]`;
+			const pageSizeButton = document.querySelector<HTMLElement>(buttonSelector);
+			if (pageSizeButton) {
+				pageSizeButton.style.borderLeft =
+					'1px solid var(--sst-button-border-color, var(--sst-default-button-border-color))';
+			}
+		}
 	}
 </script>
 
