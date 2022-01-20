@@ -303,4 +303,23 @@ describe('SimpleTable', () => {
 			tableSettings: basicTableSettings,
 		});
 	});
+
+	it('verify tableState.reset method', () => {
+		const tableState = createTableStateStore(barrelsForDateData.length, tableSettings);
+		const { getByTestId, getAllByTestId } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings,
+			tableState,
+		});
+		const table = getByTestId(tableId);
+		expect(table).toHaveAttribute('aria-rowcount', barrelsForDateData.length.toString());
+		const visibleRowsPage1_pre = getAllByTestId(`${tableId}-row`);
+		expect(visibleRowsPage1_pre).toHaveLength(5);
+
+		const changedData = barrelsForDateData.slice(5);
+		const changedTotalRows = changedData.length;
+		const changedPageSize = 10;
+		tableState.reset(changedTotalRows, changedPageSize);
+	});
 });
