@@ -4,9 +4,9 @@
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import type { ColumnSettings } from '$lib/types';
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { createEventDispatcher,getContext } from 'svelte';
 	import { flip } from 'svelte/animate';
-	import { quintInOut } from 'svelte/easing';
+	import { cubicInOut } from 'svelte/easing';
 
 	type R = $$Generic;
 
@@ -16,7 +16,7 @@
 	let tableElement: HTMLElement;
 	let { tableState, componentWidth } = getContext(tableId);
 	const dispatch = createEventDispatcher();
-	const options = { delay: 100, duration: 500, easing: quintInOut };
+	const options = { delay: 0, duration: 500, easing: cubicInOut };
 
 	$: tableWidthStore = syncWidth(tableElement);
 	$: $tableState.state.tableWidth = $tableWidthStore;
