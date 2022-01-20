@@ -1,4 +1,5 @@
 import SimpleTable from '$lib/components/SimpleTable.svelte';
+import { createTableStateStore } from '$lib/stores';
 import type { TableSettings } from '$lib/types';
 import { pfxBarrelColumnSettings } from '$lib/__tests__/data/columnSettings';
 import { barrelsForDateData } from '$lib/__tests__/data/getBarrelsForDate';
@@ -321,5 +322,33 @@ describe('SimpleTable', () => {
 		const changedTotalRows = changedData.length;
 		const changedPageSize = 10;
 		tableState.reset(changedTotalRows, changedPageSize);
+	});
+
+	it('verify clickableRows property of TableSettings object, clickableRows = true', async () => {
+		const clickableRowsTableSettings: TableSettings = {
+			clickableRows: true,
+			animateSorting: true,
+			...tableSettings,
+		};
+		const { getAllByTestId, component } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings: clickableRowsTableSettings,
+		});
+
+		const visibleRowsPage1 = getAllByTestId(`${tableId}-row`);
+		expect(visibleRowsPage1.length).toBeGreaterThanOrEqual(2);
+		const firstRow = visibleRowsPage1[0];
+		const mockEvent = jest.fn();
+		component.$on('rowClicked', (event) => mockEvent(event.detail));
+
+		await fireEvent.click(firstRow);
+		expect(mockEvent).toHaveBeenCalledTimes(1);
+		expect(mockEvent.mock.calls[0][0]['at_bat_id']).toEqual('KCA202110030_01_KCA_663804_MIN_593934_0');
+
+		const secondRow = visibleRowsPage1[1];
+		await fireEvent.click(secondRow);
+		expect(mockEvent).toHaveBeenCalledTimes(2);
+		expect(mockEvent.mock.calls[1][0]['at_bat_id']).toEqual('LAN202110030_04_LAN_621111_MIL_642133_0');
 	});
 });
