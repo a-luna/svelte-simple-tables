@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.15](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.14...v0.0.15) (2022-01-19)
+### [0.0.16](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.15...v0.0.16) (2022-01-20)
 
+
+### Bug Fixes
+
+* :lipstick: border between valid/invalid page size buttons is missing ([0f39efc](https://github.com/a-luna/svelte-simple-tables/commit/0f39efccdf089d9936a361a0f44f35087cd639ed))
+
+### [0.0.15](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.14...v0.0.15) (2022-01-19)
 
 ### Features
 
-* :sparkles: add animateSorting property to TableSettings ([f806ff3](https://github.com/a-luna/svelte-simple-tables/commit/f806ff342cf553d4c6f50f14d287ae0eb05bf18e))
+- :sparkles: add animateSorting property to TableSettings ([f806ff3](https://github.com/a-luna/svelte-simple-tables/commit/f806ff342cf553d4c6f50f14d287ae0eb05bf18e))
 
 ### [0.0.14](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.13...v0.0.14) (2022-01-18)
 

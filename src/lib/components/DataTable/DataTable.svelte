@@ -4,7 +4,7 @@
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import type { ColumnSettings } from '$lib/types';
-	import { createEventDispatcher,getContext } from 'svelte';
+	import { createEventDispatcher, getContext } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { cubicInOut } from 'svelte/easing';
 
