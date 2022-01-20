@@ -48,7 +48,6 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 	{
 		propName: 'batter_name',
 		propType: 'string',
-		tooltip: 'Batter Name',
 		classList: ['text-left'],
 		colValue: batterNameLink,
 	},
@@ -79,7 +78,6 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 		propName: 'total_distance',
 		propType: 'number',
 		headerText: 'Distance',
-		tooltip: 'Total Distance',
 		colValue: formatLaunchDistance,
 	},
 	{
@@ -92,7 +90,6 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 		propName: 'pitcher_name',
 		propType: 'string',
 		headerText: 'Pitcher',
-		tooltip: 'Pitcher Name',
 		colValue: pitcherNameLink,
 	},
 	{
@@ -120,12 +117,10 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 		propName: 'inning',
 		propType: 'number',
 		headerText: 'Inn',
-		tooltip: 'Inning',
 	},
 	{
 		propName: 'count',
 		propType: 'string',
-		tooltip: 'Count',
 	},
 	{
 		propName: 'inside_strike_zone',

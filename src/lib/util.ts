@@ -1,8 +1,8 @@
 import type { AriaAttributes, PropType, SortDirection } from '$lib/types';
 
-const KEBAB_CASE_REGEX = /^[a-z-]*$/;
-const SNAKE_CASE_REGEX = /^[a-z_]*$/;
-const CAMEL_CASE_REGEX = /^[A-Za-z]+[^[-`]$/;
+const KEBAB_CASE_REGEX = /^(?=.*-)[a-z-]*$/;
+const SNAKE_CASE_REGEX = /^(?=.*_)[a-z_]*$/;
+const CAMEL_CASE_REGEX = /^[a-z](?=.*[A-Z])[A-Za-z]*[^[-`]$/;
 
 export const getDefaultTableId = (): string => `table-${getRandomHexString(8)}`;
 
@@ -145,7 +145,7 @@ export function getColumnWidth(tableId: string, colStat: string, sortBy: string)
 		const columnElements = Array.from(document.querySelectorAll<HTMLElement>(elementsInColSelector(tableId, colStat)));
 		const widestElement = columnElements.reduce((max, el) => (max.offsetWidth > el.offsetWidth ? max : el)).offsetWidth;
 		return Math.max(widestElement, getColHeaderWidth(tableId, colStat, sortBy));
-		}
+	}
 }
 
 function getColHeaderWidth(tableId: string, colStat: string, sortStat: string): number {
