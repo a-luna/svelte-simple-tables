@@ -8,7 +8,6 @@ const getPageWidth = (): Writable<number> => {
 		const svelteDiv = document.getElementById('svelte');
 		return svelteDiv ? syncWidth(svelteDiv) : null;
 	}
-	return null;
 };
 
 export const pageWidth: Readable<PageWidthState> = derived(getPageWidth(), ($pageWidth) => {

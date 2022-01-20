@@ -1,8 +1,14 @@
 import type { ColumnSettings } from '$lib/types';
 import { capitalize, formatNumber } from '$lib/util';
 import { BROOKS_BBREF_TEAM_ID_MAP, PITCH_TYPE_ABBREV_TO_NAME_MAP } from '$lib/__tests__/data/constants';
-import { getHomeTeamIdFromBrooksGameId } from '$lib/__tests__/data/util';
 import type { PitchFx } from '$lib/__tests__/types';
+
+export function getHomeTeamIdFromBrooksGameId(game_id: string): string {
+	const BB_GAME_ID_REGEX =
+		/gid_(?<year>\d{4,4})_(?<month>\d{2,2})_(?<day>\d{2,2})_(?<away_team>[a-z]+)mlb_(?<home_team>[a-z]+)mlb_(?<game_num>\d)/;
+	const match = BB_GAME_ID_REGEX.exec(game_id);
+	return match?.groups?.home_team ?? '';
+}
 
 const batterNameLink = (pfx: PitchFx): string =>
 	`<a sveltekit:prefetch href="/player/${pfx.batter_id_mlb}/batting">${pfx.batter_name} (${getBatterTeamId(pfx)})</a>`;

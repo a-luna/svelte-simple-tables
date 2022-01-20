@@ -8,8 +8,8 @@
 
 	type R = $$Generic;
 
-	export let data: R[] = [];
-	export let columnSettings: ColumnSettings<R>[] = [];
+	export let data: R[];
+	export let columnSettings: ColumnSettings<R>[];
 	export let tableSettings: TableSettings;
 	export let tableState: TableState = null;
 	if (!tableState) {

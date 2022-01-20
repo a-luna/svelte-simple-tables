@@ -85,7 +85,7 @@ function getWordsFromCamelCase(input: string): string[] {
 	return words;
 }
 
-export function getValidPropertyNames(input) {
+export function getValidPropertyNames(input: string): [string, string] {
 	if (CAMEL_CASE_REGEX.test(input)) {
 		const kebabCase = getWordsFromCamelCase(input)
 			.map((w) => w.toLowerCase())
@@ -134,27 +134,23 @@ export function getSortFunction<T>(propName: string, propType: PropType, dir: So
 	return sort[dir];
 }
 
+const elementsInColSelector = (tableId: string, colStat: string): string =>
+	`#${tableId} .table-body-cell[data-stat-name="${colStat}"] > *`;
+
+const colHeaderSelector = (tableId: string, colStat: string): string =>
+	`#${tableId} .sortable[data-stat-name="${colStat}"] .header-content`;
+
 export function getColumnWidth(tableId: string, colStat: string, sortBy: string): number {
 	if (typeof window !== 'undefined') {
-		const minWidth = getColHeaderWidth(tableId, colStat, sortBy);
-		const colElementsQuery = `#${tableId} .table-body-cell[data-stat-name="${colStat}"] > *`;
-		const columnElements = Array.from(document.querySelectorAll<HTMLElement>(colElementsQuery));
-		if (columnElements.length > 0) {
-			const widestElementInColumn = columnElements.reduce((max, el) => (max.offsetWidth > el.offsetWidth ? max : el));
-			return Math.max(widestElementInColumn.offsetWidth, minWidth);
+		const columnElements = Array.from(document.querySelectorAll<HTMLElement>(elementsInColSelector(tableId, colStat)));
+		const widestElement = columnElements.reduce((max, el) => (max.offsetWidth > el.offsetWidth ? max : el)).offsetWidth;
+		return Math.max(widestElement, getColHeaderWidth(tableId, colStat, sortBy));
 		}
-		return minWidth;
-	}
-	return 0;
 }
 
 function getColHeaderWidth(tableId: string, colStat: string, sortStat: string): number {
-	const colHeaderQuery = `#${tableId} .sortable[data-stat-name="${colStat}"] .header-content`;
-	const colHeaderContent = document.querySelector<HTMLElement>(colHeaderQuery);
-	const colHeaderWidth = colHeaderContent?.scrollWidth ?? 0;
-	const sortIconWidth = colStat === sortStat ? getTableFontSizeInPixels(tableId) : 0;
-	const finalWidth = colHeaderWidth + sortIconWidth;
-	return finalWidth;
+	const colHeaderWidth = document.querySelector<HTMLElement>(colHeaderSelector(tableId, colStat))?.scrollWidth ?? 0;
+	return colStat === sortStat ? colHeaderWidth + getTableFontSizeInPixels(tableId) : colHeaderWidth;
 }
 
 function getNumberOfPixelsFromString(input: string): number {
