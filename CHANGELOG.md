@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.16](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.15...v0.0.16) (2022-01-20)
+### [0.0.17](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.16...v0.0.17) (2022-02-03)
 
 
 ### Bug Fixes
 
-* :lipstick: border between valid/invalid page size buttons is missing ([0f39efc](https://github.com/a-luna/svelte-simple-tables/commit/0f39efccdf089d9936a361a0f44f35087cd639ed))
+* :bug: component width error when container width is less than 100% of page width ([693f928](https://github.com/a-luna/svelte-simple-tables/commit/693f9286e3d61d8888c7da0fed1665e2b12a2604))
+
+### [0.0.16](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.15...v0.0.16) (2022-01-20)
+
+### Bug Fixes
+
+- :lipstick: border between valid/invalid page size buttons is missing ([0f39efc](https://github.com/a-luna/svelte-simple-tables/commit/0f39efccdf089d9936a361a0f44f35087cd639ed))
 
 ### [0.0.15](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.14...v0.0.15) (2022-01-19)
 
