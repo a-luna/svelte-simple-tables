@@ -30,6 +30,7 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 			tableWidth: 0,
 			paginationLeftWidth: 0,
 			paginationRightWidth: 0,
+			containerWidth: 0,
 		},
 		pagination: {
 			totalRows: totalRows,

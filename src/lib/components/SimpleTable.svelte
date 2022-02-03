@@ -1,10 +1,11 @@
 <script lang="ts">
 	import DataTable from '$lib/components/DataTable/DataTable.svelte';
 	import Pagination from '$lib/components/Pagination/Pagination.svelte';
-	import { createComponentWidthStore, createTableStateStore } from '$lib/stores';
+	import { createComponentWidthStore, createTableStateStore, syncWidth } from '$lib/stores';
 	import type { ColumnSettings, PropType, TableSettings, TableState } from '$lib/types';
 	import { getBorderCssValues, getSortFunction, getTableFontSize } from '$lib/util';
 	import { setContext, tick } from 'svelte';
+	import type { Writable } from 'svelte/store';
 
 	type R = $$Generic;
 
@@ -12,6 +13,8 @@
 	export let columnSettings: ColumnSettings<R>[];
 	export let tableSettings: TableSettings;
 	export let tableState: TableState = null;
+	let tableWrapperContainerWidth: Writable<number>;
+	let tableWrapperElement: HTMLElement;
 	if (!tableState) {
 		tableState = createTableStateStore(data.length, tableSettings);
 	}
@@ -33,6 +36,8 @@
 	$: if ($tableState.state.syncState === 'finished-sort-table') updateColumnWidths();
 	$: dataCurrentPage = data.sort(sortFunction).slice($tableState.pagination.startRow, $tableState.pagination.endRow);
 	$: tableWrapperBorderStyle = $tableState.tableWrapper ? getBorderCssValues($tableState.tableId) : 'none';
+	$: if (tableWrapperElement) tableWrapperContainerWidth = syncWidth(tableWrapperElement.parentElement);
+	$: $tableState.state.containerWidth = $tableWrapperContainerWidth;
 
 	function handleSortTable(sortSettings: { propName: string; propType: PropType }) {
 		const { propName, propType } = sortSettings;
@@ -64,6 +69,7 @@
 
 {#if data}
 	<div
+		bind:this={tableWrapperElement}
 		id="{$tableState.tableId}-wrapper"
 		class:sst-wrapper={$tableState.tableWrapper}
 		class:sst-container={!$tableState.tableWrapper}

@@ -26,6 +26,7 @@ export interface TableSettings {
 		tableWidth: number;
 		paginationLeftWidth: number;
 		paginationRightWidth: number;
+		containerWidth: number;
 	};
 	pagination?: {
 		totalRows: number;

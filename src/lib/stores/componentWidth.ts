@@ -25,11 +25,13 @@ export function createComponentWidthStore(tableSettings: TableState): Readable<C
 				: getMinComponentWidth();
 
 		const tableExceedsViewportWidth = (): boolean => getPaddedComponentWidth() > $pageWidth.current;
+		const tableExceedsContainerWidth = (): boolean => getPaddedComponentWidth() > $tableSettings.state.containerWidth;
+		const finalWidthExceeded = (): boolean =>
+			$tableSettings.fullWidth ? tableExceedsViewportWidth() : tableExceedsContainerWidth();
 
 		return {
-			finalComponentWidth: tableExceedsViewportWidth() ? '100%' : `${getMinComponentWidth()}px`,
-			finalWrapperWidth:
-				$tableSettings.fullWidth || tableExceedsViewportWidth() ? '100%' : `${getPaddedComponentWidth()}px`,
+			finalComponentWidth: finalWidthExceeded() ? '100%' : `${getMinComponentWidth()}px`,
+			finalWrapperWidth: finalWidthExceeded() ? '100%' : `${getPaddedComponentWidth()}px`,
 		};
 	});
 }

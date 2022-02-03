@@ -72,7 +72,7 @@
 	};
 </script>
 
-<div class="light-themes">
+<div class="light-themes" style="width: 700px; margin: 0 auto;">
 	<SimpleTable
 		data={barrelsForDateData}
 		columnSettings={pfxBarrelColumnSettings}
