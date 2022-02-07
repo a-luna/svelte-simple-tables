@@ -22,9 +22,6 @@
 		}
 	}
 
-	const allPageSizesAreValid = (): boolean =>
-		$tableState.pageSizeOptions.every((opt: number) => opt <= $tableState.pagination.totalRows);
-
 	function pageSizeIsInvalid(i: number): boolean {
 		const prevPageSizeOption = i - 1 >= 0 ? $tableState.pageSizeOptions[i - 1] : 0;
 		return prevPageSizeOption > $tableState.pagination.totalRows ? true : null;
@@ -34,18 +31,16 @@
 		pageSizeOptions
 			.map((opt, i) => ({ size: opt, sizeIsValid: !pageSizeIsInvalid(i) }))
 			.sort((a, b) => a.size - b.size)
-			.find(({ sizeIsValid }) => !sizeIsValid).size;
+			.find(({ sizeIsValid }) => !sizeIsValid)?.size;
 
 	function fixFirstInvalidPageSizeButton(pageSizeOptions: number[]) {
-		if (!allPageSizesAreValid()) {
-			const pageSize = getFirstInvalidPageSizeOption(pageSizeOptions);
-			if (pageSize) {
-				const buttonSelector = `#${tableId}-page-size [data-testid="page-size-${pageSize}"]`;
-				const pageSizeButton = document.querySelector<HTMLElement>(buttonSelector);
-				if (pageSizeButton) {
-					pageSizeButton.style.borderLeft =
-						'1px solid var(--sst-button-border-color, var(--sst-default-button-border-color))';
-				}
+		const pageSize = getFirstInvalidPageSizeOption(pageSizeOptions);
+		if (pageSize) {
+			const buttonSelector = `#${tableId}-page-size [data-testid="page-size-${pageSize}"]`;
+			const pageSizeButton = document.querySelector<HTMLElement>(buttonSelector);
+			if (pageSizeButton) {
+				pageSizeButton.style.borderLeft =
+					'1px solid var(--sst-button-border-color, var(--sst-default-button-border-color))';
 			}
 		}
 	}
