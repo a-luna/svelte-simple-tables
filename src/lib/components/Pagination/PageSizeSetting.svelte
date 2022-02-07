@@ -22,6 +22,9 @@
 		}
 	}
 
+	const allPageSizesAreValid = (): boolean =>
+		$tableState.pageSizeOptions.every((opt: number) => opt <= $tableState.pagination.totalRows);
+
 	function pageSizeIsInvalid(i: number): boolean {
 		const prevPageSizeOption = i - 1 >= 0 ? $tableState.pageSizeOptions[i - 1] : 0;
 		return prevPageSizeOption > $tableState.pagination.totalRows ? true : null;
@@ -34,13 +37,15 @@
 			.find(({ sizeIsValid }) => !sizeIsValid).size;
 
 	function fixFirstInvalidPageSizeButton(pageSizeOptions: number[]) {
-		const pageSize = getFirstInvalidPageSizeOption(pageSizeOptions);
-		if (pageSize) {
-			const buttonSelector = `#${tableId}-page-size [data-testid="page-size-${pageSize}"]`;
-			const pageSizeButton = document.querySelector<HTMLElement>(buttonSelector);
-			if (pageSizeButton) {
-				pageSizeButton.style.borderLeft =
-					'1px solid var(--sst-button-border-color, var(--sst-default-button-border-color))';
+		if (!allPageSizesAreValid()) {
+			const pageSize = getFirstInvalidPageSizeOption(pageSizeOptions);
+			if (pageSize) {
+				const buttonSelector = `#${tableId}-page-size [data-testid="page-size-${pageSize}"]`;
+				const pageSizeButton = document.querySelector<HTMLElement>(buttonSelector);
+				if (pageSizeButton) {
+					pageSizeButton.style.borderLeft =
+						'1px solid var(--sst-button-border-color, var(--sst-default-button-border-color))';
+				}
 			}
 		}
 	}
