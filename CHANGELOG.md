@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.18](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.17...v0.0.18) (2022-02-07)
+### [0.0.19](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.18...v0.0.19) (2022-02-07)
 
 
 ### Bug Fixes
 
-* :bug: hard crash when accessing page size options ([a0ab661](https://github.com/a-luna/svelte-simple-tables/commit/a0ab661e122e026a557ac0cebf8212df31265d16))
+* :bug: prevent accessing property of undefined object in PageSizeSettings component ([68f12cb](https://github.com/a-luna/svelte-simple-tables/commit/68f12cb909b67159040c2ce0b9ea56bfdbd4b32e))
+
+### [0.0.18](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.17...v0.0.18) (2022-02-07)
+
+### Bug Fixes
+
+- :bug: hard crash when accessing page size options ([a0ab661](https://github.com/a-luna/svelte-simple-tables/commit/a0ab661e122e026a557ac0cebf8212df31265d16))
 
 ### [0.0.17](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.16...v0.0.17) (2022-02-03)
 
