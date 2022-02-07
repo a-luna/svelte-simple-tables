@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.17](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.16...v0.0.17) (2022-02-03)
+### [0.0.18](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.17...v0.0.18) (2022-02-07)
 
 
 ### Bug Fixes
 
-* :bug: component width error when container width is less than 100% of page width ([693f928](https://github.com/a-luna/svelte-simple-tables/commit/693f9286e3d61d8888c7da0fed1665e2b12a2604))
+* :bug: hard crash when accessing page size options ([a0ab661](https://github.com/a-luna/svelte-simple-tables/commit/a0ab661e122e026a557ac0cebf8212df31265d16))
+
+### [0.0.17](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.16...v0.0.17) (2022-02-03)
+
+### Bug Fixes
+
+- :bug: component width error when container width is less than 100% of page width ([693f928](https://github.com/a-luna/svelte-simple-tables/commit/693f9286e3d61d8888c7da0fed1665e2b12a2604))
 
 ### [0.0.16](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.15...v0.0.16) (2022-01-20)
 
