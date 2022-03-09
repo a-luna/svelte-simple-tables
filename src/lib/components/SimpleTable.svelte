@@ -128,7 +128,7 @@
 	}
 
 	.sst-container {
-		background-color: var(--sst-table-wrapper-bg-color, var(--sst-default-table-wrapper-bg-color));
+		background-color: inherit;
 		margin-bottom: 1em;
 	}
 
