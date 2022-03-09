@@ -2,12 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.19](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.18...v0.0.19) (2022-02-07)
+### [0.0.20](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.19...v0.0.20) (2022-03-09)
 
 
 ### Bug Fixes
 
-* :bug: prevent accessing property of undefined object in PageSizeSettings component ([68f12cb](https://github.com/a-luna/svelte-simple-tables/commit/68f12cb909b67159040c2ce0b9ea56bfdbd4b32e))
+* :bug: background-color should inherit when tableWrapper=false ([2ff1de8](https://github.com/a-luna/svelte-simple-tables/commit/2ff1de86756c888546e9f882c37bbed61db2fd05))
+* :bug: remove role="navigation" from PaginationNavigation ([6a53966](https://github.com/a-luna/svelte-simple-tables/commit/6a53966f1ede4f9b331a70bae75bc85b9fa2f5c7))
+* :bug: simplify how container/wrapper widths are determined ([3114f99](https://github.com/a-luna/svelte-simple-tables/commit/3114f9995b08437517a1c47946b473cb3dc0f402))
+* :test_tube: update jest snapshots ([3f3d361](https://github.com/a-luna/svelte-simple-tables/commit/3f3d36199c1b85c838e50b0ff20acdea582f3400))
+
+### [0.0.19](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.18...v0.0.19) (2022-02-07)
+
+### Bug Fixes
+
+- :bug: prevent accessing property of undefined object in PageSizeSettings component ([68f12cb](https://github.com/a-luna/svelte-simple-tables/commit/68f12cb909b67159040c2ce0b9ea56bfdbd4b32e))
 
 ### [0.0.18](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.17...v0.0.18) (2022-02-07)
 
