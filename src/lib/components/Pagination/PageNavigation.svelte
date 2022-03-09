@@ -21,7 +21,6 @@
 
 <nav
 	id="{tableId}-page-nav"
-	role="navigation"
 	aria-label="Table Pagination Controls"
 	class="page-nav btn-group"
 	data-testid="page-nav"
