@@ -82,7 +82,7 @@
 		style="width: {$componentWidth.finalWrapperWidth}; border: {tableWrapperBorderStyle}"
 	>
 		{#if columnSettings}
-			<div class="simple-table" style="width: {$componentWidth.finalComponentWidth}">
+			<div class="simple-table">
 				<DataTable
 					tableId={$tableState.tableId}
 					data={dataCurrentPage}
@@ -124,7 +124,7 @@
 		background-color: var(--sst-table-wrapper-bg-color, var(--sst-default-table-wrapper-bg-color));
 		border-radius: 4px;
 		padding: var(--sst-table-wrapper-padding, var(--sst-default-table-wrapper-padding));
-		margin: 0 auto 1em auto;
+		margin-bottom: 1em;
 	}
 
 	.sst-container {

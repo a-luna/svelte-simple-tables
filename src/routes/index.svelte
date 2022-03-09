@@ -11,13 +11,15 @@
 	const sortBy = 'launch_speed';
 	const pfxTableSettings: TableSettings = {
 		tableId,
+		themeName: 'light',
 		showHeader: true,
 		header: caption,
 		showSortDescription: true,
 		sortBy,
 		sortDir: 'desc',
 		tableWrapper: true,
-		paginated: true,
+		fullWidth: true,
+		paginated: false,
 		pageSize: 5,
 		clickableRows: false,
 		animateSorting: true,
@@ -47,26 +49,29 @@
 		tableId: 'vax-status-table-full',
 		showHeader: true,
 		header: 'Vax Status',
+		showSortDescription: true,
 		sortBy: 'age',
 		sortDir: 'desc',
-		themeName: 'dark',
+		themeName: 'lighter',
+		fullWidth: true,
 		tableWrapper: true,
+		paginated: true,
 	};
 
 	const paginatedTableSettings: TableSettings = {
 		tableId: 'vax-status-table',
-		showHeader: true,
-		header: 'Vax Status',
-		showSortDescription: true,
+		showHeader: false,
+		showSortDescription: false,
 		sortBy: 'age',
 		sortDir: 'desc',
-		tableWrapper: true,
+		fullWidth: true,
+		tableWrapper: false,
 		paginated: false,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
 		pageSize: 10,
 		pageSizeOptions: [5, 10, 15, 20, 25],
-		themeName: 'darker',
+		themeName: 'light',
 		clickableRows: true,
 		rowType: 'vax records',
 	};
@@ -80,8 +85,8 @@
 		on:rowClicked={(e) => console.log({ pfx: e.detail })}
 	/>
 </div>
-<div class="dark-themes" style="display: none">
-	<!-- <SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} /> -->
+<div class="dark-themes">
+	<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} />
 	<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={paginatedTableSettings} />
 </div>
 

@@ -29,7 +29,7 @@
 </script>
 
 <TableHeader tableId={$tableState.tableId} />
-<article class="resp-table-container" style="width: {$componentWidth.finalComponentWidth}">
+<article class="resp-table-container">
 	<div class="resp-table-wrapper">
 		<div
 			id={$tableState.tableId}
