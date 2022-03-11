@@ -108,6 +108,7 @@
 		--sst-default-table-wrapper-border-width: 2px;
 		--sst-default-table-wrapper-border-style: 'dotted';
 		--sst-default-table-wrapper-padding: 13px;
+		--sst-default-table-wrapper-margin: 0 auto 1em auto;
 		--sst-default-sort-description-font-size: 0.85em;
 		--sst-default-table-header-font-size: 1.25em;
 		--sst-default-table-border-radius: 4px;
@@ -116,7 +117,7 @@
 		--sst-default-col-header-highlight-text-weight: 500;
 		--sst-default-body-cell-padding: 2px 4px;
 		--sst-default-button-group-border-radius: 0.375em;
-
+		
 		font-size: var(--sst-font-size, var(--sst-default-font-size));
 	}
 
@@ -124,12 +125,12 @@
 		background-color: var(--sst-table-wrapper-bg-color, var(--sst-default-table-wrapper-bg-color));
 		border-radius: 4px;
 		padding: var(--sst-table-wrapper-padding, var(--sst-default-table-wrapper-padding));
-		margin-bottom: 1em;
+		margin: var(--sst-table-wrapper-margin, var(--sst-default-table-wrapper-margin));
 	}
 
 	.sst-container {
 		background-color: inherit;
-		margin-bottom: 1em;
+		margin: var(--sst-table-wrapper-margin, var(--sst-default-table-wrapper-margin));
 	}
 
 	.simple-table {
