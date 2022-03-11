@@ -82,7 +82,7 @@
 		style="width: {$componentWidth.finalWrapperWidth}; border: {tableWrapperBorderStyle}"
 	>
 		{#if columnSettings}
-			<div class="simple-table">
+			<div class="simple-table" style="width: {$componentWidth.finalComponentWidth}">
 				<DataTable
 					tableId={$tableState.tableId}
 					data={dataCurrentPage}

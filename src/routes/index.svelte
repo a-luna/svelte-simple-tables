@@ -56,6 +56,8 @@
 		fullWidth: true,
 		tableWrapper: true,
 		paginated: true,
+		pageRangeFormat: 'compact',
+		pageNavFormat: 'compact',
 	};
 
 	const paginatedTableSettings: TableSettings = {

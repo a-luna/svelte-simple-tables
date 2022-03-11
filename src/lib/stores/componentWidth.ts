@@ -26,12 +26,10 @@ export function createComponentWidthStore(tableSettings: TableState): Readable<C
 
 		const tableExceedsViewportWidth = (): boolean => getPaddedComponentWidth() > $pageWidth.current;
 		const tableExceedsContainerWidth = (): boolean => getPaddedComponentWidth() > $tableSettings.state.containerWidth;
-		const finalWidthExceeded = (): boolean =>
-			$tableSettings.fullWidth ? tableExceedsViewportWidth() : tableExceedsContainerWidth();
 
 		return {
-			finalComponentWidth: finalWidthExceeded() ? '100%' : `${getMinComponentWidth()}px`,
-			finalWrapperWidth: finalWidthExceeded() ? '100%' : `${getPaddedComponentWidth()}px`,
+			finalComponentWidth: tableExceedsContainerWidth() || tableExceedsViewportWidth() ? '100%' : `${getMinComponentWidth()}px`,
+			finalWrapperWidth: tableExceedsContainerWidth() || tableExceedsViewportWidth() ? 'auto' : 'min-content',
 		};
 	});
 }
