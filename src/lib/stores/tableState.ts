@@ -9,7 +9,6 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 		showHeader: settings?.showHeader || false,
 		header: settings?.header ?? '',
 		showSortDescription: settings?.showSortDescription || false,
-		fullWidth: settings?.fullWidth || false,
 		sortBy: settings?.sortBy,
 		sortType: settings?.sortType,
 		sortDir: settings?.sortDir || 'asc',

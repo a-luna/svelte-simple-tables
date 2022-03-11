@@ -37,8 +37,6 @@
 			aria-labelledby="{$tableState.tableId}-cap"
 			aria-rowcount={$tableState.pagination.totalRows}
 			class="resp-table"
-			class:auto-layout={$tableState.fullWidth}
-			class:fixed-layout={!$tableState.fullWidth}
 			data-testid={$tableState.tableId}
 			bind:this={tableElement}
 		>
@@ -110,13 +108,6 @@
 		color: var(--sst-text-color, var(--sst-default-text-color));
 		line-height: 1.25em;
 		margin: 0 auto;
-	}
-
-	.auto-layout {
-		table-layout: auto;
-	}
-
-	.fixed-layout {
 		table-layout: fixed;
 	}
 

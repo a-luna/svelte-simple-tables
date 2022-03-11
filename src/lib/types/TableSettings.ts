@@ -5,7 +5,6 @@ export interface TableSettings {
 	showHeader?: boolean;
 	header?: string;
 	showSortDescription?: boolean;
-	fullWidth?: boolean;
 	sortBy?: string;
 	sortType?: PropType;
 	sortDir?: SortDirection;
