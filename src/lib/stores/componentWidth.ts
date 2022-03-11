@@ -28,7 +28,8 @@ export function createComponentWidthStore(tableSettings: TableState): Readable<C
 		const tableExceedsContainerWidth = (): boolean => getPaddedComponentWidth() > $tableSettings.state.containerWidth;
 
 		return {
-			finalComponentWidth: tableExceedsContainerWidth() || tableExceedsViewportWidth() ? '100%' : `${getMinComponentWidth()}px`,
+			finalComponentWidth:
+				tableExceedsContainerWidth() || tableExceedsViewportWidth() ? '100%' : `${getMinComponentWidth()}px`,
 			finalWrapperWidth: tableExceedsContainerWidth() || tableExceedsViewportWidth() ? 'auto' : 'min-content',
 		};
 	});

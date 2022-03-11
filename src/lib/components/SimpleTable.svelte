@@ -117,7 +117,7 @@
 		--sst-default-col-header-highlight-text-weight: 500;
 		--sst-default-body-cell-padding: 2px 4px;
 		--sst-default-button-group-border-radius: 0.375em;
-		
+
 		font-size: var(--sst-font-size, var(--sst-default-font-size));
 	}
 

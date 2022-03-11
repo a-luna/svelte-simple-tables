@@ -4,13 +4,13 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-change-page-si
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -33,21 +33,21 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-change-page-si
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -327,12 +327,12 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-change-page-si
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -472,7 +472,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-change-page-si
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -612,7 +612,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-change-page-si
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -752,7 +752,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-change-page-si
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -892,7 +892,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-change-page-si
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -1115,13 +1115,13 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -1144,21 +1144,21 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -1438,12 +1438,12 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -1583,7 +1583,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -1723,7 +1723,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -1863,7 +1863,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -2003,7 +2003,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -2260,13 +2260,13 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -2289,21 +2289,21 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -2583,12 +2583,12 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -2728,7 +2728,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -2868,7 +2868,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -3008,7 +3008,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -3148,7 +3148,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p1-sort-by-num
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -3405,13 +3405,13 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p2-sort-by-num
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -3434,21 +3434,21 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p2-sort-by-num
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -3728,12 +3728,12 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p2-sort-by-num
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -3873,7 +3873,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p2-sort-by-num
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -4013,7 +4013,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p2-sort-by-num
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -4153,7 +4153,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p2-sort-by-num
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -4293,7 +4293,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p2-sort-by-num
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -4545,13 +4545,13 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p3-sort-by-num
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -4574,21 +4574,21 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p3-sort-by-num
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -4868,12 +4868,12 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p3-sort-by-num
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -5013,7 +5013,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p3-sort-by-num
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -5153,7 +5153,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p3-sort-by-num
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -5293,7 +5293,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p3-sort-by-num
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -5433,7 +5433,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p3-sort-by-num
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -5685,13 +5685,13 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p4-sort-by-num
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -5714,21 +5714,21 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p4-sort-by-num
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -6008,12 +6008,12 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p4-sort-by-num
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -6153,7 +6153,7 @@ exports[`SimpleTable verify table is paginated and sortable: 5per-p4-sort-by-num
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -6410,13 +6410,13 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -6439,21 +6439,21 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -6733,12 +6733,12 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -6878,7 +6878,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7018,7 +7018,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7158,7 +7158,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7298,7 +7298,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7438,7 +7438,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7578,7 +7578,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7718,7 +7718,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7858,7 +7858,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -7998,7 +7998,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -8138,7 +8138,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -8278,7 +8278,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -8418,7 +8418,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -8558,7 +8558,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -8698,7 +8698,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -8838,7 +8838,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -8978,7 +8978,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -9298,13 +9298,13 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -9327,21 +9327,21 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -9621,12 +9621,12 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -9766,7 +9766,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -9906,7 +9906,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -10046,7 +10046,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -10186,7 +10186,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -10326,7 +10326,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -10466,7 +10466,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -10606,7 +10606,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -10746,7 +10746,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -10886,7 +10886,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -11026,7 +11026,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -11166,7 +11166,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -11306,7 +11306,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -11446,7 +11446,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -11586,7 +11586,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -11726,7 +11726,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -11866,7 +11866,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-bo
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -12186,13 +12186,13 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -12215,21 +12215,21 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -12509,12 +12509,12 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -12654,7 +12654,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -12794,7 +12794,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -12934,7 +12934,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -13074,7 +13074,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -13214,7 +13214,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -13354,7 +13354,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -13494,7 +13494,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -13634,7 +13634,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -13774,7 +13774,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -13914,7 +13914,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -14054,7 +14054,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -14194,7 +14194,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -14334,7 +14334,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -14474,7 +14474,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -14614,7 +14614,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -14754,7 +14754,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -15074,13 +15074,13 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -15103,21 +15103,21 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -15397,12 +15397,12 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -15542,7 +15542,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -15682,7 +15682,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -15822,7 +15822,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -15962,7 +15962,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -16102,7 +16102,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -16242,7 +16242,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -16382,7 +16382,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -16522,7 +16522,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -16662,7 +16662,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -16802,7 +16802,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -16942,7 +16942,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -17082,7 +17082,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -17222,7 +17222,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -17362,7 +17362,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -17502,7 +17502,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -17642,7 +17642,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-da
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -17962,13 +17962,13 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -17991,21 +17991,21 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -18285,12 +18285,12 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -18430,7 +18430,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -18570,7 +18570,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -18710,7 +18710,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -18850,7 +18850,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -18990,7 +18990,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -19130,7 +19130,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -19270,7 +19270,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -19410,7 +19410,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -19550,7 +19550,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -19690,7 +19690,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -19830,7 +19830,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -19970,7 +19970,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -20110,7 +20110,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -20250,7 +20250,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -20390,7 +20390,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -20530,7 +20530,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-nu
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -20850,13 +20850,13 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -20879,21 +20879,21 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -21173,12 +21173,12 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -21318,7 +21318,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -21458,7 +21458,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -21598,7 +21598,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -21738,7 +21738,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -21878,7 +21878,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22018,7 +22018,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22158,7 +22158,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22298,7 +22298,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22438,7 +22438,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22578,7 +22578,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22718,7 +22718,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22858,7 +22858,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -22998,7 +22998,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -23138,7 +23138,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -23278,7 +23278,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -23418,7 +23418,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -23738,13 +23738,13 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
 <body>
   <div>
     <div
-      class="svelte-1rvrbq5 sst-wrapper lighter-theme"
+      class="svelte-15ojn9t sst-wrapper lighter-theme"
       data-font-size=""
       id="all-barrels-wrapper"
       style="border: 2px dotted hsl(212, 76%, 80%);"
     >
       <div
-        class="simple-table svelte-1rvrbq5"
+        class="simple-table svelte-15ojn9t"
       >
         <div
           class="table-header-wrapper svelte-20qgr3"
@@ -23767,21 +23767,21 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
         </div>
          
         <article
-          class="resp-table-container svelte-5lnrci"
+          class="resp-table-container svelte-d6b8yi"
         >
           <div
-            class="resp-table-wrapper svelte-5lnrci"
+            class="resp-table-wrapper svelte-d6b8yi"
           >
             <div
               aria-labelledby="all-barrels-cap"
               aria-rowcount="17"
-              class="resp-table svelte-5lnrci fixed-layout"
+              class="resp-table svelte-d6b8yi"
               data-testid="all-barrels"
               id="all-barrels"
               role="table"
             >
               <div
-                class="resp-table-header svelte-5lnrci"
+                class="resp-table-header svelte-d6b8yi"
                 role="row"
               >
                 <div
@@ -24061,12 +24061,12 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
               </div>
                
               <div
-                class="resp-table-body svelte-5lnrci"
+                class="resp-table-body svelte-d6b8yi"
                 role="rowgroup"
               >
                 <div
                   aria-rowindex="1"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -24206,7 +24206,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="2"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -24346,7 +24346,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="3"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -24486,7 +24486,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="4"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -24626,7 +24626,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="5"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -24766,7 +24766,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="6"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -24906,7 +24906,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="7"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -25046,7 +25046,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="8"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -25186,7 +25186,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="9"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -25326,7 +25326,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="10"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -25466,7 +25466,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="11"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -25606,7 +25606,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="12"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -25746,7 +25746,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="13"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -25886,7 +25886,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="14"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -26026,7 +26026,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="15"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -26166,7 +26166,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="16"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
@@ -26306,7 +26306,7 @@ exports[`SimpleTable verify table is paginated and sortable: 20per-p1-sort-by-st
                 </div>
                 <div
                   aria-rowindex="17"
-                  class="resp-table-row svelte-5lnrci"
+                  class="resp-table-row svelte-d6b8yi"
                   data-testid="all-barrels-row"
                   role="row"
                 >
