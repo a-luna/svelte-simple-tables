@@ -14,8 +14,7 @@
 </script>
 
 <nav
-	id="{tableId}-page-nav"
-	role="navigation"
+	id="{tableId}-page-nav"j
 	aria-label="Table Pagination Controls"
 	class="page-nav btn-group"
 	data-testid="page-nav"
