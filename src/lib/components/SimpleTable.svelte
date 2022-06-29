@@ -121,6 +121,11 @@
 		font-size: var(--sst-font-size, var(--sst-default-font-size));
 	}
 
+	.sst-container,
+	.sst-wrapper {
+		box-sizing: border-box;
+	}
+
 	.sst-wrapper {
 		background-color: var(--sst-table-wrapper-bg-color, var(--sst-default-table-wrapper-bg-color));
 		border-radius: 4px;
