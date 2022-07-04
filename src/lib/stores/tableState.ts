@@ -13,6 +13,7 @@ export function createTableStateStore(totalRows: number, settings: TableSettings
 		sortType: settings?.sortType,
 		sortDir: settings?.sortDir || 'asc',
 		tableWrapper: settings?.tableWrapper || false,
+		expandToContainerWidth: settings?.expandToContainerWidth || false,
 		themeName: settings?.themeName || 'lighter',
 		clickableRows: settings?.clickableRows || false,
 		animateSorting: settings?.animateSorting || false,

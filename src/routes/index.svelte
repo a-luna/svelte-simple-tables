@@ -11,14 +11,15 @@
 	const sortBy = 'launch_speed';
 	const pfxTableSettings: TableSettings = {
 		tableId,
-		themeName: 'light',
+		themeName: 'dark',
 		showHeader: true,
 		header: caption,
 		showSortDescription: true,
 		sortBy,
 		sortDir: 'desc',
 		tableWrapper: true,
-		paginated: false,
+		expandToContainerWidth: false,
+		paginated: true,
 		pageSize: 5,
 		clickableRows: false,
 		animateSorting: true,
@@ -26,22 +27,24 @@
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
 	};
-	// const pfxTableSettings: TableSettings = {
-	// 	tableId: 'pfx',
-	// 	showHeader: true,
-	// 	header: 'Barrels',
-	// 	showSortDescription: true,
-	// 	sortBy: 'time_pitch_thrown_est',
-	// 	sortDir: 'desc',
-	// 	tableWrapper: true,
-	// 	themeName: 'light',
-	// 	paginated: false,
-	// 	pageSize: 10,
-	// 	pageSizeOptions: [5, 10, 15, 20, 25],
-	// 	pageRangeFormat: 'auto',
-	// 	pageNavFormat: 'auto',
-	// 	rowType: 'barrels',
-	// };
+
+	const pfxPaginatedTableSettings: TableSettings = {
+		tableId: 'pfx',
+		showHeader: true,
+		header: 'Barrels',
+		showSortDescription: true,
+		sortBy: 'time_pitch_thrown_est',
+		sortDir: 'desc',
+		tableWrapper: true,
+		expandToContainerWidth: false,
+		themeName: 'lighter',
+		paginated: true,
+		pageSize: 10,
+		pageSizeOptions: [5, 10, 15, 20, 25],
+		pageRangeFormat: 'auto',
+		pageNavFormat: 'auto',
+		rowType: 'barrels',
+	};
 
 	const basicTableSettings: TableSettings = {
 		tableId: 'vax-status-table-full',
@@ -50,9 +53,10 @@
 		showSortDescription: true,
 		sortBy: 'age',
 		sortDir: 'desc',
-		themeName: 'lighter',
+		themeName: 'light',
 		tableWrapper: true,
-		paginated: true,
+		expandToContainerWidth: true,
+		paginated: false,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
 	};
@@ -63,34 +67,57 @@
 		showSortDescription: false,
 		sortBy: 'age',
 		sortDir: 'desc',
-		tableWrapper: false,
-		paginated: false,
+		tableWrapper: true,
+		expandToContainerWidth: true,
+		paginated: true,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
 		pageSize: 10,
 		pageSizeOptions: [5, 10, 15, 20, 25],
-		themeName: 'light',
+		themeName: 'darker',
 		clickableRows: true,
 		rowType: 'vax records',
 	};
 </script>
 
 <div class="light-themes">
+	<div style="width: 650px; --sst-table-wrapper-border-width: 0;">
+		<SimpleTable
+			data={barrelsForDateData}
+			columnSettings={pfxBarrelColumnSettings}
+			tableSettings={pfxPaginatedTableSettings}
+			on:rowClicked={(e) => console.log({ pfx: e.detail })}
+		/>
+	</div>
+	<div>
+		<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} />
+	</div>
+</div>
+<div class="dark-themes">
 	<SimpleTable
 		data={barrelsForDateData}
 		columnSettings={pfxBarrelColumnSettings}
 		tableSettings={pfxTableSettings}
 		on:rowClicked={(e) => console.log({ pfx: e.detail })}
 	/>
-</div>
-<div class="dark-themes">
-	<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} />
-	<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={paginatedTableSettings} />
+	<div style="width: 650px; --sst-table-wrapper-border-width: 0px;">
+		<SimpleTable
+			data={vaxData}
+			columnSettings={vaxDataColumnSettings}
+			tableSettings={paginatedTableSettings}
+			on:rowClicked={(e) => console.log(e.detail)}
+		/>
+	</div>
 </div>
 
 <style lang="postcss">
 	:global(body) {
 		margin: 0;
+	}
+
+	.dark-themes,
+	.light-themes {
+		padding: 1rem;
 	}
 
 	.dark-themes {

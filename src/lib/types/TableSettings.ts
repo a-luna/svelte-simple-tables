@@ -9,6 +9,7 @@ export interface TableSettings {
 	sortType?: PropType;
 	sortDir?: SortDirection;
 	tableWrapper?: boolean;
+	expandToContainerWidth?: boolean;
 	themeName?: TableTheme;
 	clickableRows?: boolean;
 	animateSorting?: boolean;
