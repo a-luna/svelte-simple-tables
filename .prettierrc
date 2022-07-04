@@ -1,6 +1,12 @@
 {
 	"useTabs": true,
+	"arrowParens": "always",
 	"singleQuote": true,
-	"trailingComma": "all",
-	"printWidth": 120
+	"printWidth": 120,
+	"semi": true,
+	"svelteSortOrder": "options-scripts-markup-styles",
+	"svelteStrictMode": false,
+	"svelteBracketNewLine": true,
+	"svelteIndentScriptAndStyle": true,
+	"trailingComma": "all"
 }

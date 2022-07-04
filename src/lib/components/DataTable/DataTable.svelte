@@ -30,14 +30,13 @@
 
 <TableHeader tableId={$tableState.tableId} />
 <article class="resp-table-container">
-	<div class="resp-table-wrapper">
+	<div class="resp-table-wrapper" data-testid={$tableState.tableId}>
 		<div
 			id={$tableState.tableId}
 			role="table"
 			aria-labelledby="{$tableState.tableId}-cap"
 			aria-rowcount={$tableState.pagination.totalRows}
 			class="resp-table"
-			data-testid={$tableState.tableId}
 			bind:this={tableElement}
 		>
 			<div role="row" class="resp-table-header">

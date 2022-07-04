@@ -13,6 +13,19 @@ const config = {
 			exports: (filepath) =>
 				/(index.ts|util.ts|package.json)/.test(filepath) || /components[\w/]*.svelte/.test(filepath),
 		},
+		vite: {
+			test: {
+				globals: false,
+				environment: 'jsdom',
+				moduleNameMapper: {
+					'^\\$lib(.*)$': '<rootDir>/src/lib$1',
+					'^\\$app(.*)$': ['<rootDir>/.svelte-kit/dev/runtime/app$1', '<rootDir>/.svelte-kit/build/runtime/app$1'],
+				},
+				coverage: {
+					skipFull: true,
+				},
+			},
+		},
 	},
 };
 

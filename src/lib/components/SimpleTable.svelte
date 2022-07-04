@@ -108,7 +108,7 @@
 		--sst-default-table-wrapper-border-width: 2px;
 		--sst-default-table-wrapper-border-style: 'dotted';
 		--sst-default-table-wrapper-padding: 13px;
-		--sst-default-table-wrapper-margin: 0 auto 1em auto;
+		--sst-default-table-wrapper-margin: 0 auto 1em 0;
 		--sst-default-sort-description-font-size: 0.85em;
 		--sst-default-table-header-font-size: 1.25em;
 		--sst-default-table-border-radius: 4px;

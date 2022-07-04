@@ -1,7 +1,8 @@
 import { getDefaultColHeader, getValidPropertyNames } from '$lib/util';
+import { describe, expect, test } from 'vitest';
 
 describe('util', () => {
-	it('verify getDefaultColHeader', () => {
+	test('verify getDefaultColHeader', () => {
 		const propertyCamelCase = 'playerName';
 		const propertySnakeCase = 'player-name';
 		const expectedColHeader = 'Player Name';
@@ -9,7 +10,7 @@ describe('util', () => {
 		expect(getDefaultColHeader(propertySnakeCase)).toEqual(expectedColHeader);
 	});
 
-	it('verify getValidPropertyNames', () => {
+	test('verify getValidPropertyNames', () => {
 		let property = 'borderLeftWidth';
 		let [camelCase, snakeCase] = getValidPropertyNames(property);
 		expect(camelCase).toEqual(property);
