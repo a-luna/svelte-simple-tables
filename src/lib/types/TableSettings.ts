@@ -1,11 +1,11 @@
 import type { PageRangeFormat, PaginationLayout, PropType, SortDirection, SyncState, TableTheme } from './literals';
 
-export interface TableSettings {
+export interface TableSettings<R> {
 	tableId?: string;
 	showHeader?: boolean;
 	header?: string;
 	showSortDescription?: boolean;
-	sortBy?: string;
+	sortBy?: keyof R;
 	sortType?: PropType;
 	sortDir?: SortDirection;
 	tableWrapper?: boolean;

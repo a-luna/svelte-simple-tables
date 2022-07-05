@@ -12,8 +12,8 @@
 
 	export let data: R[];
 	export let columnSettings: ColumnSettings<R>[];
-	export let tableSettings: TableSettings;
-	export let tableState: TableState = null;
+	export let tableSettings: TableSettings<R>;
+	export let tableState: TableState<R> = null;
 	let tableWrapperContainerWidth: Writable<number>;
 	let tableWrapperElement: HTMLElement;
 	if (!tableState) {
@@ -40,7 +40,7 @@
 	$: if (tableWrapperElement) tableWrapperContainerWidth = syncWidth(tableWrapperElement.parentElement);
 	$: $tableState.state.containerWidth = $tableWrapperContainerWidth;
 
-	function handleSortTable(sortSettings: { propName: string; propType: PropType }) {
+	function handleSortTable(sortSettings: { propName: keyof R; propType: PropType }) {
 		const { propName, propType } = sortSettings;
 		$tableState.sortDir = $tableState.sortBy !== propName ? 'asc' : $tableState.sortDir === 'asc' ? 'desc' : 'asc';
 		$tableState.sortBy = propName;
