@@ -1,3 +1,4 @@
+/* c8 ignore start */
 import { syncWidth } from '$lib/stores/syncWidth';
 import type { PageWidthState } from '$lib/types';
 import type { Readable, Writable } from 'svelte/store';
@@ -32,27 +33,30 @@ export const pageWidth: Readable<PageWidthState> = derived(getPageWidth(), ($pag
 			? 'xl'
 			: '2xl';
 
-	return $pageWidth > 0
-		? {
-				current: $pageWidth,
-				breakPoint: breakPoint($pageWidth),
-				isMobileDisplay: isMobileDisplay($pageWidth),
-				isDefault: isDefault($pageWidth),
-				isSmall: isSmall($pageWidth),
-				isMedium: isMedium($pageWidth),
-				isLarge: isLarge($pageWidth),
-				isExtraLarge: isExtraLarge($pageWidth),
-				is2xExtraLarge: is2xExtraLarge($pageWidth),
-		  }
-		: {
-				current: 0,
-				breakPoint: 'default',
-				isMobileDisplay: true,
-				isDefault: true,
-				isSmall: false,
-				isMedium: false,
-				isLarge: false,
-				isExtraLarge: false,
-				is2xExtraLarge: false,
-		  };
+	const validInterface = {
+		current: $pageWidth,
+		breakPoint: breakPoint($pageWidth),
+		isMobileDisplay: isMobileDisplay($pageWidth),
+		isDefault: isDefault($pageWidth),
+		isSmall: isSmall($pageWidth),
+		isMedium: isMedium($pageWidth),
+		isLarge: isLarge($pageWidth),
+		isExtraLarge: isExtraLarge($pageWidth),
+		is2xExtraLarge: is2xExtraLarge($pageWidth),
+	};
+
+	const NullInterface = {
+		current: 0,
+		breakPoint: 'default',
+		isMobileDisplay: true,
+		isDefault: true,
+		isSmall: false,
+		isMedium: false,
+		isLarge: false,
+		isExtraLarge: false,
+		is2xExtraLarge: false,
+	};
+
+	return $pageWidth > 0 ? validInterface : NullInterface;
 });
+/* c8 ignore stop */

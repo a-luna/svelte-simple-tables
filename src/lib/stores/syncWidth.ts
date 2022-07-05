@@ -1,3 +1,4 @@
+/* c8 ignore start */
 import type { Writable } from 'svelte/store';
 import { writable } from 'svelte/store';
 
@@ -11,3 +12,4 @@ export function syncWidth(el: HTMLElement): Writable<number> {
 		return () => ro.disconnect();
 	});
 }
+/* c8 ignore stop */

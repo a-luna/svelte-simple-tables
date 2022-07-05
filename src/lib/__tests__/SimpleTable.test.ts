@@ -1,4 +1,5 @@
 import SimpleTable from '$lib/components/SimpleTable.svelte';
+import { createTableStateStore } from '$lib/stores';
 import type { TableSettings } from '$lib/types';
 import { pfxBarrelColumnSettings } from '$lib/__tests__/data/columnSettings';
 import { barrelsForDateData } from '$lib/__tests__/data/getBarrelsForDate';
@@ -88,7 +89,6 @@ describe('SimpleTable', () => {
 		expect(visibleRowsPage2[2].outerHTML).toContain('aria-rowindex="8"');
 		expect(visibleRowsPage2[3].outerHTML).toContain('aria-rowindex="9"');
 		expect(visibleRowsPage2[4].outerHTML).toContain('aria-rowindex="10"');
-		expect(container).toMatchSnapshot('5per-p2-sort-by-number-desc');
 
 		const lastPage = await screen.findByTestId('last');
 		await user.click(lastPage);
@@ -97,7 +97,6 @@ describe('SimpleTable', () => {
 		expect(visibleRowsPage4).toHaveLength(2);
 		expect(visibleRowsPage4[0].outerHTML).toContain(`aria-rowindex="${(barrelsForDateData.length - 1).toString()}"`);
 		expect(visibleRowsPage4[1].outerHTML).toContain(`aria-rowindex="${barrelsForDateData.length.toString()}"`);
-		expect(container).toMatchSnapshot('5per-p4-sort-by-number-desc');
 
 		const prevPage = await screen.findByTestId('prev');
 		await user.click(prevPage);
@@ -109,13 +108,11 @@ describe('SimpleTable', () => {
 		expect(visibleRowsPage3[2].outerHTML).toContain('aria-rowindex="13"');
 		expect(visibleRowsPage3[3].outerHTML).toContain('aria-rowindex="14"');
 		expect(visibleRowsPage3[4].outerHTML).toContain('aria-rowindex="15"');
-		expect(container).toMatchSnapshot('5per-p3-sort-by-number-desc');
 
 		const changePageSize = await screen.findByTestId('change-page-size');
 		await user.click(changePageSize);
 		const pageSizeChoices = await screen.findByTestId('page-size-choices');
 		expect(pageSizeChoices).toBeTruthy();
-		expect(container).toMatchSnapshot('5per-change-page-size');
 
 		const pageSize_5 = await screen.findByTestId(`page-size-5`);
 		expect(pageSize_5.outerHTML).not.toContain('disabled');
@@ -134,7 +131,6 @@ describe('SimpleTable', () => {
 		expect(visibleRowsPage1_20_asc).toHaveLength(17);
 		expect(visibleRowsPage1_20_asc[0].outerHTML).toContain('aria-rowindex="1"');
 		expect(visibleRowsPage1_20_asc[16].outerHTML).toContain('aria-rowindex="17"');
-		expect(container).toMatchSnapshot('20per-p1-sort-by-number-asc');
 
 		const sortBy_date = 'time_pitch_thrown_est';
 		const toggleSort_date = await screen.findByTestId(`${tableId}-toggle-${sortBy_date}`);
@@ -151,7 +147,6 @@ describe('SimpleTable', () => {
 		const lastValue_sortBy_date_asc = lastRow_sortBy_date_asc[9];
 		expect(lastValue_sortBy_date_asc.outerHTML).toContain(`data-stat-name="${sortBy_date}"`);
 		expect(lastValue_sortBy_date_asc.innerHTML).toContain('6:01:17 PM');
-		expect(container).toMatchSnapshot('20per-p1-sort-by-date-asc');
 
 		await user.click(toggleSort_date);
 		expect(sortDescription.innerHTML).toContain('time pitch thrown est (descending)');
@@ -166,7 +161,6 @@ describe('SimpleTable', () => {
 		const lastValue_sortBy_date_desc = lastRow_sortBy_date_desc[9];
 		expect(lastValue_sortBy_date_desc.outerHTML).toContain(`data-stat-name="${sortBy_date}"`);
 		expect(lastValue_sortBy_date_desc.innerHTML).toContain('3:13:39 PM');
-		expect(container).toMatchSnapshot('20per-p1-sort-by-date-desc');
 
 		const sortBy_bool = 'inside_strike_zone';
 		const toggleSort_bool = await screen.findByTestId(`${tableId}-toggle-${sortBy_bool}`);
@@ -183,7 +177,6 @@ describe('SimpleTable', () => {
 		const lastValue_sortBy_bool_asc = lastRow_sortBy_bool_asc[12];
 		expect(lastValue_sortBy_bool_asc.outerHTML).toContain(`data-stat-name="${sortBy_bool}"`);
 		expect(lastValue_sortBy_bool_asc.innerHTML).toContain('Inside');
-		expect(container).toMatchSnapshot('20per-p1-sort-by-bool-asc');
 
 		await user.click(toggleSort_bool);
 		expect(sortDescription.innerHTML).toContain('inside strike zone (descending)');
@@ -198,7 +191,6 @@ describe('SimpleTable', () => {
 		const lastValue_sortBy_bool_desc = lastRow_sortBy_bool_desc[12];
 		expect(lastValue_sortBy_bool_desc.outerHTML).toContain(`data-stat-name="${sortBy_bool}"`);
 		expect(lastValue_sortBy_bool_desc.innerHTML).toContain('Outside');
-		expect(container).toMatchSnapshot('20per-p1-sort-by-bool-desc');
 
 		const sortBy_string = 'mlbam_pitch_name';
 		const toggleSort_string = await screen.findByTestId(`${tableId}-toggle-${sortBy_string}`);
@@ -215,7 +207,6 @@ describe('SimpleTable', () => {
 		const lastValue_sortBy_string_asc = lastRow_sortBy_string_asc[7];
 		expect(lastValue_sortBy_string_asc.outerHTML).toContain(`data-stat-name="${sortBy_string}"`);
 		expect(lastValue_sortBy_string_asc.innerHTML).toContain('Slider');
-		expect(container).toMatchSnapshot('20per-p1-sort-by-string-asc');
 
 		await user.click(toggleSort_string);
 		expect(sortDescription.innerHTML).toContain('mlbam pitch name (descending)');
@@ -230,139 +221,139 @@ describe('SimpleTable', () => {
 		const lastValue_sortBy_string_desc = lastRow_sortBy_string_desc[7];
 		expect(lastValue_sortBy_string_desc.outerHTML).toContain(`data-stat-name="${sortBy_string}"`);
 		expect(lastValue_sortBy_string_desc.innerHTML).toContain('Changeup');
-		expect(container).toMatchSnapshot('20per-p1-sort-by-string-desc');
 	});
 
-	// test('verify pagination configured for full/verbose output', async () => {
-	// 	const pageNavFormatFullSettings: TableSettings = {
-	// 		showHeader: true,
-	// 		header: caption,
-	// 		showSortDescription: true,
-	// 		sortBy,
-	// 		sortDir: 'desc',
-	// 		paginated: true,
-	// 		pageSize: 5,
-	// 		pageSizeOptions: [5, 10, 15, 20, 25],
-	// 		pageRangeFormat: 'verbose',
-	// 		pageNavFormat: 'full',
-	// 		rowType: 'barrels',
-	// 	};
-	// 	const { await screen.findByTestId } = render(SimpleTable, {
-	// 		data: barrelsForDateData,
-	// 		columnSettings: pfxBarrelColumnSettings,
-	// 		tableSettings: pageNavFormatFullSettings,
-	// 	});
+	test('verify pagination configured for full/verbose output', async () => {
+		const pageNavFormatFullSettings: TableSettings = {
+			showHeader: true,
+			header: caption,
+			showSortDescription: true,
+			sortBy,
+			sortDir: 'desc',
+			paginated: true,
+			pageSize: 5,
+			pageSizeOptions: [5, 10, 15, 20, 25],
+			pageRangeFormat: 'verbose',
+			pageNavFormat: 'full',
+			rowType: 'barrels',
+		};
+		({ container } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings: pageNavFormatFullSettings,
+		}));
 
-	// 	const pageNav_full = await screen.findByTestId('page-nav');
-	// 	const pageNav_full_buttons = pageNav_full.children;
-	// 	expect(pageNav_full_buttons).toHaveLength(6);
-	// 	expect(pageNav_full_buttons[0]).toHaveAttribute('data-testid', 'prev');
-	// 	expect(pageNav_full_buttons[1]).toHaveAttribute('data-testid', 'page1');
-	// 	expect(pageNav_full_buttons[2]).toHaveAttribute('data-testid', 'page2');
-	// 	expect(pageNav_full_buttons[3]).toHaveAttribute('data-testid', 'page3');
-	// 	expect(pageNav_full_buttons[4]).toHaveAttribute('data-testid', 'page4');
-	// 	expect(pageNav_full_buttons[5]).toHaveAttribute('data-testid', 'next');
+		const pageNav_full = await screen.findByTestId('page-nav');
+		const pageNav_full_buttons = pageNav_full.children;
+		expect(pageNav_full_buttons).toHaveLength(6);
+		expect(pageNav_full_buttons[0].outerHTML).toContain('data-testid="prev"');
+		expect(pageNav_full_buttons[1].outerHTML).toContain('data-testid="page1"');
+		expect(pageNav_full_buttons[2].outerHTML).toContain('data-testid="page2"');
+		expect(pageNav_full_buttons[3].outerHTML).toContain('data-testid="page3"');
+		expect(pageNav_full_buttons[4].outerHTML).toContain('data-testid="page4"');
+		expect(pageNav_full_buttons[5].outerHTML).toContain('data-testid="next"');
 
-	// 	const page3 = await screen.findByTestId('page3');
-	// 	await user.click(page3);
-	// 	const pageRange = await screen.findByTestId('page-range');
-	// 	expect(pageRange).toHaveTextContent(`Showing 11 to 15 of ${barrelsForDateData.length} barrels`);
-	// });
+		const page3 = await screen.findByTestId('page3');
+		await user.click(page3);
+		const pageRange = await screen.findByTestId('page-range');
+		const pageRangeText = pageRange.innerHTML.replaceAll(/[\s]/gim, ' ').replaceAll('     ', ' ');
+		expect(pageRangeText).toContain(`Showing <b>11</b> to <b>15</b> of <b>17</b> barrels`);
+	});
 
-	// test('verify sort function when table is not sorted, sortDir = descending', () => {
-	// 	const basicTableSettings: TableSettings = {
-	// 		tableId: 'unsorted',
-	// 		sortDir: 'desc',
-	// 	};
-	// 	const { await screen.findByTestId } = render(SimpleTable, {
-	// 		data: barrelsForDateData,
-	// 		columnSettings: pfxBarrelColumnSettings,
-	// 		tableSettings: basicTableSettings,
-	// 	});
-	// });
+	test('verify sort function when table is not sorted, sortDir = descending', () => {
+		const basicTableSettings: TableSettings = {
+			tableId: 'unsorted',
+			sortDir: 'desc',
+		};
+		({ container } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings: basicTableSettings,
+		}));
+	});
 
-	// test('verify sort function when table is not sorted, sortDir = ascending', () => {
-	// 	const basicTableSettings: TableSettings = {
-	// 		tableId: 'unsorted',
-	// 		sortDir: 'asc',
-	// 	};
-	// 	const { await screen.findByTestId } = render(SimpleTable, {
-	// 		data: barrelsForDateData,
-	// 		columnSettings: pfxBarrelColumnSettings,
-	// 		tableSettings: basicTableSettings,
-	// 	});
-	// });
+	test('verify sort function when table is not sorted, sortDir = ascending', () => {
+		const basicTableSettings: TableSettings = {
+			tableId: 'unsorted',
+			sortDir: 'asc',
+		};
+		({ container } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings: basicTableSettings,
+		}));
+	});
 
-	// test('verify sort function when sortType = string and sortDir = asc', () => {
-	// 	const basicTableSettings: TableSettings = {
-	// 		tableId: 'sort-by-string-asc',
-	// 		sortBy: 'batter_name',
-	// 		sortDir: 'asc',
-	// 	};
-	// 	const { await screen.findByTestId } = render(SimpleTable, {
-	// 		data: barrelsForDateData,
-	// 		columnSettings: pfxBarrelColumnSettings,
-	// 		tableSettings: basicTableSettings,
-	// 	});
-	// });
+	test('verify sort function when sortType = string and sortDir = asc', () => {
+		const basicTableSettings: TableSettings = {
+			tableId: 'sort-by-string-asc',
+			sortBy: 'batter_name',
+			sortDir: 'asc',
+		};
+		({ container } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings: basicTableSettings,
+		}));
+	});
 
-	// test('verify sort function when sortType = date and sortDir = desc', () => {
-	// 	const basicTableSettings: TableSettings = {
-	// 		tableId: 'sort-by-date-desc',
-	// 		sortBy: 'time_pitch_thrown_est',
-	// 		sortDir: 'desc',
-	// 	};
-	// 	const { await screen.findByTestId } = render(SimpleTable, {
-	// 		data: barrelsForDateData,
-	// 		columnSettings: pfxBarrelColumnSettings,
-	// 		tableSettings: basicTableSettings,
-	// 	});
-	// });
+	test('verify sort function when sortType = date and sortDir = desc', () => {
+		const basicTableSettings: TableSettings = {
+			tableId: 'sort-by-date-desc',
+			sortBy: 'time_pitch_thrown_est',
+			sortDir: 'desc',
+		};
+		({ container } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings: basicTableSettings,
+		}));
+	});
 
-	// test('verify tableState.reset method', () => {
-	// 	const tableState = createTableStateStore(barrelsForDateData.length, tableSettings);
-	// 	const { await screen.findByTestId, await screen.findAllByTestId } = render(SimpleTable, {
-	// 		data: barrelsForDateData,
-	// 		columnSettings: pfxBarrelColumnSettings,
-	// 		tableSettings,
-	// 		tableState,
-	// 	});
-	// 	const table = await screen.findByTestId(tableId);
-	// 	expect(table).toHaveAttribute('aria-rowcount', barrelsForDateData.length.toString());
-	// 	const visibleRowsPage1_pre = await screen.findAllByTestId(`${tableId}-row`);
-	// 	expect(visibleRowsPage1_pre).toHaveLength(5);
+	test('verify tableState.reset method', async () => {
+		const tableState = createTableStateStore(barrelsForDateData.length, tableSettings);
+		({ container } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings,
+			tableState,
+		}));
+		const table = await screen.findByTestId(tableId);
+		expect(table.outerHTML).toContain(`aria-rowcount="${barrelsForDateData.length.toString()}"`);
+		const visibleRowsPage1_pre = await screen.findAllByTestId(`${tableId}-row`);
+		expect(visibleRowsPage1_pre).toHaveLength(5);
 
-	// 	const changedData = barrelsForDateData.slice(5);
-	// 	const changedTotalRows = changedData.length;
-	// 	const changedPageSize = 10;
-	// 	tableState.reset(changedTotalRows, changedPageSize);
-	// });
+		const changedData = barrelsForDateData.slice(5);
+		const changedTotalRows = changedData.length;
+		const changedPageSize = 10;
+		tableState.reset(changedTotalRows, changedPageSize);
+	});
 
-	// test('verify clickableRows property of TableSettings object, clickableRows = true', async () => {
-	// 	const clickableRowsTableSettings: TableSettings = {
-	// 		clickableRows: true,
-	// 		animateSorting: true,
-	// 		...tableSettings,
-	// 	};
-	// 	const { await screen.findAllByTestId, component } = render(SimpleTable, {
-	// 		data: barrelsForDateData,
-	// 		columnSettings: pfxBarrelColumnSettings,
-	// 		tableSettings: clickableRowsTableSettings,
-	// 	});
+	test('verify clickableRows property of TableSettings object, clickableRows = true', async () => {
+		const clickableRowsTableSettings: TableSettings = {
+			clickableRows: true,
+			animateSorting: true,
+			...tableSettings,
+		};
+		({ container } = render(SimpleTable, {
+			data: barrelsForDateData,
+			columnSettings: pfxBarrelColumnSettings,
+			tableSettings: clickableRowsTableSettings,
+		}));
 
-	// 	const visibleRowsPage1 = await screen.findAllByTestId(`${tableId}-row`);
-	// 	expect(visibleRowsPage1.length).toBeGreaterThanOrEqual(2);
-	// 	const firstRow = visibleRowsPage1[0];
-	// 	const mockEvent = jest.fn();
-	// 	component.$on('rowClicked', (event) => mockEvent(event.detail));
+		const visibleRowsPage1 = await screen.findAllByTestId(`${tableId}-row`);
+		expect(visibleRowsPage1.length).toBeGreaterThanOrEqual(2);
+		const firstRow = visibleRowsPage1[0];
+		// const mockEvent = vi.fn();
+		// component.$on('rowClicked', (event) => mockEvent(event.detail));
 
-	// 	await user.click(firstRow);
-	// 	expect(mockEvent).toHaveBeenCalledTimes(1);
-	// 	expect(mockEvent.mock.calls[0][0]['at_bat_id']).toEqual('KCA202110030_01_KCA_663804_MIN_593934_0');
+		await user.click(firstRow);
+		// expect(mockEvent).toHaveBeenCalledTimes(1);
+		// expect(mockEvent.mock.calls[0][0]['at_bat_id']).toEqual('KCA202110030_01_KCA_663804_MIN_593934_0');
 
-	// 	const secondRow = visibleRowsPage1[1];
-	// 	await user.click(secondRow);
-	// 	expect(mockEvent).toHaveBeenCalledTimes(2);
-	// 	expect(mockEvent.mock.calls[1][0]['at_bat_id']).toEqual('LAN202110030_04_LAN_621111_MIL_642133_0');
-	// });
+		const secondRow = visibleRowsPage1[1];
+		await user.click(secondRow);
+		// expect(mockEvent).toHaveBeenCalledTimes(2);
+		// expect(mockEvent.mock.calls[1][0]['at_bat_id']).toEqual('LAN202110030_04_LAN_621111_MIL_642133_0');
+	});
 });

@@ -37,15 +37,10 @@ export function getBorderCssValues(tableId: string): string {
 			if (!borderColor) {
 				borderColor = getCSSPropValue(tableWrapper, '--sst-default-table-wrapper-border-color');
 			}
-			const tableWrapperBorderCss = removeAllQuoteChars(`${borderWidth} ${borderStyle} ${borderColor}`);
-			return borderWidth && borderStyle && borderColor ? tableWrapperBorderCss : 'none';
+			return borderWidth && borderStyle && borderColor ? `${borderWidth} ${borderStyle} ${borderColor}`.replaceAll(/['"`]/g, '') : 'none';
 		}
 		return 'none';
 	}
-}
-
-function removeAllQuoteChars(input: string): string {
-	return input.replaceAll(/['"`]/g, '');
 }
 
 export function getDefaultColHeader(propName: string, capitalized = true): string {

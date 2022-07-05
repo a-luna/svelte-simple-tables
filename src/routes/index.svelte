@@ -35,9 +35,9 @@
 		showSortDescription: true,
 		sortBy: 'time_pitch_thrown_est',
 		sortDir: 'desc',
-		tableWrapper: true,
-		expandToContainerWidth: false,
-		themeName: 'lighter',
+		tableWrapper: false,
+		expandToContainerWidth: true,
+		themeName: 'light',
 		paginated: true,
 		pageSize: 10,
 		pageSizeOptions: [5, 10, 15, 20, 25],
@@ -53,7 +53,7 @@
 		showSortDescription: true,
 		sortBy: 'age',
 		sortDir: 'desc',
-		themeName: 'light',
+		themeName: 'lighter',
 		tableWrapper: true,
 		expandToContainerWidth: true,
 		paginated: false,
@@ -67,8 +67,8 @@
 		showSortDescription: false,
 		sortBy: 'age',
 		sortDir: 'desc',
-		tableWrapper: true,
-		expandToContainerWidth: true,
+		tableWrapper: false,
+		expandToContainerWidth: false,
 		paginated: true,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
@@ -100,7 +100,7 @@
 		tableSettings={pfxTableSettings}
 		on:rowClicked={(e) => console.log({ pfx: e.detail })}
 	/>
-	<div style="width: 650px; --sst-table-wrapper-border-width: 0px;">
+	<div style="width: 650px">
 		<SimpleTable
 			data={vaxData}
 			columnSettings={vaxDataColumnSettings}
