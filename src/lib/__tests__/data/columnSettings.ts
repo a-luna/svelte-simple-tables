@@ -2,6 +2,7 @@ import type { ColumnSettings } from '$lib/types';
 import { capitalize, formatNumber } from '$lib/util';
 import { BROOKS_BBREF_TEAM_ID_MAP, PITCH_TYPE_ABBREV_TO_NAME_MAP } from '$lib/__tests__/data/constants';
 import type { PitchFx } from '$lib/__tests__/types';
+import { isBrooksDiffTeamID, isPitchTypeAbbrev } from './typeguards';
 
 export function getHomeTeamIdFromBrooksGameId(game_id: string): string {
 	const BB_GAME_ID_REGEX =
@@ -22,7 +23,9 @@ const pitcherNameLink = (pfx: PitchFx): string =>
 const formatLaunchSpeed = (pfx: PitchFx): string => formatNumber(pfx.launch_speed, 1);
 const formatLaunchAngle = (pfx: PitchFx): string => `${formatNumber(pfx.launch_angle, 0)}&deg;`;
 const formatLaunchDistance = (pfx: PitchFx): string => formatNumber(pfx.total_distance, 0);
-const formatPitchType = (pfx: PitchFx): string => capitalize(PITCH_TYPE_ABBREV_TO_NAME_MAP[pfx.mlbam_pitch_name]);
+const formatPitchType = (pfx: PitchFx): string =>
+	isPitchTypeAbbrev(pfx.mlbam_pitch_name) ? capitalize(PITCH_TYPE_ABBREV_TO_NAME_MAP[pfx.mlbam_pitch_name]) : '';
+
 const formatPitchSpeed = (pfx: PitchFx): string => formatNumber(pfx.start_speed, 1);
 const formatInOutZone = (pfx: PitchFx): string => (pfx.inside_strike_zone === 1 ? 'Inside' : 'Outside');
 
@@ -30,12 +33,12 @@ const formatTimeStamp = (pfx: PitchFx): string => pfx.time_pitch_thrown_est.toLo
 
 function getBatterTeamId(pfx: PitchFx): string {
 	const brooksTeamId = pfx.opponent_team_id_bb.toUpperCase();
-	return BROOKS_BBREF_TEAM_ID_MAP[brooksTeamId] ?? brooksTeamId;
+	return isBrooksDiffTeamID(brooksTeamId) ? BROOKS_BBREF_TEAM_ID_MAP[brooksTeamId] : brooksTeamId;
 }
 
 function getPitcherTeamId(pfx: PitchFx): string {
 	const brooksTeamId = pfx.pitcher_team_id_bb.toUpperCase();
-	const pitcherTeamId = BROOKS_BBREF_TEAM_ID_MAP?.[brooksTeamId] ?? brooksTeamId;
+	const pitcherTeamId = isBrooksDiffTeamID(brooksTeamId) ? BROOKS_BBREF_TEAM_ID_MAP[brooksTeamId] : brooksTeamId;
 	return isHomeTeam(pfx) ? `vs${pitcherTeamId}` : `@${pitcherTeamId}`;
 }
 

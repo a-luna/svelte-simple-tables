@@ -1,23 +1,26 @@
 <script lang="ts">
 	import SortAscending from '$lib/components/Icons/SortAscending.svelte';
 	import SortDescending from '$lib/components/Icons/SortDescending.svelte';
+	import { getTableState } from '$lib/context';
 	import type { AriaSort, SortDirection } from '$lib/types';
 	import { getColumnWidth, getDefaultColHeader } from '$lib/util';
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
+
+	type R = $$Generic;
 
 	export let tableId: string;
-	export let propName: string;
+	export let propName: keyof R;
 	export let propType: string;
-	export let headerText: string = getDefaultColHeader(propName);
-	export let tooltip: string = getDefaultColHeader(propName);
+	export let headerText: string = getDefaultColHeader<R>(propName);
+	export let tooltip: string = getDefaultColHeader<R>(propName);
 	export let sortable = true;
 	let width: string;
 	const dispatch = createEventDispatcher();
-	let { tableState } = getContext(tableId);
+	const tableState = getTableState(tableId);
 	let ariaSort: AriaSort = null;
 
 	$: if ($tableState.state.syncState === 'started-resize-columns')
-		width = `${getColumnWidth(tableId, propName, $tableState.sortBy)}px`;
+		width = `${getColumnWidth<R>(tableId, propName, $tableState.sortBy)}px`;
 	$: asc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'asc';
 	$: desc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'desc';
 	$: ariaSort = getAriaSortValue($tableState.sortBy, $tableState.sortDir);
@@ -41,7 +44,7 @@
 	class:desc
 	data-stat-name={propName}
 	title={tooltip}
-	data-testid="{$tableState.tableId}-toggle-{propName}"
+	data-testid="{$tableState.tableId}-toggle-{String(propName)}"
 	tabindex="0"
 	on:click={() => handleColumnHeaderClicked()}
 >

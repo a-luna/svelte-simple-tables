@@ -1,10 +1,11 @@
 <script lang="ts">
 	import DataTable from '$lib/components/DataTable/DataTable.svelte';
 	import Pagination from '$lib/components/Pagination/Pagination.svelte';
-	import { createComponentWidthStore, createTableStateStore, syncWidth } from '$lib/stores';
+	import { initTableSize, initTableState } from '$lib/context';
+	import { createTableStateStore, syncWidth } from '$lib/stores';
 	import type { ColumnSettings, PropType, TableSettings, TableState } from '$lib/types';
 	import { getBorderCssValues, getSortFunction, getTableFontSize } from '$lib/util';
-	import { setContext, tick } from 'svelte';
+	import { tick } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	type R = $$Generic;
@@ -18,8 +19,8 @@
 	if (!tableState) {
 		tableState = createTableStateStore(data.length, tableSettings);
 	}
-	const componentWidth = createComponentWidthStore(tableState);
-	setContext($tableState.tableId, { tableState, componentWidth });
+	tableState = initTableState(tableState);
+	const componentWidth = initTableSize(tableState);
 	$tableState.sortType = columnSettings.find((col) => col.propName === $tableState.sortBy)?.propType || 'unsorted';
 	let sortFunction: (a: R, b: R) => number = getSortFunction<R>(
 		$tableState.sortBy,

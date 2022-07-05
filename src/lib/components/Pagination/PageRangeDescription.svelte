@@ -1,12 +1,12 @@
 <script lang="ts">
 	import SettingsIcon from '$lib/components/Icons/SettingsIcon.svelte';
+	import { getTableState } from '$lib/context';
 	import { pageWidth } from '$lib/stores/pageWidth';
 	import { syncWidth } from '$lib/stores/syncWidth';
-	import { getContext } from 'svelte';
 
 	export let tableId: string;
 	let pageDescriptionElement: HTMLElement;
-	const { tableState } = getContext(tableId);
+	const tableState = getTableState(tableId);
 
 	$: fontSize = $pageWidth.current < 1024 ? '1em' : '1.05em';
 	$: pageDescWidthStore = syncWidth(pageDescriptionElement);

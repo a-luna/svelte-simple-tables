@@ -2,6 +2,43 @@ import type { TableSettings, TableState } from '$lib/types';
 import { getDefaultTableId } from '$lib/util';
 import { writable } from 'svelte/store';
 
+export const getDefaultTableSettings = (): TableSettings => ({
+	tableId: getDefaultTableId(),
+	showHeader: false,
+	header: '',
+	showSortDescription: false,
+	sortBy: null,
+	sortType: null,
+	sortDir: 'asc',
+	tableWrapper: false,
+	expandToContainerWidth: false,
+	themeName: 'lighter',
+	clickableRows: false,
+	animateSorting: false,
+	paginated: false,
+	pageSize: 5,
+	pageSizeOptions: [5, 10, 15],
+	pageRangeFormat: 'auto',
+	pageNavFormat: 'auto',
+	rowType: 'rows',
+	state: {
+		syncState: 'not-started',
+		captionWidth: 0,
+		sortDescriptionWidth: 0,
+		tableWidth: 0,
+		paginationLeftWidth: 0,
+		paginationRightWidth: 0,
+		containerWidth: 0,
+	},
+	pagination: {
+		totalRows: 0,
+		totalPages: 1,
+		currentPage: 1,
+		startRow: 0,
+		endRow: 0,
+	},
+});
+
 export function createTableStateStore(totalRows: number, settings: TableSettings): TableState {
 	const pageSize = settings?.paginated ? settings?.pageSize || 5 : totalRows;
 	const { set, subscribe, update } = writable<TableSettings>({

@@ -2,9 +2,10 @@
 	import ColumnHeader from '$lib/components/DataTable/ColumnHeader.svelte';
 	import TableCell from '$lib/components/DataTable/TableCell.svelte';
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
+	import { getTableState } from '$lib/context';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import type { ColumnSettings } from '$lib/types';
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import { flip } from 'svelte/animate';
 	import { cubicInOut } from 'svelte/easing';
 
@@ -14,7 +15,7 @@
 	export let data: R[] = [];
 	export let columnSettings: ColumnSettings<R>[] = [];
 	let tableElement: HTMLElement;
-	let { tableState, componentWidth } = getContext(tableId);
+	const tableState = getTableState(tableId);
 	const dispatch = createEventDispatcher();
 	const options = { delay: 0, duration: 500, easing: cubicInOut };
 

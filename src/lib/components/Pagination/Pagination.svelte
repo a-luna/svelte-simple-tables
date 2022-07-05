@@ -3,13 +3,14 @@
 	import PageNavigationCompact from '$lib/components/Pagination/PageNavigationCompact.svelte';
 	import PageRangeDescription from '$lib/components/Pagination/PageRangeDescription.svelte';
 	import PageSizeSetting from '$lib/components/Pagination/PageSizeSetting.svelte';
+	import { getTableSize, getTableState } from '$lib/context';
 	import { pageWidth } from '$lib/stores/pageWidth';
-	import { getContext } from 'svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
 	export let tableId: string;
-	let { tableState, componentWidth } = getContext(tableId);
+	const tableState = getTableState(tableId);
+	const componentWidth = getTableSize(tableId);
 	let showPageSizeSetting = false;
 	const options = { duration: 200, easing: cubicInOut };
 

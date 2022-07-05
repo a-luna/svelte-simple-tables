@@ -4,7 +4,7 @@ module.exports = {
 		ecmaVersion: '2020',
 		sourceType: 'module',
 		tsconfigRootDir: __dirname,
-		project: ['./tsconfig.json'],
+		project: ['./tsconfig.eslint.json'],
 		extraFileExtensions: ['.svelte'],
 	},
 	env: {
@@ -21,13 +21,14 @@ module.exports = {
 		NodeJS: true,
 	},
 	plugins: ['svelte3', '@typescript-eslint'],
-	ignorePatterns: ['*.cjs'],
+	ignorePatterns: ['*.cjs', '**/TableCell.svelte/*_template.ts'],
 	settings: {
-		'svelte3/typescript': true,
+		'svelte3/typescript': () => require('typescript'),
+		'svelte3/named-blocks': true,
 	},
 	overrides: [
 		{
-			files: ['*.svelte'],
+			files: ['**/*.svelte/*.ts'],
 			processor: 'svelte3/svelte3',
 		},
 	],

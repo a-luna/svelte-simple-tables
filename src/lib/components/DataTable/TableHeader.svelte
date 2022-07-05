@@ -1,8 +1,8 @@
 <script lang="ts">
+	import { getTableSize, getTableState } from '$lib/context';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import type { SortDirection } from '$lib/types';
 	import { getDefaultColHeader } from '$lib/util';
-	import { getContext } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
 	export let tableId: string;
@@ -10,7 +10,8 @@
 	let tableSortDescElement: HTMLElement;
 	let tableCaptionWidthStore: Writable<number>;
 	let tableSortDescWidthStore: Writable<number>;
-	let { tableState, componentWidth } = getContext(tableId);
+	const tableState = getTableState(tableId);
+	const componentWidth = getTableSize(tableId);
 
 	$: if (typeof window !== 'undefined') tableCaptionWidthStore = syncWidth(tableCaptionElement);
 	$: if (typeof window !== 'undefined') tableSortDescWidthStore = syncWidth(tableSortDescElement);

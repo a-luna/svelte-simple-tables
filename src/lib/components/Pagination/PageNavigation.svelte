@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
+	import { getTableState } from '$lib/context';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import { getAriaValues } from '$lib/util';
-	import { getContext } from 'svelte';
 
 	export let tableId: string;
-	let { tableState } = getContext(tableId);
+	const tableState = getTableState(tableId);
 	let pageNavElement: HTMLElement;
 
 	$: pageNumbers = Array.from({ length: $tableState.pagination.totalPages }, (_, i) => i + 1);

@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
+	import { getTableState } from '$lib/context';
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import { getAriaValues } from '$lib/util';
-	import { getContext } from 'svelte';
 
 	export let tableId: string;
 	let pageNavElement: HTMLElement;
-	const { tableState } = getContext(tableId);
+	const tableState = getTableState(tableId);
 
 	$: paginationRightWidthStore = syncWidth(pageNavElement);
 	$: $tableState.state.paginationRightWidth = $paginationRightWidthStore;
@@ -14,7 +14,7 @@
 </script>
 
 <nav
-	id="{tableId}-page-nav"j
+	id="{tableId}-page-nav"
 	aria-label="Table Pagination Controls"
 	class="page-nav btn-group"
 	data-testid="page-nav"

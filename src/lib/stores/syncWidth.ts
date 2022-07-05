@@ -3,7 +3,7 @@ import type { Writable } from 'svelte/store';
 import { writable } from 'svelte/store';
 
 export function syncWidth(el: HTMLElement): Writable<number> {
-	return writable(null, (set) => {
+	return writable<number>(null, (set) => {
 		if (!el) {
 			return;
 		}

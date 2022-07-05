@@ -1,14 +1,20 @@
 <script lang="ts">
+	import { getTableState } from '$lib/context';
+
 	import type { PropType } from '$lib/types';
-	import { getContext } from 'svelte';
+
+	type R = $$Generic;
 
 	export let tableId: string;
-	export let obj: any;
-	export let propName: string;
+	export let obj: R;
+	export let propName: keyof R;
 	export let propType: PropType;
 	export let classList: string[] = [];
-	export let colValue: (obj: any) => string = null;
-	let { tableState } = getContext(tableId);
+	export let colValue: (obj: R) => string = null;
+	const tableState = getTableState(tableId);
+	let cellValue = '';
+
+	$: cellValue = colValue ? colValue(obj) : propName in obj ? obj[propName].toString() : '';
 </script>
 
 <div
@@ -18,7 +24,7 @@
 	class:text-right={propType === 'number'}
 	data-stat-name={propName}
 >
-	<span>{@html colValue?.(obj) ?? obj?.[propName].toString() ?? ''}</span>
+	<span>{@html cellValue}</span>
 </div>
 
 <style lang="postcss">

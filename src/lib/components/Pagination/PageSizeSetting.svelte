@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
+	import { getTableState } from '$lib/context';
 	import { syncWidth } from '$lib/stores/syncWidth';
-	import { createEventDispatcher, getContext } from 'svelte';
+	import { createEventDispatcher } from 'svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
@@ -9,7 +10,7 @@
 	const dispatch = createEventDispatcher();
 	const options = { duration: 200, easing: cubicInOut };
 	let pageSizeSettingElement: HTMLElement;
-	const { tableState } = getContext(tableId);
+	const tableState = getTableState(tableId);
 
 	$: pageSizeSettingWidthStore = syncWidth(pageSizeSettingElement);
 	$: $tableState.state.paginationLeftWidth = $pageSizeSettingWidthStore;

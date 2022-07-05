@@ -26,7 +26,8 @@ export function createComponentWidthStore(tableSettings: TableState): Readable<C
 
 		const tableExceedsViewportWidth = (): boolean => getPaddedComponentWidth() > $pageWidth.current;
 		const tableExceedsContainerWidth = (): boolean => getPaddedComponentWidth() > $tableSettings.state.containerWidth;
-		const fitToContainer = (): boolean => tableExceedsContainerWidth() || tableExceedsViewportWidth() || $tableSettings.expandToContainerWidth;
+		const fitToContainer = (): boolean =>
+			tableExceedsContainerWidth() || tableExceedsViewportWidth() || $tableSettings.expandToContainerWidth;
 
 		return {
 			finalComponentWidth: fitToContainer() ? '100%' : `${getMinComponentWidth()}px`,

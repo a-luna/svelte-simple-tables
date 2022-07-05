@@ -37,22 +37,25 @@ export function getBorderCssValues(tableId: string): string {
 			if (!borderColor) {
 				borderColor = getCSSPropValue(tableWrapper, '--sst-default-table-wrapper-border-color');
 			}
-			return borderWidth && borderStyle && borderColor ? `${borderWidth} ${borderStyle} ${borderColor}`.replaceAll(/['"`]/g, '') : 'none';
+			return borderWidth && borderStyle && borderColor
+				? `${borderWidth} ${borderStyle} ${borderColor}`.replaceAll(/['"`]/g, '')
+				: 'none';
 		}
 		return 'none';
 	}
 }
 
-export function getDefaultColHeader(propName: string, capitalized = true): string {
-	let words = [propName];
-	if (KEBAB_CASE_REGEX.test(propName)) {
-		words = getWordsFromKebabCase(propName);
+export function getDefaultColHeader<T>(propName: keyof T, capitalized = true): string {
+	const property = String(propName);
+	let words = [property];
+	if (KEBAB_CASE_REGEX.test(property)) {
+		words = getWordsFromKebabCase(property);
 	}
-	if (SNAKE_CASE_REGEX.test(propName)) {
-		words = getWordsFromSnakeCase(propName);
+	if (SNAKE_CASE_REGEX.test(property)) {
+		words = getWordsFromSnakeCase(property);
 	}
-	if (CAMEL_CASE_REGEX.test(propName)) {
-		words = getWordsFromCamelCase(propName);
+	if (CAMEL_CASE_REGEX.test(property)) {
+		words = getWordsFromCamelCase(property);
 	}
 	return capitalized ? words.map((w) => capitalize(w)).join(' ') : words.map((w) => w.toLowerCase()).join(' ');
 }
@@ -71,7 +74,7 @@ function getWordsFromCamelCase(input: string): string[] {
 		.filter((x) => x.isUpper)
 		.map((x) => x.index);
 	let start = 0;
-	const words = [];
+	const words: string[] = [];
 	for (const i of wordBoundaries) {
 		words.push(input.slice(start, i));
 		start = i;
@@ -96,13 +99,13 @@ export function getValidPropertyNames(input: string): [string, string] {
 	return [input, input];
 }
 
-export function getSortFunction<T>(propName: string, propType: PropType, dir: SortDirection): (a: T, b: T) => number {
+export function getSortFunction<T>(propName: keyof T, propType: PropType, dir: SortDirection): (a: T, b: T) => number {
 	let sort: { desc: (a: T, b: T) => number; asc: (a: T, b: T) => number };
 	switch (propType) {
 		case 'string':
 			sort = {
-				desc: (a: T, b: T) => b[propName].localeCompare(a[propName]),
-				asc: (a: T, b: T) => a[propName].localeCompare(b[propName]),
+				desc: (a: T, b: T) => String(b[propName]).localeCompare(String(a[propName])),
+				asc: (a: T, b: T) => String(a[propName]).localeCompare(String(b[propName])),
 			};
 			break;
 		case 'number':
@@ -135,11 +138,13 @@ const elementsInColSelector = (tableId: string, colStat: string): string =>
 const colHeaderSelector = (tableId: string, colStat: string): string =>
 	`#${tableId} .sortable[data-stat-name="${colStat}"] .header-content`;
 
-export function getColumnWidth(tableId: string, colStat: string, sortBy: string): number {
+export function getColumnWidth<T>(tableId: string, colStat: keyof T, sortBy: string): number {
 	if (typeof window !== 'undefined') {
-		const columnElements = Array.from(document.querySelectorAll<HTMLElement>(elementsInColSelector(tableId, colStat)));
+		const columnElements = Array.from(
+			document.querySelectorAll<HTMLElement>(elementsInColSelector(tableId, String(colStat))),
+		);
 		const widestElement = columnElements.reduce((max, el) => (max.offsetWidth > el.offsetWidth ? max : el)).offsetWidth;
-		return Math.max(widestElement, getColHeaderWidth(tableId, colStat, sortBy));
+		return Math.max(widestElement, getColHeaderWidth(tableId, String(colStat), sortBy));
 	}
 }
 
@@ -183,8 +188,8 @@ export function getTableWrapperPaddingWidth(tableId: string): number {
 
 function getStyle(el: HTMLElement, property: string) {
 	const [camelCase, kebabCase] = getValidPropertyNames(property);
-	if (el?.style[camelCase]) {
-		return el?.style[camelCase];
+	if (el && el.style[camelCase]) {
+		return String(el.style[camelCase]);
 	}
 	if (typeof window !== 'undefined' && window?.getComputedStyle) {
 		const compStyles = window.getComputedStyle(el);

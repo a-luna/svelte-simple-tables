@@ -6,7 +6,6 @@
 	"semi": true,
 	"svelteSortOrder": "options-scripts-markup-styles",
 	"svelteStrictMode": false,
-	"svelteBracketNewLine": true,
 	"svelteIndentScriptAndStyle": true,
 	"trailingComma": "all"
 }

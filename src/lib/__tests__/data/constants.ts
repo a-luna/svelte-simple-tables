@@ -1,4 +1,27 @@
-export const PITCH_TYPE_ABBREV_TO_NAME_MAP: { [key: string]: string } = {
+import type { BrooksDiffTeamID, PitchTypeAbbrev, TeamID } from '../types/literals';
+
+export const PITCH_TYPE_ABBREV = [
+	'N/A',
+	'CH',
+	'CU',
+	'EP',
+	'FA',
+	'FC',
+	'FF',
+	'FS',
+	'FT',
+	'FO',
+	'IN',
+	'KC',
+	'KN',
+	'PO',
+	'SC',
+	'SI',
+	'SL',
+	'UN',
+] as const;
+
+export const PITCH_TYPE_ABBREV_TO_NAME_MAP: { [K in PitchTypeAbbrev]: string } = {
 	'N/A': 'none',
 	CH: 'changeup',
 	CU: 'curveball',
@@ -19,7 +42,55 @@ export const PITCH_TYPE_ABBREV_TO_NAME_MAP: { [key: string]: string } = {
 	UN: 'unknown',
 };
 
-export const BROOKS_BBREF_TEAM_ID_MAP = {
+export const BROOKS_DIFF_TEAM_IDS = [
+	'CHA',
+	'CHN',
+	'KCA',
+	'ANA',
+	'LAN',
+	'NYA',
+	'NYN',
+	'SDN',
+	'SFN',
+	'SLN',
+	'TBA',
+	'WAS',
+] as const;
+
+export const TEAM_IDS = [
+	'ARI',
+	'ATL',
+	'BAL',
+	'BOS',
+	'CHW',
+	'CHC',
+	'CIN',
+	'CLE',
+	'COL',
+	'DET',
+	'HOU',
+	'KCR',
+	'LAA',
+	'LAD',
+	'MIA',
+	'MIL',
+	'MIN',
+	'NYY',
+	'NYM',
+	'OAK',
+	'PHI',
+	'PIT',
+	'SDP',
+	'SEA',
+	'SFG',
+	'STL',
+	'TBR',
+	'TEX',
+	'TOR',
+	'WSN',
+] as const;
+
+export const BROOKS_BBREF_TEAM_ID_MAP: { [K in BrooksDiffTeamID]: TeamID } = {
 	CHA: 'CHW',
 	CHN: 'CHC',
 	KCA: 'KCR',

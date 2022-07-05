@@ -2,18 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.21](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.20...v0.0.21) (2022-03-11)
-
-
-### Features
-
-* :sparkles: removed fullWidth table config setting ([f63999d](https://github.com/a-luna/svelte-simple-tables/commit/f63999d6a08ffb6ef430c50c64c9346e0d2f899d))
+### [0.0.22](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.21...v0.0.22) (2022-07-05)
 
 
 ### Bug Fixes
 
-* :bug: improved componentWidth logic for annnoying corner-cases re: wrapper width, padding, etc ([3f3f583](https://github.com/a-luna/svelte-simple-tables/commit/3f3f5833efd565a91e0d9c20efe8440436bba83d))
-* :bug: table should display with margin-left and margin-right = auto by default ([e201bf1](https://github.com/a-luna/svelte-simple-tables/commit/e201bf10d500f805c370b7d02749ce48d57710c0))
+* :bug: allow user to choose how table is displayed when table is smaller than container ([b48f9fd](https://github.com/a-luna/svelte-simple-tables/commit/b48f9fd3e8e6b5a43a7680a1e843702e8c649692))
+* :bug: overflow-x autoscroll behavior is broken when placed within a flex container ([fbba8e6](https://github.com/a-luna/svelte-simple-tables/commit/fbba8e621d43d207e320b99412cef0c0b35fd47a))
+* :bug: remove role="navigation" from PageNavigationCompact component ([56f9aa5](https://github.com/a-luna/svelte-simple-tables/commit/56f9aa5bc2d64bf9711c079f4dc17bbbf0434d7b))
+
+### [0.0.21](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.20...v0.0.21) (2022-03-11)
+
+### Features
+
+- :sparkles: removed fullWidth table config setting ([f63999d](https://github.com/a-luna/svelte-simple-tables/commit/f63999d6a08ffb6ef430c50c64c9346e0d2f899d))
+
+### Bug Fixes
+
+- :bug: improved componentWidth logic for annnoying corner-cases re: wrapper width, padding, etc ([3f3f583](https://github.com/a-luna/svelte-simple-tables/commit/3f3f5833efd565a91e0d9c20efe8440436bba83d))
+- :bug: table should display with margin-left and margin-right = auto by default ([e201bf1](https://github.com/a-luna/svelte-simple-tables/commit/e201bf10d500f805c370b7d02749ce48d57710c0))
 
 ### [0.0.20](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.19...v0.0.20) (2022-03-09)
 
