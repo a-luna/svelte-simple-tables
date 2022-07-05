@@ -2,14 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.22](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.21...v0.0.22) (2022-07-05)
+### [0.0.23](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.22...v0.0.23) (2022-07-05)
 
 
 ### Bug Fixes
 
-* :bug: allow user to choose how table is displayed when table is smaller than container ([b48f9fd](https://github.com/a-luna/svelte-simple-tables/commit/b48f9fd3e8e6b5a43a7680a1e843702e8c649692))
-* :bug: overflow-x autoscroll behavior is broken when placed within a flex container ([fbba8e6](https://github.com/a-luna/svelte-simple-tables/commit/fbba8e621d43d207e320b99412cef0c0b35fd47a))
-* :bug: remove role="navigation" from PageNavigationCompact component ([56f9aa5](https://github.com/a-luna/svelte-simple-tables/commit/56f9aa5bc2d64bf9711c079f4dc17bbbf0434d7b))
+* :label: minor typescript fixes to TableState nd TableSettings interfaces ([ef1d6f0](https://github.com/a-luna/svelte-simple-tables/commit/ef1d6f065a77c9753e066216c65f2fd931af22be))
+
+### [0.0.22](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.21...v0.0.22) (2022-07-05)
+
+### Bug Fixes
+
+- :bug: allow user to choose how table is displayed when table is smaller than container ([b48f9fd](https://github.com/a-luna/svelte-simple-tables/commit/b48f9fd3e8e6b5a43a7680a1e843702e8c649692))
+- :bug: overflow-x autoscroll behavior is broken when placed within a flex container ([fbba8e6](https://github.com/a-luna/svelte-simple-tables/commit/fbba8e621d43d207e320b99412cef0c0b35fd47a))
+- :bug: remove role="navigation" from PageNavigationCompact component ([56f9aa5](https://github.com/a-luna/svelte-simple-tables/commit/56f9aa5bc2d64bf9711c079f4dc17bbbf0434d7b))
 
 ### [0.0.21](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.20...v0.0.21) (2022-03-11)
 

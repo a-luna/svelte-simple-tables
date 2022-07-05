@@ -11,7 +11,7 @@
 	export let propType: PropType;
 	export let classList: string[] = [];
 	export let colValue: (obj: R) => string = null;
-	const tableState = getTableState(tableId);
+	const tableState = getTableState<R>(tableId);
 	let cellValue = '';
 
 	$: cellValue = colValue ? colValue(obj) : propName in obj ? obj[propName].toString() : '';

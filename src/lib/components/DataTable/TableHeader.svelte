@@ -16,7 +16,11 @@
 	$: if (typeof window !== 'undefined') tableCaptionWidthStore = syncWidth(tableCaptionElement);
 	$: if (typeof window !== 'undefined') tableSortDescWidthStore = syncWidth(tableSortDescElement);
 	$: if (typeof window !== 'undefined') $tableState.state.captionWidth = $tableCaptionWidthStore;
-	$: if (typeof window !== 'undefined') $tableState.state.sortDescriptionWidth = $tableSortDescWidthStore;
+	$: if (
+		typeof window !==
+		'u                                                                                                                                                        ndefined'
+	)
+		$tableState.state.sortDescriptionWidth = $tableSortDescWidthStore;
 
 	const describeSortSetting = (sortBy: string, sortDir: SortDirection): string =>
 		`Sorted by: ${getDefaultColHeader(sortBy, false)} (${sortDir === 'asc' ? 'ascending' : 'descending'})`;

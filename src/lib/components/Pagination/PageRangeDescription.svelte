@@ -4,9 +4,11 @@
 	import { pageWidth } from '$lib/stores/pageWidth';
 	import { syncWidth } from '$lib/stores/syncWidth';
 
+	type R = $$Generic;
+
 	export let tableId: string;
 	let pageDescriptionElement: HTMLElement;
-	const tableState = getTableState(tableId);
+	const tableState = getTableState<R>(tableId);
 
 	$: fontSize = $pageWidth.current < 1024 ? '1em' : '1.05em';
 	$: pageDescWidthStore = syncWidth(pageDescriptionElement);

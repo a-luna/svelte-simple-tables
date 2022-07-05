@@ -19,8 +19,8 @@
 	if (!tableState) {
 		tableState = createTableStateStore(data.length, tableSettings);
 	}
-	tableState = initTableState(tableState);
-	const componentWidth = initTableSize(tableState);
+	tableState = initTableState<R>(tableState);
+	const componentWidth = initTableSize<R>(tableState);
 	$tableState.sortType = columnSettings.find((col) => col.propName === $tableState.sortBy)?.propType || 'unsorted';
 	let sortFunction: (a: R, b: R) => number = getSortFunction<R>(
 		$tableState.sortBy,

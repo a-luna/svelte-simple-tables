@@ -6,11 +6,13 @@
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
+	type R = $$Generic;
+
 	export let tableId: string;
 	const dispatch = createEventDispatcher();
 	const options = { duration: 200, easing: cubicInOut };
 	let pageSizeSettingElement: HTMLElement;
-	const tableState = getTableState(tableId);
+	const tableState = getTableState<R>(tableId);
 
 	$: pageSizeSettingWidthStore = syncWidth(pageSizeSettingElement);
 	$: $tableState.state.paginationLeftWidth = $pageSizeSettingWidthStore;

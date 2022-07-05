@@ -15,7 +15,7 @@
 	export let data: R[] = [];
 	export let columnSettings: ColumnSettings<R>[] = [];
 	let tableElement: HTMLElement;
-	const tableState = getTableState(tableId);
+	const tableState = getTableState<R>(tableId);
 	const dispatch = createEventDispatcher();
 	const options = { delay: 0, duration: 500, easing: cubicInOut };
 

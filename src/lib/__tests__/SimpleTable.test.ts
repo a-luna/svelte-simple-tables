@@ -7,6 +7,7 @@ import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import type { UserEvent } from '@testing-library/user-event/dist/types/setup';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+import type { PitchFx } from './types';
 
 const ResizeObserverMock = vi.fn(() => ({
 	disconnect: vi.fn(),
@@ -23,7 +24,7 @@ describe('SimpleTable', () => {
 	const tableId = 'all-barrels';
 	const caption = 'Barrels';
 	const sortBy = 'launch_speed';
-	const tableSettings: TableSettings = {
+	const tableSettings: TableSettings<PitchFx> = {
 		tableId,
 		showHeader: true,
 		header: caption,
@@ -224,7 +225,7 @@ describe('SimpleTable', () => {
 	});
 
 	test('verify pagination configured for full/verbose output', async () => {
-		const pageNavFormatFullSettings: TableSettings = {
+		const pageNavFormatFullSettings: TableSettings<PitchFx> = {
 			showHeader: true,
 			header: caption,
 			showSortDescription: true,
@@ -261,7 +262,7 @@ describe('SimpleTable', () => {
 	});
 
 	test('verify sort function when table is not sorted, sortDir = descending', () => {
-		const basicTableSettings: TableSettings = {
+		const basicTableSettings: TableSettings<PitchFx> = {
 			tableId: 'unsorted',
 			sortDir: 'desc',
 		};
@@ -273,7 +274,7 @@ describe('SimpleTable', () => {
 	});
 
 	test('verify sort function when table is not sorted, sortDir = ascending', () => {
-		const basicTableSettings: TableSettings = {
+		const basicTableSettings: TableSettings<PitchFx> = {
 			tableId: 'unsorted',
 			sortDir: 'asc',
 		};
@@ -285,7 +286,7 @@ describe('SimpleTable', () => {
 	});
 
 	test('verify sort function when sortType = string and sortDir = asc', () => {
-		const basicTableSettings: TableSettings = {
+		const basicTableSettings: TableSettings<PitchFx> = {
 			tableId: 'sort-by-string-asc',
 			sortBy: 'batter_name',
 			sortDir: 'asc',
@@ -298,7 +299,7 @@ describe('SimpleTable', () => {
 	});
 
 	test('verify sort function when sortType = date and sortDir = desc', () => {
-		const basicTableSettings: TableSettings = {
+		const basicTableSettings: TableSettings<PitchFx> = {
 			tableId: 'sort-by-date-desc',
 			sortBy: 'time_pitch_thrown_est',
 			sortDir: 'desc',
@@ -330,7 +331,7 @@ describe('SimpleTable', () => {
 	});
 
 	test('verify clickableRows property of TableSettings object, clickableRows = true', async () => {
-		const clickableRowsTableSettings: TableSettings = {
+		const clickableRowsTableSettings: TableSettings<PitchFx> = {
 			clickableRows: true,
 			animateSorting: true,
 			...tableSettings,

@@ -4,9 +4,11 @@
 	import { syncWidth } from '$lib/stores/syncWidth';
 	import { getAriaValues } from '$lib/util';
 
+	type R = $$Generic;
+
 	export let tableId: string;
 	let pageNavElement: HTMLElement;
-	const tableState = getTableState(tableId);
+	const tableState = getTableState<R>(tableId);
 
 	$: paginationRightWidthStore = syncWidth(pageNavElement);
 	$: $tableState.state.paginationRightWidth = $paginationRightWidthStore;

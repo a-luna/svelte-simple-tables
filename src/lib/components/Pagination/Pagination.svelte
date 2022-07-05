@@ -8,8 +8,10 @@
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
+	type R = $$Generic;
+
 	export let tableId: string;
-	const tableState = getTableState(tableId);
+	const tableState = getTableState<R>(tableId);
 	const componentWidth = getTableSize(tableId);
 	let showPageSizeSetting = false;
 	const options = { duration: 200, easing: cubicInOut };

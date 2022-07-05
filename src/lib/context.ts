@@ -13,19 +13,19 @@ function getService<T>(key: string): () => T {
 	return () => getContext(key);
 }
 
-export function initTableState(tableState: TableState): TableState {
+export function initTableState<R>(tableState: TableState<R>): TableState<R> {
 	const key = `${get(tableState).tableId}-state`;
-	return setService<TableState>(key, tableState);
+	return setService<TableState<R>>(key, tableState);
 }
 
-export function getTableState(tableId: string): TableState {
+export function getTableState<R>(tableId: string): TableState<R> {
 	const key = `${tableId}-state`;
-	return getService<TableState>(key)();
+	return getService<TableState<R>>(key)();
 }
 
-export function initTableSize(tableState: TableState): Readable<ComponentWidth> {
+export function initTableSize<R>(tableState: TableState<R>): Readable<ComponentWidth> {
 	const key = `${get(tableState).tableId}-size`;
-	const tableSize = createComponentWidthStore(tableState);
+	const tableSize = createComponentWidthStore<R>(tableState);
 	return setService<Readable<ComponentWidth>>(key, tableSize);
 }
 

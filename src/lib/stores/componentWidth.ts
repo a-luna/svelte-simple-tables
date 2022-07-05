@@ -4,7 +4,7 @@ import { getTableFontSizeInPixels, getTableWrapperPaddingWidth } from '$lib/util
 import type { Readable } from 'svelte/store';
 import { derived } from 'svelte/store';
 
-export function createComponentWidthStore(tableSettings: TableState): Readable<ComponentWidth> {
+export function createComponentWidthStore<R>(tableSettings: TableState<R>): Readable<ComponentWidth> {
 	return derived([tableSettings, pageWidth], ([$tableSettings, $pageWidth]) => {
 		const getPaginationWidth = (): number =>
 			$tableSettings.state.paginationLeftWidth +
