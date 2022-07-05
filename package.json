@@ -40,7 +40,7 @@
 		"release:pre": "git checkout main && git pull origin main && pnpm i && pnpm run test && pnpm run lint && git add .",
 		"release:package": "standard-version -a && svelte-kit package",
 		"release:push": "git push --follow-tags origin main",
-		"release:pnpm": "pnpm publish ./package",
+		"release:npm": "pnpm publish ./package",
 		"release:github": "conventional-github-releaser -p angular",
 		"ci:validate": "rm -rf node_modules && pnpm ci && run-s test lint",
 		"prepublishOnly": "pnpm run ci:validate && pnpm run build",
