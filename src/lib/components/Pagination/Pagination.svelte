@@ -4,7 +4,6 @@
 	import PageRangeDescription from '$lib/components/Pagination/PageRangeDescription.svelte';
 	import PageSizeSetting from '$lib/components/Pagination/PageSizeSetting.svelte';
 	import { getTableSize, getTableState } from '$lib/context';
-	import { pageWidth } from '$lib/stores/pageWidth';
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
 
@@ -16,9 +15,10 @@
 	let showPageSizeSetting = false;
 	const options = { duration: 200, easing: cubicInOut };
 
-	$: useCompactPageNav =
+	$: compact =
 		$tableState.pageNavFormat === 'compact' ||
-		($tableState.pageNavFormat === 'auto' && ($pageWidth.isMobileDisplay || $tableState.pagination.totalPages > 4));
+		($tableState.pageNavFormat === 'auto' && $tableState.state.containerWidth < 768) ||
+		($tableState.pageNavFormat === 'auto' && $tableState.pagination.totalPages > 4);
 	$: flexJustify = showPageSizeSetting ? 'center' : 'space-between';
 
 	function handleChangePageSize(pageSize: number) {
@@ -35,7 +35,7 @@
 			{:else}
 				<PageSizeSetting {tableId} on:changePageSize={(e) => handleChangePageSize(e.detail)} />
 			{/if}
-			{#if useCompactPageNav}
+			{#if compact}
 				<PageNavigationCompact {tableId} />
 			{:else}
 				<PageNavigation {tableId} />

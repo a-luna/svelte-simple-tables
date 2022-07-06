@@ -13,6 +13,9 @@
 	$: fontSize = $pageWidth.current < 1024 ? '1em' : '1.05em';
 	$: pageDescWidthStore = syncWidth(pageDescriptionElement);
 	$: $tableState.state.paginationLeftWidth = $pageDescWidthStore;
+	$: compact =
+		$tableState.pageRangeFormat === 'compact' ||
+		($tableState.pageRangeFormat === 'auto' && $tableState.state.containerWidth < 768);
 </script>
 
 <div
@@ -27,9 +30,9 @@
 	</div>
 	<aside title="Click to change # of rows displayed per page" style="font-size: {fontSize}">
 		<div class="current-page-range" data-testid="page-range">
-			{#if $tableState.pageRangeFormat === 'compact' || ($tableState.pageRangeFormat === 'auto' && $pageWidth.isMobileDisplay)}
+			{#if compact}
 				<b>{$tableState.pagination.startRow + 1}-{$tableState.pagination.endRow}/{$tableState.pagination.totalRows}</b>
-			{:else if $tableState.pageRangeFormat === 'verbose' || ($tableState.pageRangeFormat === 'auto' && !$pageWidth.isMobileDisplay)}
+			{:else}
 				Showing <b>{$tableState.pagination.startRow + 1}</b> to <b>{$tableState.pagination.endRow}</b> of
 				<b>{$tableState.pagination.totalRows}</b>
 				{$tableState.rowType}
