@@ -3,39 +3,41 @@
 	import type { TableSettings } from '$lib/types';
 	import { pfxBarrelColumnSettings } from '$lib/__tests__/data/columnSettings';
 	import { barrelsForDateData } from '$lib/__tests__/data/getBarrelsForDate';
+	import type { PitchFx } from '$lib/__tests__/types';
 	import { vaxDataColumnSettings } from './columnSettings';
+	import type { VaxData } from './data';
 	import { vaxData } from './data';
 
 	const tableId = 'all-barrels';
 	const caption = 'Barrels';
 	const sortBy = 'launch_speed';
-	const pfxTableSettings: TableSettings = {
+	const pfxTableSettings: TableSettings<PitchFx> = {
 		tableId,
 		themeName: 'dark',
-		showHeader: true,
+		showHeader: false,
 		header: caption,
-		showSortDescription: true,
+		showSortDescription: false,
 		sortBy,
 		sortDir: 'desc',
-		tableWrapper: true,
+		tableWrapper: false,
 		expandToContainerWidth: false,
 		paginated: true,
 		pageSize: 5,
 		clickableRows: false,
 		animateSorting: true,
 		pageSizeOptions: [5, 10, 15, 20, 25],
-		pageRangeFormat: 'compact',
-		pageNavFormat: 'compact',
+		pageRangeFormat: 'none',
+		pageNavFormat: 'full',
 	};
 
-	const pfxPaginatedTableSettings: TableSettings = {
+	const pfxPaginatedTableSettings: TableSettings<PitchFx> = {
 		tableId: 'pfx',
 		showHeader: true,
 		header: 'Barrels',
 		showSortDescription: true,
 		sortBy: 'time_pitch_thrown_est',
 		sortDir: 'desc',
-		tableWrapper: false,
+		tableWrapper: true,
 		expandToContainerWidth: true,
 		themeName: 'light',
 		paginated: true,
@@ -46,7 +48,7 @@
 		rowType: 'barrels',
 	};
 
-	const basicTableSettings: TableSettings = {
+	const basicTableSettings: TableSettings<VaxData> = {
 		tableId: 'vax-status-table-full',
 		showHeader: true,
 		header: 'Vax Status',
@@ -54,21 +56,22 @@
 		sortBy: 'age',
 		sortDir: 'desc',
 		themeName: 'lighter',
-		tableWrapper: true,
-		expandToContainerWidth: true,
+		tableWrapper: false,
+		expandToContainerWidth: false,
 		paginated: false,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
 	};
 
-	const paginatedTableSettings: TableSettings = {
+	const paginatedTableSettings: TableSettings<VaxData> = {
 		tableId: 'vax-status-table',
-		showHeader: false,
-		showSortDescription: false,
+		showHeader: true,
+		header: 'Vax Status',
+		showSortDescription: true,
 		sortBy: 'age',
 		sortDir: 'desc',
-		tableWrapper: false,
-		expandToContainerWidth: false,
+		tableWrapper: true,
+		expandToContainerWidth: true,
 		paginated: true,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
@@ -81,7 +84,7 @@
 </script>
 
 <div class="light-themes">
-	<div style="width: 650px; --sst-table-wrapper-border-width: 0;">
+	<div style="--sst-table-wrapper-border-width: 0;">
 		<SimpleTable
 			data={barrelsForDateData}
 			columnSettings={pfxBarrelColumnSettings}
@@ -92,20 +95,38 @@
 	<div>
 		<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} />
 	</div>
+	<div style="--sst-table-wrapper-border-width: 0; --sst-table-header-text-color: hsl(0, 0%, 0%)">
+		<SimpleTable
+			data={barrelsForDateData}
+			columnSettings={pfxBarrelColumnSettings}
+			tableSettings={pfxTableSettings}
+			on:rowClicked={(e) => console.log({ pfx: e.detail })}
+		/>
+	</div>
 </div>
 <div class="dark-themes">
-	<SimpleTable
-		data={barrelsForDateData}
-		columnSettings={pfxBarrelColumnSettings}
-		tableSettings={pfxTableSettings}
-		on:rowClicked={(e) => console.log({ pfx: e.detail })}
-	/>
-	<div style="width: 650px">
+	<div style="--sst-table-wrapper-border-width: 0;">
+		<SimpleTable
+			data={barrelsForDateData}
+			columnSettings={pfxBarrelColumnSettings}
+			tableSettings={pfxTableSettings}
+			on:rowClicked={(e) => console.log({ pfx: e.detail })}
+		/>
+	</div>
+	<div>
 		<SimpleTable
 			data={vaxData}
 			columnSettings={vaxDataColumnSettings}
 			tableSettings={paginatedTableSettings}
 			on:rowClicked={(e) => console.log(e.detail)}
+		/>
+	</div>
+	<div style="width: 500px">
+		<SimpleTable
+			data={barrelsForDateData}
+			columnSettings={pfxBarrelColumnSettings}
+			tableSettings={pfxPaginatedTableSettings}
+			on:rowClicked={(e) => console.log({ pfx: e.detail })}
 		/>
 	</div>
 </div>

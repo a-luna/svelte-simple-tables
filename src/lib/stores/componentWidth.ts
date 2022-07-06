@@ -4,30 +4,30 @@ import { getTableFontSizeInPixels, getTableWrapperPaddingWidth } from '$lib/util
 import type { Readable } from 'svelte/store';
 import { derived } from 'svelte/store';
 
-export function createComponentWidthStore<R>(tableSettings: TableState<R>): Readable<ComponentWidth> {
-	return derived([tableSettings, pageWidth], ([$tableSettings, $pageWidth]) => {
+export function createComponentWidthStore<R>(tableState: TableState<R>): Readable<ComponentWidth> {
+	return derived([tableState, pageWidth], ([$tableState, $pageWidth]) => {
 		const getPaginationWidth = (): number =>
-			$tableSettings.state.paginationLeftWidth +
-			$tableSettings.state.paginationRightWidth +
-			getTableFontSizeInPixels($tableSettings.tableId);
+			$tableState.state.paginationLeftWidth +
+			$tableState.state.paginationRightWidth +
+			getTableFontSizeInPixels($tableState.tableId);
 
 		const getMinComponentWidth = (): number =>
 			Math.max(
-				$tableSettings.state.captionWidth,
-				$tableSettings.state.sortDescriptionWidth,
-				$tableSettings.state.tableWidth,
+				$tableState.state.captionWidth,
+				$tableState.state.sortDescriptionWidth,
+				$tableState.state.tableWidth,
 				getPaginationWidth(),
 			);
 
 		const getPaddedComponentWidth = (): number =>
-			$tableSettings.tableWrapper
-				? getMinComponentWidth() + getTableWrapperPaddingWidth($tableSettings.tableId)
+			$tableState.tableWrapper
+				? getMinComponentWidth() + getTableWrapperPaddingWidth($tableState.tableId)
 				: getMinComponentWidth();
 
 		const tableExceedsViewportWidth = (): boolean => getPaddedComponentWidth() > $pageWidth.current;
-		const tableExceedsContainerWidth = (): boolean => getPaddedComponentWidth() > $tableSettings.state.containerWidth;
+		const tableExceedsContainerWidth = (): boolean => getPaddedComponentWidth() > $tableState.state.containerWidth;
 		const fitToContainer = (): boolean =>
-			tableExceedsContainerWidth() || tableExceedsViewportWidth() || $tableSettings.expandToContainerWidth;
+			tableExceedsContainerWidth() || tableExceedsViewportWidth() || $tableState.expandToContainerWidth;
 
 		return {
 			finalComponentWidth: fitToContainer() ? '100%' : `${getMinComponentWidth()}px`,
