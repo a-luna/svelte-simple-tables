@@ -2,12 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.23](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.22...v0.0.23) (2022-07-05)
+### [0.0.24](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.23...v0.0.24) (2022-07-06)
 
 
 ### Bug Fixes
 
-* :label: minor typescript fixes to TableState nd TableSettings interfaces ([ef1d6f0](https://github.com/a-luna/svelte-simple-tables/commit/ef1d6f065a77c9753e066216c65f2fd931af22be))
+* :bug: fix weird text mangling in TableHeader.svelte ([cb4ed4a](https://github.com/a-luna/svelte-simple-tables/commit/cb4ed4a22c8f1546e8831f0921dc033acdb1435c))
+* :bug: fix: if page nav/range format=auto, use containerWidth rather than pageWidth for decision ([335681d](https://github.com/a-luna/svelte-simple-tables/commit/335681d2fb4ab0066d47a038444aaaa8de1e0d6a))
+
+### [0.0.23](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.22...v0.0.23) (2022-07-05)
+
+### Bug Fixes
+
+- :label: minor typescript fixes to TableState nd TableSettings interfaces ([ef1d6f0](https://github.com/a-luna/svelte-simple-tables/commit/ef1d6f065a77c9753e066216c65f2fd931af22be))
 
 ### [0.0.22](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.21...v0.0.22) (2022-07-05)
 
