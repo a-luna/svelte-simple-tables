@@ -8,29 +8,24 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [16]
+        os: [ubuntu-latest]
+        include:
+          - node-version: 18
+            os: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
-
-      - name: Set up Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2.2.2
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
         with:
           version: latest
-
-      - name: Install dependencies
-        run: pnpm install
-
-      - name: Run the tests
-        run: pnpm test -- --coverage
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test -- --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
