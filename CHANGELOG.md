@@ -2,13 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.24](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.23...v0.0.24) (2022-07-06)
+### [0.0.25](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.24...v0.0.25) (2022-07-07)
 
 
 ### Bug Fixes
 
-* :bug: fix weird text mangling in TableHeader.svelte ([cb4ed4a](https://github.com/a-luna/svelte-simple-tables/commit/cb4ed4a22c8f1546e8831f0921dc033acdb1435c))
-* :bug: fix: if page nav/range format=auto, use containerWidth rather than pageWidth for decision ([335681d](https://github.com/a-luna/svelte-simple-tables/commit/335681d2fb4ab0066d47a038444aaaa8de1e0d6a))
+* :bug: ([a222227](https://github.com/a-luna/svelte-simple-tables/commit/a222227de908542bca658d3e2fed6922ba6648f5))
+* :bug: fix: page nav button container has wrong background-color when client has existing styles targeting nav element ([24f70bd](https://github.com/a-luna/svelte-simple-tables/commit/24f70bd7858987fff818b7290cc853edb8cb75ed))
+* :recycle: add 'sst-' prefix to all responsive table css class names to avoid name collision with dependent code ([ae96ff2](https://github.com/a-luna/svelte-simple-tables/commit/ae96ff25432bb7b3fcddf80136172b205e0747af))
+
+### [0.0.24](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.23...v0.0.24) (2022-07-06)
+
+### Bug Fixes
+
+- :bug: fix weird text mangling in TableHeader.svelte ([cb4ed4a](https://github.com/a-luna/svelte-simple-tables/commit/cb4ed4a22c8f1546e8831f0921dc033acdb1435c))
+- :bug: fix: if page nav/range format=auto, use containerWidth rather than pageWidth for decision ([335681d](https://github.com/a-luna/svelte-simple-tables/commit/335681d2fb4ab0066d47a038444aaaa8de1e0d6a))
 
 ### [0.0.23](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.22...v0.0.23) (2022-07-05)
 
