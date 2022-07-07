@@ -1,6 +1,6 @@
 {
 	"name": "@a-luna/svelte-simple-tables",
-	"version": "0.0.25",
+	"version": "0.0.26",
 	"license": "MIT",
 	"description": "Accessible, sortable, paginated table component",
 	"author": "Aaron Luna (https://github.com/a-luna)",
@@ -36,7 +36,7 @@
 		"test:ui": "vitest watch --ui --threads false --coverage",
 		"test:watch": "vitest watch --coverage",
 		"commit": "git-cz",
-		"release": "pnpm run release:pre && pnpm run release:package && pnpm run release:push && pnpm run release:npm && pnpm run release:github",
+		"release": "pnpm run release:pre && pnpm run release:package && pnpm run release:push && pnpm run release:npm",
 		"release:pre": "git checkout main && git pull origin main && pnpm i && pnpm run test && pnpm run lint && git add .",
 		"release:package": "standard-version -a && svelte-kit package",
 		"release:push": "git push --follow-tags origin main",

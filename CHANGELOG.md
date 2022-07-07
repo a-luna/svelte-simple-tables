@@ -2,14 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.25](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.24...v0.0.25) (2022-07-07)
+### [0.0.26](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.25...v0.0.26) (2022-07-07)
 
+
+### Features
+
+* :sparkles: remove propType from ColumnSettings, now automatically inferred, simplifying config process ([85995ea](https://github.com/a-luna/svelte-simple-tables/commit/85995ea41df52f82836373296a5f77b2040915a5))
+
+### [0.0.25](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.24...v0.0.25) (2022-07-07)
 
 ### Bug Fixes
 
-* :bug: ([a222227](https://github.com/a-luna/svelte-simple-tables/commit/a222227de908542bca658d3e2fed6922ba6648f5))
-* :bug: fix: page nav button container has wrong background-color when client has existing styles targeting nav element ([24f70bd](https://github.com/a-luna/svelte-simple-tables/commit/24f70bd7858987fff818b7290cc853edb8cb75ed))
-* :recycle: add 'sst-' prefix to all responsive table css class names to avoid name collision with dependent code ([ae96ff2](https://github.com/a-luna/svelte-simple-tables/commit/ae96ff25432bb7b3fcddf80136172b205e0747af))
+- :bug: ([a222227](https://github.com/a-luna/svelte-simple-tables/commit/a222227de908542bca658d3e2fed6922ba6648f5))
+- :bug: fix: page nav button container has wrong background-color when client has existing styles targeting nav element ([24f70bd](https://github.com/a-luna/svelte-simple-tables/commit/24f70bd7858987fff818b7290cc853edb8cb75ed))
+- :recycle: add 'sst-' prefix to all responsive table css class names to avoid name collision with dependent code ([ae96ff2](https://github.com/a-luna/svelte-simple-tables/commit/ae96ff25432bb7b3fcddf80136172b205e0747af))
 
 ### [0.0.24](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.23...v0.0.24) (2022-07-06)
 
