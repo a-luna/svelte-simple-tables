@@ -81,6 +81,9 @@
 </nav>
 
 <style lang="postcss">
+	nav {
+		background-color: inherit;
+	}
 	.page-nav {
 		display: flex;
 		flex-flow: row nowrap;
