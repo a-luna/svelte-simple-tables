@@ -3,16 +3,13 @@ name: Running Code Coverage
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [16]
         os: [ubuntu-latest]
-        include:
-          - node-version: 18
-            os: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
@@ -31,3 +28,28 @@ jobs:
         uses: codecov/codecov-action@v1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [16]
+        os: [ubuntu-latest, macOS-latest, windows-2019]
+        include:
+          - node-version: 18
+            os: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm test

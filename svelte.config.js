@@ -17,6 +17,7 @@ const config = {
 			test: {
 				globals: false,
 				environment: 'jsdom',
+				dir: './src',
 				moduleNameMapper: {
 					'^\\$lib(.*)$': '<rootDir>/src/lib$1',
 					'^\\$app(.*)$': ['<rootDir>/.svelte-kit/dev/runtime/app$1', '<rootDir>/.svelte-kit/build/runtime/app$1'],
