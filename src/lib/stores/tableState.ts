@@ -2,7 +2,7 @@ import type { TableSettings, TableState } from '$lib/types';
 import { getDefaultTableId } from '$lib/util';
 import { writable } from 'svelte/store';
 
-export function getDefaultTableSettings<R>(): TableSettings<R> {
+export function getDefaultTableSettings<R>(totalRows = 5): TableSettings<R> {
 	return {
 		tableId: getDefaultTableId(),
 		showHeader: false,
@@ -17,7 +17,7 @@ export function getDefaultTableSettings<R>(): TableSettings<R> {
 		clickableRows: false,
 		animateSorting: false,
 		paginated: false,
-		pageSize: 5,
+		pageSize: totalRows,
 		pageSizeOptions: [5, 10, 15],
 		pageRangeFormat: 'auto',
 		pageNavFormat: 'auto',
@@ -32,11 +32,11 @@ export function getDefaultTableSettings<R>(): TableSettings<R> {
 			containerWidth: 0,
 		},
 		pagination: {
-			totalRows: 0,
+			totalRows: totalRows,
 			totalPages: 1,
 			currentPage: 1,
 			startRow: 0,
-			endRow: 0,
+			endRow: totalRows,
 		},
 	};
 }
@@ -44,33 +44,8 @@ export function getDefaultTableSettings<R>(): TableSettings<R> {
 export function createTableStateStore<R>(totalRows: number, settings: TableSettings<R>): TableState<R> {
 	const pageSize = settings?.paginated ? settings?.pageSize || 5 : totalRows;
 	const { set, subscribe, update } = writable<TableSettings<R>>({
-		tableId: settings?.tableId || getDefaultTableId(),
-		showHeader: settings?.showHeader || false,
-		header: settings?.header ?? '',
-		showSortDescription: settings?.showSortDescription || false,
-		sortBy: settings?.sortBy,
-		sortType: settings?.sortType,
-		sortDir: settings?.sortDir || 'asc',
-		tableWrapper: settings?.tableWrapper || false,
-		expandToContainerWidth: settings?.expandToContainerWidth || false,
-		themeName: settings?.themeName || 'lighter',
-		clickableRows: settings?.clickableRows || false,
-		animateSorting: settings?.animateSorting || false,
-		paginated: settings?.paginated || false,
-		pageSize: pageSize,
-		pageSizeOptions: settings?.pageSizeOptions || [5, 10, 15],
-		pageRangeFormat: settings?.pageRangeFormat || 'auto',
-		pageNavFormat: settings?.pageNavFormat || 'auto',
-		rowType: settings?.rowType || 'rows',
-		state: {
-			syncState: 'not-started',
-			captionWidth: 0,
-			sortDescriptionWidth: 0,
-			tableWidth: 0,
-			paginationLeftWidth: 0,
-			paginationRightWidth: 0,
-			containerWidth: 0,
-		},
+		...getDefaultTableSettings<R>(totalRows),
+		...settings,
 		pagination: {
 			totalRows: totalRows,
 			totalPages: Math.ceil(totalRows / pageSize),

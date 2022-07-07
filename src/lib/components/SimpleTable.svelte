@@ -4,7 +4,7 @@
 	import { initTableSize, initTableState } from '$lib/context';
 	import { createTableStateStore, syncWidth } from '$lib/stores';
 	import type { ColumnSettings, PropType, TableSettings, TableState } from '$lib/types';
-	import { getBorderCssValues, getSortFunction, getTableFontSize } from '$lib/util';
+	import { getBorderCssValues, getSortFunction, getSortType, getTableFontSize } from '$lib/util';
 	import { tick } from 'svelte';
 	import type { Writable } from 'svelte/store';
 
@@ -21,7 +21,8 @@
 	}
 	tableState = initTableState<R>(tableState);
 	const componentWidth = initTableSize<R>(tableState);
-	$tableState.sortType = columnSettings.find((col) => col.propName === $tableState.sortBy)?.propType || 'unsorted';
+	const sortBy = columnSettings.find((col) => col.propName === $tableState.sortBy)?.propName;
+	$tableState.sortType = data.length ? getSortType<R>(data[0], sortBy) : 'unsorted';
 	let sortFunction: (a: R, b: R) => number = getSortFunction<R>(
 		$tableState.sortBy,
 		$tableState.sortType,

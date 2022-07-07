@@ -1,20 +1,19 @@
 <script lang="ts">
 	import { getTableState } from '$lib/context';
-
-	import type { PropType } from '$lib/types';
+	import { getSortType } from '$lib/util';
 
 	type R = $$Generic;
 
 	export let tableId: string;
 	export let obj: R;
 	export let propName: keyof R;
-	export let propType: PropType;
 	export let classList: string[] = [];
 	export let colValue: (obj: R) => string = null;
 	const tableState = getTableState<R>(tableId);
 	let cellValue = '';
 
-	$: cellValue = colValue ? colValue(obj) : propName in obj ? obj[propName].toString() : '';
+	$: cellValue = colValue ? colValue(obj) : obj[propName].toString();
+	$: propType = getSortType<R>(obj, propName);
 </script>
 
 <div

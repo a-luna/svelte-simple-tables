@@ -12,15 +12,18 @@
 	const pfxCaption = 'Barrels';
 	const pfxSortBy = 'launch_speed';
 	const pfxRowType = 'barrels';
+	const pfxTotalRows = barrelsForDateData.length;
 	const vaxCaption = 'Vax Status';
 	const vaxSortBy = 'age';
+	const vaxTotalRows = vaxData.length;
 
 	const pfxTableSettings1: TableSettings<PitchFx> = {
-		...getDefaultTableSettings<PitchFx>(),
+		...getDefaultTableSettings<PitchFx>(pfxTotalRows),
 		themeName: 'light',
 		sortBy: pfxSortBy,
 		sortDir: 'desc',
 		paginated: true,
+		pageSize: 5,
 		animateSorting: true,
 		pageSizeOptions: [5, 10, 15, 20, 25],
 		pageRangeFormat: 'none',
@@ -28,7 +31,7 @@
 	};
 
 	const pfxTableSettings2: TableSettings<PitchFx> = {
-		...getDefaultTableSettings<PitchFx>(),
+		...getDefaultTableSettings<PitchFx>(pfxTotalRows),
 		sortBy: pfxSortBy,
 		sortDir: 'desc',
 		themeName: 'darker',
@@ -38,7 +41,7 @@
 	};
 
 	const pfxTableSettings3: TableSettings<PitchFx> = {
-		...getDefaultTableSettings<PitchFx>(),
+		...getDefaultTableSettings<PitchFx>(pfxTotalRows),
 		themeName: 'dark',
 		showHeader: true,
 		header: pfxCaption,
@@ -47,12 +50,13 @@
 		tableWrapper: true,
 		expandToContainerWidth: true,
 		paginated: true,
+		pageSize: 5,
 		pageSizeOptions: [5, 10, 15, 20, 25],
 		rowType: pfxRowType,
 	};
 
 	const vaxTableSettings1: TableSettings<VaxData> = {
-		...getDefaultTableSettings<VaxData>(),
+		...getDefaultTableSettings<VaxData>(vaxTotalRows),
 		showHeader: true,
 		header: vaxCaption,
 		showSortDescription: true,
@@ -65,7 +69,7 @@
 	};
 
 	const vaxTableSettings2: TableSettings<VaxData> = {
-		...getDefaultTableSettings<VaxData>(),
+		...getDefaultTableSettings<VaxData>(vaxTotalRows),
 		showHeader: true,
 		header: vaxCaption,
 		showSortDescription: true,
@@ -110,6 +114,7 @@
 		/>
 	</div>
 </div>
+
 <div class="dark-themes">
 	<div>
 		<SimpleTable

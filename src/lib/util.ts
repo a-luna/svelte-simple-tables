@@ -1,3 +1,4 @@
+import { PROP_TYPES } from '$lib/constants';
 import type { AriaAttributes, PropType, SortDirection } from '$lib/types';
 
 const KEBAB_CASE_REGEX = /^(?=.*-)[a-z-]*$/;
@@ -12,6 +13,8 @@ export const getRandomHexString = (length: number): string =>
 		.join('');
 
 export const capitalize = (string: string): string => string.charAt(0).toUpperCase() + string.substring(1);
+
+export const isPropType = (type: string): type is PropType => PROP_TYPES.includes(type as PropType);
 
 export function formatNumber(input: number | string, precision = 0): string {
 	const unformatted = typeof input === 'number' ? input : parseFloat(input);
@@ -97,6 +100,17 @@ export function getValidPropertyNames(input: string): [string, string] {
 		return [camelCase, input];
 	}
 	return [input, input];
+}
+
+export function getSortType<T>(instance: T, propName: keyof T): PropType {
+	if (instance[propName] instanceof Date) {
+		return 'date';
+	}
+	const propType = typeof instance[propName];
+	if (isPropType(propType)) {
+		return propType;
+	}
+	return 'unsorted';
 }
 
 export function getSortFunction<T>(propName: keyof T, propType: PropType, dir: SortDirection): (a: T, b: T) => number {

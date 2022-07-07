@@ -3,14 +3,14 @@
 	import SortDescending from '$lib/components/Icons/SortDescending.svelte';
 	import { getTableState } from '$lib/context';
 	import type { AriaSort, SortDirection } from '$lib/types';
-	import { getColumnWidth, getDefaultColHeader } from '$lib/util';
+	import { getColumnWidth, getDefaultColHeader, getSortType } from '$lib/util';
 	import { createEventDispatcher } from 'svelte';
 
 	type R = $$Generic;
 
 	export let tableId: string;
+	export let data: R[] = [];
 	export let propName: keyof R;
-	export let propType: string;
 	export let headerText: string = getDefaultColHeader<R>(propName);
 	export let tooltip: string = getDefaultColHeader<R>(propName);
 	export let sortable = true;
@@ -21,6 +21,7 @@
 
 	$: if ($tableState.state.syncState === 'started-resize-columns')
 		width = `${getColumnWidth<R>(tableId, propName, $tableState.sortBy)}px`;
+	$: propType = data.length ? getSortType<R>(data[0], propName) : 'unsorted';
 	$: asc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'asc';
 	$: desc = sortable && $tableState.sortBy === propName && $tableState.sortDir === 'desc';
 	$: ariaSort = getAriaSortValue($tableState.sortBy, $tableState.sortDir);

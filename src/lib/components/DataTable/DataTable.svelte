@@ -41,11 +41,11 @@
 			bind:this={tableElement}
 		>
 			<div role="row" class="sst-resp-table-header">
-				{#each columnSettings as { propName, propType, headerText, tooltip, sortable }}
+				{#each columnSettings as { propName, headerText, tooltip, sortable }}
 					<ColumnHeader
 						tableId={$tableState.tableId}
+						{data}
 						{propName}
-						{propType}
 						{headerText}
 						{tooltip}
 						{sortable}
@@ -65,8 +65,8 @@
 							data-testid="{$tableState.tableId}-row"
 							on:click={() => handleRowClicked(obj)}
 						>
-							{#each columnSettings as { propName, propType, classList, colValue }}
-								<TableCell tableId={$tableState.tableId} {obj} {propName} {propType} {classList} {colValue} />
+							{#each columnSettings as { propName, classList, colValue }}
+								<TableCell tableId={$tableState.tableId} {obj} {propName} {classList} {colValue} />
 							{/each}
 						</div>
 					{/each}
@@ -80,8 +80,8 @@
 							data-testid="{$tableState.tableId}-row"
 							on:click={() => handleRowClicked(obj)}
 						>
-							{#each columnSettings as { propName, propType, classList, colValue }}
-								<TableCell tableId={$tableState.tableId} {obj} {propName} {propType} {classList} {colValue} />
+							{#each columnSettings as { propName, classList, colValue }}
+								<TableCell tableId={$tableState.tableId} {obj} {propName} {classList} {colValue} />
 							{/each}
 						</div>
 					{/each}

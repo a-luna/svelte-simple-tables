@@ -50,13 +50,11 @@ function isHomeTeam(pfx: PitchFx): boolean {
 export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 	{
 		propName: 'batter_name',
-		propType: 'string',
 		classList: ['text-left'],
 		colValue: batterNameLink,
 	},
 	{
 		propName: 'opponent_team_id_bb',
-		propType: 'string',
 		headerText: 'Opp',
 		tooltip: 'Opponent',
 		classList: ['text-center'],
@@ -65,69 +63,58 @@ export const pfxBarrelColumnSettings: ColumnSettings<PitchFx>[] = [
 	},
 	{
 		propName: 'launch_speed',
-		propType: 'number',
 		headerText: 'Speed',
 		tooltip: 'Launch Speed (mph)',
 		colValue: formatLaunchSpeed,
 	},
 	{
 		propName: 'launch_angle',
-		propType: 'number',
 		headerText: 'Angle',
 		tooltip: 'Launch Angle',
 		colValue: formatLaunchAngle,
 	},
 	{
 		propName: 'total_distance',
-		propType: 'number',
 		headerText: 'Distance',
 		colValue: formatLaunchDistance,
 	},
 	{
 		propName: 'ab_outcome',
-		propType: 'string',
 		headerText: 'Outcome',
 		tooltip: 'Play Description',
 	},
 	{
 		propName: 'pitcher_name',
-		propType: 'string',
 		headerText: 'Pitcher',
 		colValue: pitcherNameLink,
 	},
 	{
 		propName: 'mlbam_pitch_name',
-		propType: 'string',
 		headerText: 'Pitch Type',
 		tooltip: 'Pitch Type',
 		colValue: formatPitchType,
 	},
 	{
 		propName: 'start_speed',
-		propType: 'number',
 		headerText: 'Speed',
 		tooltip: 'Pitch Speed',
 		colValue: formatPitchSpeed,
 	},
 	{
 		propName: 'time_pitch_thrown_est',
-		propType: 'date',
 		headerText: 'Occurred',
 		tooltip: 'Local time (EST) when batted-ball event occurred',
 		colValue: formatTimeStamp,
 	},
 	{
 		propName: 'inning',
-		propType: 'number',
 		headerText: 'Inn',
 	},
 	{
 		propName: 'count',
-		propType: 'string',
 	},
 	{
 		propName: 'inside_strike_zone',
-		propType: 'number',
 		headerText: 'In/Out',
 		tooltip: 'Inside/Outside Strike Zone',
 		colValue: formatInOutZone,
