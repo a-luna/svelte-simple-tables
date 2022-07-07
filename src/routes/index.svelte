@@ -1,5 +1,6 @@
 <script lang="ts">
 	import SimpleTable from '$lib/components/SimpleTable.svelte';
+	import { getDefaultTableSettings } from '$lib/stores/tableState';
 	import type { TableSettings } from '$lib/types';
 	import { pfxBarrelColumnSettings } from '$lib/__tests__/data/columnSettings';
 	import { barrelsForDateData } from '$lib/__tests__/data/getBarrelsForDate';
@@ -8,67 +9,67 @@
 	import type { VaxData } from './data';
 	import { vaxData } from './data';
 
-	const tableId = 'all-barrels';
-	const caption = 'Barrels';
-	const sortBy = 'launch_speed';
-	const pfxTableSettings: TableSettings<PitchFx> = {
-		tableId,
-		themeName: 'dark',
-		showHeader: false,
-		header: caption,
-		showSortDescription: false,
-		sortBy,
+	const pfxCaption = 'Barrels';
+	const pfxSortBy = 'launch_speed';
+	const pfxRowType = 'barrels';
+	const vaxCaption = 'Vax Status';
+	const vaxSortBy = 'age';
+
+	const pfxTableSettings1: TableSettings<PitchFx> = {
+		...getDefaultTableSettings<PitchFx>(),
+		themeName: 'light',
+		sortBy: pfxSortBy,
 		sortDir: 'desc',
-		tableWrapper: false,
-		expandToContainerWidth: false,
 		paginated: true,
-		pageSize: 5,
-		clickableRows: false,
 		animateSorting: true,
 		pageSizeOptions: [5, 10, 15, 20, 25],
 		pageRangeFormat: 'none',
 		pageNavFormat: 'full',
 	};
 
-	const pfxPaginatedTableSettings: TableSettings<PitchFx> = {
-		tableId: 'pfx',
-		showHeader: true,
-		header: 'Barrels',
-		showSortDescription: true,
-		sortBy: 'time_pitch_thrown_est',
+	const pfxTableSettings2: TableSettings<PitchFx> = {
+		...getDefaultTableSettings<PitchFx>(),
+		sortBy: pfxSortBy,
 		sortDir: 'desc',
+		themeName: 'darker',
+		clickableRows: true,
+		animateSorting: true,
+		rowType: pfxRowType,
+	};
+
+	const pfxTableSettings3: TableSettings<PitchFx> = {
+		...getDefaultTableSettings<PitchFx>(),
+		themeName: 'dark',
+		showHeader: true,
+		header: pfxCaption,
+		showSortDescription: true,
+		sortBy: pfxSortBy,
 		tableWrapper: true,
 		expandToContainerWidth: true,
-		themeName: 'light',
 		paginated: true,
-		pageSize: 10,
 		pageSizeOptions: [5, 10, 15, 20, 25],
-		pageRangeFormat: 'auto',
-		pageNavFormat: 'auto',
-		rowType: 'barrels',
+		rowType: pfxRowType,
 	};
 
-	const basicTableSettings: TableSettings<VaxData> = {
-		tableId: 'vax-status-table-full',
+	const vaxTableSettings1: TableSettings<VaxData> = {
+		...getDefaultTableSettings<VaxData>(),
 		showHeader: true,
-		header: 'Vax Status',
+		header: vaxCaption,
 		showSortDescription: true,
-		sortBy: 'age',
+		sortBy: vaxSortBy,
 		sortDir: 'desc',
 		themeName: 'lighter',
-		tableWrapper: false,
-		expandToContainerWidth: false,
-		paginated: false,
 		pageRangeFormat: 'compact',
 		pageNavFormat: 'compact',
+		rowType: 'vax records',
 	};
 
-	const paginatedTableSettings: TableSettings<VaxData> = {
-		tableId: 'vax-status-table',
+	const vaxTableSettings2: TableSettings<VaxData> = {
+		...getDefaultTableSettings<VaxData>(),
 		showHeader: true,
-		header: 'Vax Status',
+		header: vaxCaption,
 		showSortDescription: true,
-		sortBy: 'age',
+		sortBy: vaxSortBy,
 		sortDir: 'desc',
 		tableWrapper: true,
 		expandToContainerWidth: true,
@@ -88,28 +89,7 @@
 		<SimpleTable
 			data={barrelsForDateData}
 			columnSettings={pfxBarrelColumnSettings}
-			tableSettings={pfxPaginatedTableSettings}
-			on:rowClicked={(e) => console.log({ pfx: e.detail })}
-		/>
-	</div>
-	<div>
-		<SimpleTable data={vaxData} columnSettings={vaxDataColumnSettings} tableSettings={basicTableSettings} />
-	</div>
-	<div style="--sst-table-wrapper-border-width: 0; --sst-table-header-text-color: hsl(0, 0%, 0%)">
-		<SimpleTable
-			data={barrelsForDateData}
-			columnSettings={pfxBarrelColumnSettings}
-			tableSettings={pfxTableSettings}
-			on:rowClicked={(e) => console.log({ pfx: e.detail })}
-		/>
-	</div>
-</div>
-<div class="dark-themes">
-	<div style="--sst-table-wrapper-border-width: 0;">
-		<SimpleTable
-			data={barrelsForDateData}
-			columnSettings={pfxBarrelColumnSettings}
-			tableSettings={pfxTableSettings}
+			tableSettings={pfxTableSettings1}
 			on:rowClicked={(e) => console.log({ pfx: e.detail })}
 		/>
 	</div>
@@ -117,15 +97,33 @@
 		<SimpleTable
 			data={vaxData}
 			columnSettings={vaxDataColumnSettings}
-			tableSettings={paginatedTableSettings}
-			on:rowClicked={(e) => console.log(e.detail)}
+			tableSettings={vaxTableSettings1}
+			on:rowClicked={(e) => console.log({ pfx: e.detail })}
 		/>
 	</div>
-	<div style="width: 500px">
+	<div style="--sst-table-wrapper-border-width: 0; --sst-table-header-text-color: hsl(0, 0%, 0%)">
 		<SimpleTable
 			data={barrelsForDateData}
 			columnSettings={pfxBarrelColumnSettings}
-			tableSettings={pfxPaginatedTableSettings}
+			tableSettings={pfxTableSettings2}
+			on:rowClicked={(e) => console.log({ pfx: e.detail })}
+		/>
+	</div>
+</div>
+<div class="dark-themes">
+	<div>
+		<SimpleTable
+			data={vaxData}
+			columnSettings={vaxDataColumnSettings}
+			tableSettings={vaxTableSettings2}
+			on:rowClicked={(e) => console.log({ vaxData: e.detail })}
+		/>
+	</div>
+	<div style="max-width: 850px">
+		<SimpleTable
+			data={barrelsForDateData}
+			columnSettings={pfxBarrelColumnSettings}
+			tableSettings={pfxTableSettings3}
 			on:rowClicked={(e) => console.log({ pfx: e.detail })}
 		/>
 	</div>
