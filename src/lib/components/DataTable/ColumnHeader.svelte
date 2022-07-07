@@ -38,7 +38,7 @@
 <div
 	role="columnheader"
 	aria-sort={ariaSort}
-	class="table-header-cell"
+	class="sst-table-header-cell"
 	class:sortable
 	class:asc
 	class:desc
@@ -48,7 +48,7 @@
 	tabindex="0"
 	on:click={() => handleColumnHeaderClicked()}
 >
-	<div class="header-content-wrapper" style={width ? ` width: ${width}` : ''}>
+	<div class="sst-header-content-wrapper" style={width ? ` width: ${width}` : ''}>
 		<span class="header-content">{headerText}</span>
 		{#if asc}
 			<div class="asc_icon">
@@ -63,7 +63,7 @@
 </div>
 
 <style lang="postcss">
-	.table-header-cell {
+	.sst-table-header-cell {
 		display: table-cell;
 		text-align: center;
 		font-weight: var(--sst-col-header-text-weight, var(--sst-default-col-header-text-weight));
@@ -75,12 +75,12 @@
 		padding: var(--sst-col-header-padding, var(--sst-default-col-header-padding));
 	}
 
-	.table-header-cell:first-child {
+	.sst-table-header-cell:first-child {
 		border-top-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 		border-left: 1px solid var(--sst-table-outer-border-color, var(--sst-default-table-outer-border-color));
 	}
 
-	.table-header-cell:last-child {
+	.sst-table-header-cell:last-child {
 		border-top-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 		border-right: 1px solid var(--sst-table-outer-border-color, var(--sst-default-table-outer-border-color));
 	}
@@ -89,7 +89,7 @@
 		cursor: pointer;
 	}
 
-	.header-content-wrapper {
+	.sst-header-content-wrapper {
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: center;

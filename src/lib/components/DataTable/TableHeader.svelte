@@ -22,11 +22,11 @@
 		`Sorted by: ${getDefaultColHeader(sortBy, false)} (${sortDir === 'asc' ? 'ascending' : 'descending'})`;
 </script>
 
-<div class="table-header-wrapper" style="width: {$componentWidth.finalComponentWidth}">
+<div class="sst-table-header-wrapper" style="width: {$componentWidth.finalComponentWidth}">
 	{#if $tableState.showHeader}
 		<h3
 			id="{$tableState.tableId}-caption"
-			class="resp-table-caption"
+			class="sst-resp-table-caption"
 			data-testid="{$tableState.tableId}-caption"
 			bind:this={tableCaptionElement}
 		>
@@ -36,7 +36,7 @@
 	{#if $tableState.showSortDescription && $tableState.sortBy}
 		<div
 			id="{$tableState.tableId}-sort-description"
-			class="sort-description"
+			class="sst-sort-description"
 			data-testid="{$tableState.tableId}-sort-description"
 			bind:this={tableSortDescElement}
 		>
@@ -46,13 +46,13 @@
 </div>
 
 <style lang="postcss">
-	.table-header-wrapper {
+	.sst-table-header-wrapper {
 		display: flex;
 		flex-flow: column nowrap;
 		align-items: baseline;
 	}
 
-	.resp-table-caption {
+	.sst-resp-table-caption {
 		display: table-caption;
 		color: var(--sst-table-header-text-color, var(--sst-default-table-header-text-color));
 		font-size: var(--sst-table-header-font-size, var(--sst-default-table-header-font-size));
@@ -63,7 +63,7 @@
 		margin: 0 0 0.375em;
 	}
 
-	.sort-description {
+	.sst-sort-description {
 		color: var(--sst-sort-description-text-color, var(--sst-default-sort-description-text-color));
 		font-size: var(--sst-sort-description-font-size, var(--sst-default-sort-description-font-size));
 		line-height: 1;

@@ -133,7 +133,7 @@ export function getSortFunction<T>(propName: keyof T, propType: PropType, dir: S
 }
 
 const elementsInColSelector = (tableId: string, colStat: string): string =>
-	`#${tableId} .table-body-cell[data-stat-name="${colStat}"] > *`;
+	`#${tableId} .sst-table-body-cell[data-stat-name="${colStat}"] > *`;
 
 const colHeaderSelector = (tableId: string, colStat: string): string =>
 	`#${tableId} .sortable[data-stat-name="${colStat}"] .header-content`;

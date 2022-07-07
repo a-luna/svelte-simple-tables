@@ -30,17 +30,17 @@
 </script>
 
 <TableHeader tableId={$tableState.tableId} />
-<article class="resp-table-container">
-	<div class="resp-table-wrapper" data-testid={$tableState.tableId}>
+<article class="sst-resp-table-container">
+	<div class="sst-resp-table-wrapper" data-testid={$tableState.tableId}>
 		<div
 			id={$tableState.tableId}
 			role="table"
 			aria-labelledby="{$tableState.tableId}-cap"
 			aria-rowcount={$tableState.pagination.totalRows}
-			class="resp-table"
+			class="sst-resp-table"
 			bind:this={tableElement}
 		>
-			<div role="row" class="resp-table-header">
+			<div role="row" class="sst-resp-table-header">
 				{#each columnSettings as { propName, propType, headerText, tooltip, sortable }}
 					<ColumnHeader
 						tableId={$tableState.tableId}
@@ -53,13 +53,13 @@
 					/>
 				{/each}
 			</div>
-			<div role="rowgroup" class="resp-table-body">
+			<div role="rowgroup" class="sst-resp-table-body">
 				{#if $tableState.animateSorting}
 					{#each data as obj, i (obj)}
 						<div
 							animate:flip={options}
 							role="row"
-							class="resp-table-row"
+							class="sst-resp-table-row"
 							class:clickable={$tableState.clickableRows}
 							aria-rowindex={$tableState.pagination.startRow + i + 1}
 							data-testid="{$tableState.tableId}-row"
@@ -74,7 +74,7 @@
 					{#each data as obj, i}
 						<div
 							role="row"
-							class="resp-table-row"
+							class="sst-resp-table-row"
 							class:clickable={$tableState.clickableRows}
 							aria-rowindex={$tableState.pagination.startRow + i + 1}
 							data-testid="{$tableState.tableId}-row"
@@ -92,18 +92,18 @@
 </article>
 
 <style lang="postcss">
-	.resp-table-container {
+	.sst-resp-table-container {
 		overflow-x: auto;
 		white-space: nowrap;
 		border-top-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 		border-top-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 	}
 
-	.resp-table-wrapper {
+	.sst-resp-table-wrapper {
 		display: inline-block;
 	}
 
-	.resp-table {
+	.sst-resp-table {
 		display: table;
 		color: var(--sst-text-color, var(--sst-default-text-color));
 		line-height: 1.25em;
@@ -111,38 +111,38 @@
 		table-layout: fixed;
 	}
 
-	.resp-table-header {
+	.sst-resp-table-header {
 		display: table-header-group;
 		text-align: center;
 	}
 
-	.resp-table-body {
+	.sst-resp-table-body {
 		display: table-row-group;
 	}
 
-	.resp-table-body :global(a) {
+	.sst-resp-table-body :global(a) {
 		text-decoration: none;
 		color: var(--sst-link-text-color, var(--sst-default-link-text-color));
 	}
 
-	.resp-table-body :global(a:hover) {
+	.sst-resp-table-body :global(a:hover) {
 		text-decoration: underline;
 		color: var(--sst-link-hover-text-color, var(--sst-default-link-hover-text-color));
 	}
 
-	.resp-table-row {
+	.sst-resp-table-row {
 		display: table-row;
 	}
 
-	.resp-table-row:nth-child(even) {
+	.sst-resp-table-row:nth-child(even) {
 		background-color: var(--sst-body-even-row-bg-color, var(--sst-default-body-even-row-bg-color));
 	}
 
-	.resp-table-row:nth-child(odd) {
+	.sst-resp-table-row:nth-child(odd) {
 		background-color: var(--sst-body-odd-row-bg-color, var(--sst-default-body-odd-row-bg-color));
 	}
 
-	.resp-table-row:last-child {
+	.sst-resp-table-row:last-child {
 		border-bottom-left-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 		border-bottom-right-radius: var(--sst-table-border-radius, var(--sst-default-table-border-radius));
 	}
