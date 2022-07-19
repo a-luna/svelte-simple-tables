@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { getTableSize, getTableState } from '$lib/context';
-	import { syncWidth } from '$lib/stores/syncWidth';
+	import { syncWidth } from '$lib/stores';
 	import type { SortDirection } from '$lib/types';
 	import { getDefaultColHeader } from '$lib/util';
 	import type { Writable } from 'svelte/store';

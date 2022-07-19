@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Pagination/Button.svelte';
 	import { getTableState } from '$lib/context';
-	import { syncWidth } from '$lib/stores/syncWidth';
+	import { syncWidth } from '$lib/stores';
 	import { getAriaValues } from '$lib/util';
 
 	type R = $$Generic;

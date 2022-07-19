@@ -3,7 +3,7 @@
 	import TableCell from '$lib/components/DataTable/TableCell.svelte';
 	import TableHeader from '$lib/components/DataTable/TableHeader.svelte';
 	import { getTableState } from '$lib/context';
-	import { syncWidth } from '$lib/stores/syncWidth';
+	import { syncWidth } from '$lib/stores';
 	import type { ColumnSettings } from '$lib/types';
 	import { createEventDispatcher } from 'svelte';
 	import { flip } from 'svelte/animate';
