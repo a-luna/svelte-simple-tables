@@ -257,8 +257,24 @@ describe('SimpleTable', () => {
 		const page3 = await screen.findByTestId('page3');
 		await user.click(page3);
 		const pageRange = await screen.findByTestId('page-range');
-		const pageRangeText = pageRange.innerHTML.replaceAll(/[\s]/gim, ' ').replaceAll('     ', ' ');
-		expect(pageRangeText).toContain(`Showing <b>11</b> to <b>15</b> of <b>17</b> barrels`);
+		let pageRangeText = pageRange.innerHTML.replaceAll(/[\s]/gim, ' ').replaceAll('     ', ' ');
+		expect(pageRangeText).toMatch(
+			/Showing <b( class="[\w-]+")?>11<\/b> to <b( class="[\w-]+")?>15<\/b> of <b( class="[\w-]+")?>17<\/b> barrels/,
+		);
+
+		const prev = await screen.findByTestId('prev');
+		await user.click(prev);
+		pageRangeText = pageRange.innerHTML.replaceAll(/[\s]/gim, ' ').replaceAll('     ', ' ');
+		expect(pageRangeText).toMatch(
+			/Showing <b( class="[\w-]+")?>6<\/b> to <b( class="[\w-]+")?>10<\/b> of <b( class="[\w-]+")?>17<\/b> barrels/,
+		);
+
+		const next = await screen.findByTestId('next');
+		await user.click(next);
+		pageRangeText = pageRange.innerHTML.replaceAll(/[\s]/gim, ' ').replaceAll('     ', ' ');
+		expect(pageRangeText).toMatch(
+			/Showing <b( class="[\w-]+")?>11<\/b> to <b( class="[\w-]+")?>15<\/b> of <b( class="[\w-]+")?>17<\/b> barrels/,
+		);
 	});
 
 	test('verify sort function when table is not sorted, sortDir = descending', () => {
