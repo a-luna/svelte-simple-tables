@@ -11,7 +11,7 @@ const config = {
 			dir: 'package',
 			emitTypes: true,
 			exports: (filepath) =>
-				/(index.ts|util.ts|package.json)/.test(filepath) || /components[\w/]*.svelte/.test(filepath),
+				/(index.ts|context.ts|util.ts|package.json)/.test(filepath) || /components[\w/]*.svelte/.test(filepath),
 		},
 	},
 };
