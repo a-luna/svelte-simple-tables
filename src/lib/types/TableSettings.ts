@@ -2,6 +2,7 @@ import type { PageRangeFormat, PaginationLayout, PropType, SortDirection, SyncSt
 
 export interface TableSettings<R> {
 	tableId?: string;
+	themeName?: TableTheme;
 	showHeader?: boolean;
 	header?: string;
 	showSortDescription?: boolean;
@@ -10,7 +11,6 @@ export interface TableSettings<R> {
 	sortDir?: SortDirection;
 	tableWrapper?: boolean;
 	expandToContainerWidth?: boolean;
-	themeName?: TableTheme;
 	clickableRows?: boolean;
 	animateSorting?: boolean;
 	paginated?: boolean;
