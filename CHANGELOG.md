@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.28](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.27...v0.0.28) (2022-07-19)
+### [0.0.29](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.28...v0.0.29) (2022-07-19)
 
+
+### Bug Fixes
+
+* :bug: add context.ts to list of package exports ([8b40f06](https://github.com/a-luna/svelte-simple-tables/commit/8b40f06ddfaf6dbc9d448045a411ea56bb349c3a))
+
+### [0.0.28](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.27...v0.0.28) (2022-07-19)
 
 ### Features
 
-* :label: define types for events emitted by component (sortTable, rowClicked, changePageSize) ([6ed73d5](https://github.com/a-luna/svelte-simple-tables/commit/6ed73d5f7475d6222551e253791bddcbbed888e8))
+- :label: define types for events emitted by component (sortTable, rowClicked, changePageSize) ([6ed73d5](https://github.com/a-luna/svelte-simple-tables/commit/6ed73d5f7475d6222551e253791bddcbbed888e8))
 
 ### [0.0.27](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.26...v0.0.27) (2022-07-19)
 
