@@ -19,7 +19,7 @@
 		$tableState.pageNavFormat === 'compact' ||
 		($tableState.pageNavFormat === 'auto' && $tableState.state.containerWidth < 768) ||
 		($tableState.pageNavFormat === 'auto' && $tableState.pagination.totalPages > 4);
-	$: flexJustify = showPageSizeSetting ? 'center' : 'space-between';
+	$: flexJustify = showPageSizeSetting ? 'flex-start' : 'space-between';
 
 	function handleChangePageSize(pageSize: number) {
 		tableState.changePageSize(pageSize);
@@ -29,7 +29,9 @@
 
 <section class="pagination-wrapper" style="width: {$componentWidth.finalComponentWidth}">
 	<div class="pagination" transition:fade={options} style="justify-content: {flexJustify}">
-		{#if !showPageSizeSetting}
+		{#if showPageSizeSetting}
+			<PageSizeSetting {tableId} on:changePageSize={(e) => handleChangePageSize(e.detail)} />
+		{:else}
 			{#if $tableState.pageRangeFormat !== 'none'}
 				<PageRangeDescription {tableId} on:click={() => (showPageSizeSetting = !showPageSizeSetting)} />
 			{:else}
@@ -40,9 +42,6 @@
 			{:else}
 				<PageNavigation {tableId} />
 			{/if}
-		{/if}
-		{#if showPageSizeSetting}
-			<PageSizeSetting {tableId} on:changePageSize={(e) => handleChangePageSize(e.detail)} />
 		{/if}
 	</div>
 </section>
