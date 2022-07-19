@@ -1,12 +1,12 @@
 <script lang="ts">
 	import DataTable from '$lib/components/DataTable/DataTable.svelte';
 	import Pagination from '$lib/components/Pagination/Pagination.svelte';
-	import { initTableSize, initTableState } from '$lib/context';
+	import { initTableStores } from '$lib/context';
 	import { createTableStateStore, syncWidth } from '$lib/stores';
-	import type { ColumnSettings, PropType, TableSettings, TableState } from '$lib/types';
+	import type { ColumnSettings, ComponentWidth, PropType, TableSettings, TableState } from '$lib/types';
 	import { getBorderCssValues, getSortFunction, getSortType, getTableFontSize } from '$lib/util';
 	import { tick } from 'svelte';
-	import type { Writable } from 'svelte/store';
+	import type { Readable, Writable } from 'svelte/store';
 
 	type R = $$Generic;
 
@@ -14,13 +14,13 @@
 	export let columnSettings: ColumnSettings<R>[];
 	export let tableSettings: TableSettings<R>;
 	export let tableState: TableState<R> = null;
+	let componentWidth: Readable<ComponentWidth>;
 	let tableWrapperContainerWidth: Writable<number>;
 	let tableWrapperElement: HTMLElement;
 	if (!tableState) {
 		tableState = createTableStateStore(data.length, tableSettings);
 	}
-	tableState = initTableState<R>(tableState);
-	const componentWidth = initTableSize<R>(tableState);
+	[tableState, componentWidth] = initTableStores<R>(tableState);
 	const sortBy = columnSettings.find((col) => col.propName === $tableState.sortBy)?.propName;
 	$tableState.sortType = data.length ? getSortType<R>(data[0], sortBy) : 'unsorted';
 	let sortFunction: (a: R, b: R) => number = getSortFunction<R>(
