@@ -11,6 +11,7 @@
 
 		// these are the eslint-only inclusions
 		"svelte.config.js",
-		"vitest.config.js"
+		"vitest.config.js",
+		"vite.config.js"
 	]
 }

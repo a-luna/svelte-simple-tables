@@ -2,12 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [0.0.26](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.25...v0.0.26) (2022-07-07)
+### [0.0.27](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.26...v0.0.27) (2022-07-19)
 
+### [0.0.26](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.25...v0.0.26) (2022-07-07)
 
 ### Features
 
-* :sparkles: remove propType from ColumnSettings, now automatically inferred, simplifying config process ([85995ea](https://github.com/a-luna/svelte-simple-tables/commit/85995ea41df52f82836373296a5f77b2040915a5))
+- :sparkles: remove propType from ColumnSettings, now automatically inferred, simplifying config process ([85995ea](https://github.com/a-luna/svelte-simple-tables/commit/85995ea41df52f82836373296a5f77b2040915a5))
 
 ### [0.0.25](https://github.com/a-luna/svelte-simple-tables/compare/v0.0.24...v0.0.25) (2022-07-07)
 
