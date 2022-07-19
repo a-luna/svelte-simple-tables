@@ -1,4 +1,4 @@
-import { pageWidth } from '$lib/stores/pageWidth';
+import { pageWidth } from '$lib/stores';
 import type { ComponentWidth, TableState } from '$lib/types';
 import { getTableFontSizeInPixels, getTableWrapperPaddingWidth } from '$lib/util';
 import type { Readable } from 'svelte/store';

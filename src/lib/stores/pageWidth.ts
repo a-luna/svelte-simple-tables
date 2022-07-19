@@ -1,5 +1,5 @@
 /* c8 ignore start */
-import { syncWidth } from '$lib/stores/syncWidth';
+import { syncWidth } from '$lib/stores';
 import type { PageWidthState } from '$lib/types';
 import type { Readable, Writable } from 'svelte/store';
 import { derived } from 'svelte/store';

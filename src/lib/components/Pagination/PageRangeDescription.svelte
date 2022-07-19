@@ -1,8 +1,7 @@
 <script lang="ts">
 	import SettingsIcon from '$lib/components/Icons/SettingsIcon.svelte';
 	import { getTableState } from '$lib/context';
-	import { pageWidth } from '$lib/stores/pageWidth';
-	import { syncWidth } from '$lib/stores/syncWidth';
+	import { pageWidth, syncWidth } from '$lib/stores';
 
 	type R = $$Generic;
 
