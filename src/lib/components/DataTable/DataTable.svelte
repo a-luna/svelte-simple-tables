@@ -16,7 +16,7 @@
 	export let columnSettings: ColumnSettings<R>[] = [];
 	let tableElement: HTMLElement;
 	const tableState = getTableState<R>(tableId);
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{ rowClicked: R }>();
 	const options = { delay: 0, duration: 500, easing: cubicInOut };
 
 	$: tableWidthStore = syncWidth(tableElement);

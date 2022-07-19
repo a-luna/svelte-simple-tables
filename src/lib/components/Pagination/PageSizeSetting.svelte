@@ -9,7 +9,7 @@
 	type R = $$Generic;
 
 	export let tableId: string;
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{ changePageSize: number }>();
 	const options = { duration: 200, easing: cubicInOut };
 	let pageSizeSettingElement: HTMLElement;
 	const tableState = getTableState<R>(tableId);

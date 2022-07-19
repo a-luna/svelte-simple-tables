@@ -2,7 +2,7 @@
 	import SortAscending from '$lib/components/Icons/SortAscending.svelte';
 	import SortDescending from '$lib/components/Icons/SortDescending.svelte';
 	import { getTableState } from '$lib/context';
-	import type { AriaSort, SortDirection } from '$lib/types';
+	import type { AriaSort, PropType, SortDirection } from '$lib/types';
 	import { getColumnWidth, getDefaultColHeader, getSortType } from '$lib/util';
 	import { createEventDispatcher } from 'svelte';
 
@@ -15,7 +15,7 @@
 	export let tooltip: string = getDefaultColHeader<R>(propName);
 	export let sortable = true;
 	let width: string;
-	const dispatch = createEventDispatcher();
+	const dispatch = createEventDispatcher<{ sortTable: { propName: keyof R; propType: PropType } }>();
 	const tableState = getTableState(tableId);
 	let ariaSort: AriaSort = null;
 
