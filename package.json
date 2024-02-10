@@ -19,7 +19,11 @@
 		"accessibility"
 	],
 	"main": "./index.js",
-	"svelte": "./index.js",
+	"exports": {
+		".": {
+			"svelte": "./index.js"
+		}
+	},
 	"types": "./index.d.ts",
 	"publishConfig": {
 		"access": "public"
