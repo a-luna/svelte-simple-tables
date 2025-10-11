@@ -112,6 +112,6 @@
 		]
 	},
 	"dependencies": {
-		"@sveltejs/vite-plugin-svelte": "^1.0.1"
+		"@sveltejs/vite-plugin-svelte": "^1.4.0"
 	}
 }
